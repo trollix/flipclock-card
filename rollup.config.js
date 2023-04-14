@@ -39,11 +39,6 @@ export default [
       format: 'cjs',
       name: 'FlipClockCard',
     },
-    plugins: [
-      ...plugins,
-      babel({
-        babelHelpers: 'bundled',
-      }),
-    ],
+    plugins: [...plugins],
   },
 ];

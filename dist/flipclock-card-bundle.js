@@ -45,12 +45,12 @@ const ne=(e,t)=>"method"===t.kind&&t.descriptor&&!("value"in t.descriptor)?{...t
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */function oe(e){return(t,i)=>void 0!==i?((e,t,i)=>{t.constructor.createProperty(i,e)})(e,t,i):ne(e,t)}
+ */function oe(e){return(t,i)=>void 0!==i?((e,t,i)=>{t.constructor.createProperty(i,e)})(e,t,i):ne(e,t)
 /**
  * @license
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */var se;null===(se=window.HTMLSlotElement)||void 0===se||se.prototype.assignedElements,
+ */}var se;null===(se=window.HTMLSlotElement)||void 0===se||se.prototype.assignedElements,
 /**
  * @license
  * Copyright 2017 Google LLC
