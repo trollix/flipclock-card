@@ -1,4 +1,5 @@
-"use strict";
+'use strict';
+
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -12,51 +13,4274 @@ MERCHANTABLITY OR NON-INFRINGEMENT.
 
 See the Apache Version 2.0 License for specific language governing permissions
 and limitations under the License.
-***************************************************************************** */function e(e,t,i,n){var o,s=arguments.length,r=s<3?t:null===n?n=Object.getOwnPropertyDescriptor(t,i):n;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)r=Reflect.decorate(e,t,i,n);else for(var a=e.length-1;a>=0;a--)(o=e[a])&&(r=(s<3?o(r):s>3?o(t,i,r):o(t,i))||r);return s>3&&r&&Object.defineProperty(t,i,r),r
+***************************************************************************** */
+
+function __decorate(decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+}
+
 /**
  * @license
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */}const t=window,i=t.ShadowRoot&&(void 0===t.ShadyCSS||t.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,n=Symbol(),o=new WeakMap;const s=e=>new class{constructor(e,t,i){if(this._$cssResult$=!0,i!==n)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e,this.t=t}get styleSheet(){let e=this.o;const t=this.t;if(i&&void 0===e){const i=void 0!==t&&1===t.length;i&&(e=o.get(t)),void 0===e&&((this.o=e=new CSSStyleSheet).replaceSync(this.cssText),i&&o.set(t,e))}return e}toString(){return this.cssText}}("string"==typeof e?e:e+"",void 0,n),r=i?e=>e:e=>e instanceof CSSStyleSheet?(e=>{let t="";for(const i of e.cssRules)t+=i.cssText;return s(t)})(e):e
+ */
+const t$1=window,e$4=t$1.ShadowRoot&&(void 0===t$1.ShadyCSS||t$1.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,s$3=Symbol(),n$4=new WeakMap;let o$3 = class o{constructor(t,e,n){if(this._$cssResult$=!0,n!==s$3)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=t,this.t=e;}get styleSheet(){let t=this.o;const s=this.t;if(e$4&&void 0===t){const e=void 0!==s&&1===s.length;e&&(t=n$4.get(s)),void 0===t&&((this.o=t=new CSSStyleSheet).replaceSync(this.cssText),e&&n$4.set(s,t));}return t}toString(){return this.cssText}};const r$2=t=>new o$3("string"==typeof t?t:t+"",void 0,s$3),S$1=(s,n)=>{e$4?s.adoptedStyleSheets=n.map((t=>t instanceof CSSStyleSheet?t:t.styleSheet)):n.forEach((e=>{const n=document.createElement("style"),o=t$1.litNonce;void 0!==o&&n.setAttribute("nonce",o),n.textContent=e.cssText,s.appendChild(n);}));},c$1=e$4?t=>t:t=>t instanceof CSSStyleSheet?(t=>{let e="";for(const s of t.cssRules)e+=s.cssText;return r$2(e)})(t):t;
+
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */;var a;const l=window,c=l.trustedTypes,u=c?c.emptyScript:"",h=l.reactiveElementPolyfillSupport,f={toAttribute(e,t){switch(t){case Boolean:e=e?u:null;break;case Object:case Array:e=null==e?e:JSON.stringify(e)}return e},fromAttribute(e,t){let i=e;switch(t){case Boolean:i=null!==e;break;case Number:i=null===e?null:Number(e);break;case Object:case Array:try{i=JSON.parse(e)}catch(e){i=null}}return i}},d=(e,t)=>t!==e&&(t==t||e==e),p={attribute:!0,type:String,converter:f,reflect:!1,hasChanged:d};let m=class extends HTMLElement{constructor(){super(),this._$Ei=new Map,this.isUpdatePending=!1,this.hasUpdated=!1,this._$El=null,this.u()}static addInitializer(e){var t;this.finalize(),(null!==(t=this.h)&&void 0!==t?t:this.h=[]).push(e)}static get observedAttributes(){this.finalize();const e=[];return this.elementProperties.forEach(((t,i)=>{const n=this._$Ep(i,t);void 0!==n&&(this._$Ev.set(n,i),e.push(n))})),e}static createProperty(e,t=p){if(t.state&&(t.attribute=!1),this.finalize(),this.elementProperties.set(e,t),!t.noAccessor&&!this.prototype.hasOwnProperty(e)){const i="symbol"==typeof e?Symbol():"__"+e,n=this.getPropertyDescriptor(e,i,t);void 0!==n&&Object.defineProperty(this.prototype,e,n)}}static getPropertyDescriptor(e,t,i){return{get(){return this[t]},set(n){const o=this[e];this[t]=n,this.requestUpdate(e,o,i)},configurable:!0,enumerable:!0}}static getPropertyOptions(e){return this.elementProperties.get(e)||p}static finalize(){if(this.hasOwnProperty("finalized"))return!1;this.finalized=!0;const e=Object.getPrototypeOf(this);if(e.finalize(),void 0!==e.h&&(this.h=[...e.h]),this.elementProperties=new Map(e.elementProperties),this._$Ev=new Map,this.hasOwnProperty("properties")){const e=this.properties,t=[...Object.getOwnPropertyNames(e),...Object.getOwnPropertySymbols(e)];for(const i of t)this.createProperty(i,e[i])}return this.elementStyles=this.finalizeStyles(this.styles),!0}static finalizeStyles(e){const t=[];if(Array.isArray(e)){const i=new Set(e.flat(1/0).reverse());for(const e of i)t.unshift(r(e))}else void 0!==e&&t.push(r(e));return t}static _$Ep(e,t){const i=t.attribute;return!1===i?void 0:"string"==typeof i?i:"string"==typeof e?e.toLowerCase():void 0}u(){var e;this._$E_=new Promise((e=>this.enableUpdating=e)),this._$AL=new Map,this._$Eg(),this.requestUpdate(),null===(e=this.constructor.h)||void 0===e||e.forEach((e=>e(this)))}addController(e){var t,i;(null!==(t=this._$ES)&&void 0!==t?t:this._$ES=[]).push(e),void 0!==this.renderRoot&&this.isConnected&&(null===(i=e.hostConnected)||void 0===i||i.call(e))}removeController(e){var t;null===(t=this._$ES)||void 0===t||t.splice(this._$ES.indexOf(e)>>>0,1)}_$Eg(){this.constructor.elementProperties.forEach(((e,t)=>{this.hasOwnProperty(t)&&(this._$Ei.set(t,this[t]),delete this[t])}))}createRenderRoot(){var e;const n=null!==(e=this.shadowRoot)&&void 0!==e?e:this.attachShadow(this.constructor.shadowRootOptions);return((e,n)=>{i?e.adoptedStyleSheets=n.map((e=>e instanceof CSSStyleSheet?e:e.styleSheet)):n.forEach((i=>{const n=document.createElement("style"),o=t.litNonce;void 0!==o&&n.setAttribute("nonce",o),n.textContent=i.cssText,e.appendChild(n)}))})(n,this.constructor.elementStyles),n}connectedCallback(){var e;void 0===this.renderRoot&&(this.renderRoot=this.createRenderRoot()),this.enableUpdating(!0),null===(e=this._$ES)||void 0===e||e.forEach((e=>{var t;return null===(t=e.hostConnected)||void 0===t?void 0:t.call(e)}))}enableUpdating(e){}disconnectedCallback(){var e;null===(e=this._$ES)||void 0===e||e.forEach((e=>{var t;return null===(t=e.hostDisconnected)||void 0===t?void 0:t.call(e)}))}attributeChangedCallback(e,t,i){this._$AK(e,i)}_$EO(e,t,i=p){var n;const o=this.constructor._$Ep(e,i);if(void 0!==o&&!0===i.reflect){const s=(void 0!==(null===(n=i.converter)||void 0===n?void 0:n.toAttribute)?i.converter:f).toAttribute(t,i.type);this._$El=e,null==s?this.removeAttribute(o):this.setAttribute(o,s),this._$El=null}}_$AK(e,t){var i;const n=this.constructor,o=n._$Ev.get(e);if(void 0!==o&&this._$El!==o){const e=n.getPropertyOptions(o),s="function"==typeof e.converter?{fromAttribute:e.converter}:void 0!==(null===(i=e.converter)||void 0===i?void 0:i.fromAttribute)?e.converter:f;this._$El=o,this[o]=s.fromAttribute(t,e.type),this._$El=null}}requestUpdate(e,t,i){let n=!0;void 0!==e&&(((i=i||this.constructor.getPropertyOptions(e)).hasChanged||d)(this[e],t)?(this._$AL.has(e)||this._$AL.set(e,t),!0===i.reflect&&this._$El!==e&&(void 0===this._$EC&&(this._$EC=new Map),this._$EC.set(e,i))):n=!1),!this.isUpdatePending&&n&&(this._$E_=this._$Ej())}async _$Ej(){this.isUpdatePending=!0;try{await this._$E_}catch(e){Promise.reject(e)}const e=this.scheduleUpdate();return null!=e&&await e,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){var e;if(!this.isUpdatePending)return;this.hasUpdated,this._$Ei&&(this._$Ei.forEach(((e,t)=>this[t]=e)),this._$Ei=void 0);let t=!1;const i=this._$AL;try{t=this.shouldUpdate(i),t?(this.willUpdate(i),null===(e=this._$ES)||void 0===e||e.forEach((e=>{var t;return null===(t=e.hostUpdate)||void 0===t?void 0:t.call(e)})),this.update(i)):this._$Ek()}catch(e){throw t=!1,this._$Ek(),e}t&&this._$AE(i)}willUpdate(e){}_$AE(e){var t;null===(t=this._$ES)||void 0===t||t.forEach((e=>{var t;return null===(t=e.hostUpdated)||void 0===t?void 0:t.call(e)})),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(e)),this.updated(e)}_$Ek(){this._$AL=new Map,this.isUpdatePending=!1}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$E_}shouldUpdate(e){return!0}update(e){void 0!==this._$EC&&(this._$EC.forEach(((e,t)=>this._$EO(t,this[t],e))),this._$EC=void 0),this._$Ek()}updated(e){}firstUpdated(e){}};
+ */var s$2;const e$3=window,r$1=e$3.trustedTypes,h$1=r$1?r$1.emptyScript:"",o$2=e$3.reactiveElementPolyfillSupport,n$3={toAttribute(t,i){switch(i){case Boolean:t=t?h$1:null;break;case Object:case Array:t=null==t?t:JSON.stringify(t);}return t},fromAttribute(t,i){let s=t;switch(i){case Boolean:s=null!==t;break;case Number:s=null===t?null:Number(t);break;case Object:case Array:try{s=JSON.parse(t);}catch(t){s=null;}}return s}},a$1=(t,i)=>i!==t&&(i==i||t==t),l$2={attribute:!0,type:String,converter:n$3,reflect:!1,hasChanged:a$1};let d$1 = class d extends HTMLElement{constructor(){super(),this._$Ei=new Map,this.isUpdatePending=!1,this.hasUpdated=!1,this._$El=null,this.u();}static addInitializer(t){var i;this.finalize(),(null!==(i=this.h)&&void 0!==i?i:this.h=[]).push(t);}static get observedAttributes(){this.finalize();const t=[];return this.elementProperties.forEach(((i,s)=>{const e=this._$Ep(s,i);void 0!==e&&(this._$Ev.set(e,s),t.push(e));})),t}static createProperty(t,i=l$2){if(i.state&&(i.attribute=!1),this.finalize(),this.elementProperties.set(t,i),!i.noAccessor&&!this.prototype.hasOwnProperty(t)){const s="symbol"==typeof t?Symbol():"__"+t,e=this.getPropertyDescriptor(t,s,i);void 0!==e&&Object.defineProperty(this.prototype,t,e);}}static getPropertyDescriptor(t,i,s){return {get(){return this[i]},set(e){const r=this[t];this[i]=e,this.requestUpdate(t,r,s);},configurable:!0,enumerable:!0}}static getPropertyOptions(t){return this.elementProperties.get(t)||l$2}static finalize(){if(this.hasOwnProperty("finalized"))return !1;this.finalized=!0;const t=Object.getPrototypeOf(this);if(t.finalize(),void 0!==t.h&&(this.h=[...t.h]),this.elementProperties=new Map(t.elementProperties),this._$Ev=new Map,this.hasOwnProperty("properties")){const t=this.properties,i=[...Object.getOwnPropertyNames(t),...Object.getOwnPropertySymbols(t)];for(const s of i)this.createProperty(s,t[s]);}return this.elementStyles=this.finalizeStyles(this.styles),!0}static finalizeStyles(i){const s=[];if(Array.isArray(i)){const e=new Set(i.flat(1/0).reverse());for(const i of e)s.unshift(c$1(i));}else void 0!==i&&s.push(c$1(i));return s}static _$Ep(t,i){const s=i.attribute;return !1===s?void 0:"string"==typeof s?s:"string"==typeof t?t.toLowerCase():void 0}u(){var t;this._$E_=new Promise((t=>this.enableUpdating=t)),this._$AL=new Map,this._$Eg(),this.requestUpdate(),null===(t=this.constructor.h)||void 0===t||t.forEach((t=>t(this)));}addController(t){var i,s;(null!==(i=this._$ES)&&void 0!==i?i:this._$ES=[]).push(t),void 0!==this.renderRoot&&this.isConnected&&(null===(s=t.hostConnected)||void 0===s||s.call(t));}removeController(t){var i;null===(i=this._$ES)||void 0===i||i.splice(this._$ES.indexOf(t)>>>0,1);}_$Eg(){this.constructor.elementProperties.forEach(((t,i)=>{this.hasOwnProperty(i)&&(this._$Ei.set(i,this[i]),delete this[i]);}));}createRenderRoot(){var t;const s=null!==(t=this.shadowRoot)&&void 0!==t?t:this.attachShadow(this.constructor.shadowRootOptions);return S$1(s,this.constructor.elementStyles),s}connectedCallback(){var t;void 0===this.renderRoot&&(this.renderRoot=this.createRenderRoot()),this.enableUpdating(!0),null===(t=this._$ES)||void 0===t||t.forEach((t=>{var i;return null===(i=t.hostConnected)||void 0===i?void 0:i.call(t)}));}enableUpdating(t){}disconnectedCallback(){var t;null===(t=this._$ES)||void 0===t||t.forEach((t=>{var i;return null===(i=t.hostDisconnected)||void 0===i?void 0:i.call(t)}));}attributeChangedCallback(t,i,s){this._$AK(t,s);}_$EO(t,i,s=l$2){var e;const r=this.constructor._$Ep(t,s);if(void 0!==r&&!0===s.reflect){const h=(void 0!==(null===(e=s.converter)||void 0===e?void 0:e.toAttribute)?s.converter:n$3).toAttribute(i,s.type);this._$El=t,null==h?this.removeAttribute(r):this.setAttribute(r,h),this._$El=null;}}_$AK(t,i){var s;const e=this.constructor,r=e._$Ev.get(t);if(void 0!==r&&this._$El!==r){const t=e.getPropertyOptions(r),h="function"==typeof t.converter?{fromAttribute:t.converter}:void 0!==(null===(s=t.converter)||void 0===s?void 0:s.fromAttribute)?t.converter:n$3;this._$El=r,this[r]=h.fromAttribute(i,t.type),this._$El=null;}}requestUpdate(t,i,s){let e=!0;void 0!==t&&(((s=s||this.constructor.getPropertyOptions(t)).hasChanged||a$1)(this[t],i)?(this._$AL.has(t)||this._$AL.set(t,i),!0===s.reflect&&this._$El!==t&&(void 0===this._$EC&&(this._$EC=new Map),this._$EC.set(t,s))):e=!1),!this.isUpdatePending&&e&&(this._$E_=this._$Ej());}async _$Ej(){this.isUpdatePending=!0;try{await this._$E_;}catch(t){Promise.reject(t);}const t=this.scheduleUpdate();return null!=t&&await t,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){var t;if(!this.isUpdatePending)return;this.hasUpdated,this._$Ei&&(this._$Ei.forEach(((t,i)=>this[i]=t)),this._$Ei=void 0);let i=!1;const s=this._$AL;try{i=this.shouldUpdate(s),i?(this.willUpdate(s),null===(t=this._$ES)||void 0===t||t.forEach((t=>{var i;return null===(i=t.hostUpdate)||void 0===i?void 0:i.call(t)})),this.update(s)):this._$Ek();}catch(t){throw i=!1,this._$Ek(),t}i&&this._$AE(s);}willUpdate(t){}_$AE(t){var i;null===(i=this._$ES)||void 0===i||i.forEach((t=>{var i;return null===(i=t.hostUpdated)||void 0===i?void 0:i.call(t)})),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(t)),this.updated(t);}_$Ek(){this._$AL=new Map,this.isUpdatePending=!1;}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$E_}shouldUpdate(t){return !0}update(t){void 0!==this._$EC&&(this._$EC.forEach(((t,i)=>this._$EO(i,this[i],t))),this._$EC=void 0),this._$Ek();}updated(t){}firstUpdated(t){}};d$1.finalized=!0,d$1.elementProperties=new Map,d$1.elementStyles=[],d$1.shadowRootOptions={mode:"open"},null==o$2||o$2({ReactiveElement:d$1}),(null!==(s$2=e$3.reactiveElementVersions)&&void 0!==s$2?s$2:e$3.reactiveElementVersions=[]).push("1.6.1");
+
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-var v;m.finalized=!0,m.elementProperties=new Map,m.elementStyles=[],m.shadowRootOptions={mode:"open"},null==h||h({ReactiveElement:m}),(null!==(a=l.reactiveElementVersions)&&void 0!==a?a:l.reactiveElementVersions=[]).push("1.6.1");const g=window,y=g.trustedTypes,k=y?y.createPolicy("lit-html",{createHTML:e=>e}):void 0,b="$lit$",$=`lit$${(Math.random()+"").slice(9)}$`,w="?"+$,_=`<${w}>`,A=document,S=()=>A.createComment(""),x=e=>null===e||"object"!=typeof e&&"function"!=typeof e,z=Array.isArray,T="[ \t\n\f\r]",D=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,E=/-->/g,O=/>/g,C=RegExp(`>|${T}(?:([^\\s"'>=/]+)(${T}*=${T}*(?:[^ \t\n\f\r"'\`<>=]|("|')|))|$)`,"g"),M=/'/g,j=/"/g,N=/^(?:script|style|textarea|title)$/i,L=(e=>(t,...i)=>({_$litType$:e,strings:t,values:i}))(1),H=Symbol.for("lit-noChange"),P=Symbol.for("lit-nothing"),R=new WeakMap,V=A.createTreeWalker(A,129,null,!1),U=(e,t)=>{const i=e.length-1,n=[];let o,s=2===t?"<svg>":"",r=D;for(let t=0;t<i;t++){const i=e[t];let a,l,c=-1,u=0;for(;u<i.length&&(r.lastIndex=u,l=r.exec(i),null!==l);)u=r.lastIndex,r===D?"!--"===l[1]?r=E:void 0!==l[1]?r=O:void 0!==l[2]?(N.test(l[2])&&(o=RegExp("</"+l[2],"g")),r=C):void 0!==l[3]&&(r=C):r===C?">"===l[0]?(r=null!=o?o:D,c=-1):void 0===l[1]?c=-2:(c=r.lastIndex-l[2].length,a=l[1],r=void 0===l[3]?C:'"'===l[3]?j:M):r===j||r===M?r=C:r===E||r===O?r=D:(r=C,o=void 0);const h=r===C&&e[t+1].startsWith("/>")?" ":"";s+=r===D?i+_:c>=0?(n.push(a),i.slice(0,c)+b+i.slice(c)+$+h):i+$+(-2===c?(n.push(void 0),t):h)}const a=s+(e[i]||"<?>")+(2===t?"</svg>":"");if(!Array.isArray(e)||!e.hasOwnProperty("raw"))throw Error("invalid template strings array");return[void 0!==k?k.createHTML(a):a,n]};class F{constructor({strings:e,_$litType$:t},i){let n;this.parts=[];let o=0,s=0;const r=e.length-1,a=this.parts,[l,c]=U(e,t);if(this.el=F.createElement(l,i),V.currentNode=this.el.content,2===t){const e=this.el.content,t=e.firstChild;t.remove(),e.append(...t.childNodes)}for(;null!==(n=V.nextNode())&&a.length<r;){if(1===n.nodeType){if(n.hasAttributes()){const e=[];for(const t of n.getAttributeNames())if(t.endsWith(b)||t.startsWith($)){const i=c[s++];if(e.push(t),void 0!==i){const e=n.getAttribute(i.toLowerCase()+b).split($),t=/([.?@])?(.*)/.exec(i);a.push({type:1,index:o,name:t[2],strings:e,ctor:"."===t[1]?Z:"?"===t[1]?Y:"@"===t[1]?J:G})}else a.push({type:6,index:o})}for(const t of e)n.removeAttribute(t)}if(N.test(n.tagName)){const e=n.textContent.split($),t=e.length-1;if(t>0){n.textContent=y?y.emptyScript:"";for(let i=0;i<t;i++)n.append(e[i],S()),V.nextNode(),a.push({type:2,index:++o});n.append(e[t],S())}}}else if(8===n.nodeType)if(n.data===w)a.push({type:2,index:o});else{let e=-1;for(;-1!==(e=n.data.indexOf($,e+1));)a.push({type:7,index:o}),e+=$.length-1}o++}}static createElement(e,t){const i=A.createElement("template");return i.innerHTML=e,i}}function I(e,t,i=e,n){var o,s,r,a;if(t===H)return t;let l=void 0!==n?null===(o=i._$Co)||void 0===o?void 0:o[n]:i._$Cl;const c=x(t)?void 0:t._$litDirective$;return(null==l?void 0:l.constructor)!==c&&(null===(s=null==l?void 0:l._$AO)||void 0===s||s.call(l,!1),void 0===c?l=void 0:(l=new c(e),l._$AT(e,i,n)),void 0!==n?(null!==(r=(a=i)._$Co)&&void 0!==r?r:a._$Co=[])[n]=l:i._$Cl=l),void 0!==l&&(t=I(e,l._$AS(e,t.values),l,n)),t}class B{constructor(e,t){this._$AV=[],this._$AN=void 0,this._$AD=e,this._$AM=t}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(e){var t;const{el:{content:i},parts:n}=this._$AD,o=(null!==(t=null==e?void 0:e.creationScope)&&void 0!==t?t:A).importNode(i,!0);V.currentNode=o;let s=V.nextNode(),r=0,a=0,l=n[0];for(;void 0!==l;){if(r===l.index){let t;2===l.type?t=new W(s,s.nextSibling,this,e):1===l.type?t=new l.ctor(s,l.name,l.strings,this,e):6===l.type&&(t=new K(s,this,e)),this._$AV.push(t),l=n[++a]}r!==(null==l?void 0:l.index)&&(s=V.nextNode(),r++)}return o}v(e){let t=0;for(const i of this._$AV)void 0!==i&&(void 0!==i.strings?(i._$AI(e,i,t),t+=i.strings.length-2):i._$AI(e[t])),t++}}class W{constructor(e,t,i,n){var o;this.type=2,this._$AH=P,this._$AN=void 0,this._$AA=e,this._$AB=t,this._$AM=i,this.options=n,this._$Cp=null===(o=null==n?void 0:n.isConnected)||void 0===o||o}get _$AU(){var e,t;return null!==(t=null===(e=this._$AM)||void 0===e?void 0:e._$AU)&&void 0!==t?t:this._$Cp}get parentNode(){let e=this._$AA.parentNode;const t=this._$AM;return void 0!==t&&11===(null==e?void 0:e.nodeType)&&(e=t.parentNode),e}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(e,t=this){e=I(this,e,t),x(e)?e===P||null==e||""===e?(this._$AH!==P&&this._$AR(),this._$AH=P):e!==this._$AH&&e!==H&&this._(e):void 0!==e._$litType$?this.g(e):void 0!==e.nodeType?this.$(e):(e=>z(e)||"function"==typeof(null==e?void 0:e[Symbol.iterator]))(e)?this.T(e):this._(e)}k(e){return this._$AA.parentNode.insertBefore(e,this._$AB)}$(e){this._$AH!==e&&(this._$AR(),this._$AH=this.k(e))}_(e){this._$AH!==P&&x(this._$AH)?this._$AA.nextSibling.data=e:this.$(A.createTextNode(e)),this._$AH=e}g(e){var t;const{values:i,_$litType$:n}=e,o="number"==typeof n?this._$AC(e):(void 0===n.el&&(n.el=F.createElement(n.h,this.options)),n);if((null===(t=this._$AH)||void 0===t?void 0:t._$AD)===o)this._$AH.v(i);else{const e=new B(o,this),t=e.u(this.options);e.v(i),this.$(t),this._$AH=e}}_$AC(e){let t=R.get(e.strings);return void 0===t&&R.set(e.strings,t=new F(e)),t}T(e){z(this._$AH)||(this._$AH=[],this._$AR());const t=this._$AH;let i,n=0;for(const o of e)n===t.length?t.push(i=new W(this.k(S()),this.k(S()),this,this.options)):i=t[n],i._$AI(o),n++;n<t.length&&(this._$AR(i&&i._$AB.nextSibling,n),t.length=n)}_$AR(e=this._$AA.nextSibling,t){var i;for(null===(i=this._$AP)||void 0===i||i.call(this,!1,!0,t);e&&e!==this._$AB;){const t=e.nextSibling;e.remove(),e=t}}setConnected(e){var t;void 0===this._$AM&&(this._$Cp=e,null===(t=this._$AP)||void 0===t||t.call(this,e))}}class G{constructor(e,t,i,n,o){this.type=1,this._$AH=P,this._$AN=void 0,this.element=e,this.name=t,this._$AM=n,this.options=o,i.length>2||""!==i[0]||""!==i[1]?(this._$AH=Array(i.length-1).fill(new String),this.strings=i):this._$AH=P}get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}_$AI(e,t=this,i,n){const o=this.strings;let s=!1;if(void 0===o)e=I(this,e,t,0),s=!x(e)||e!==this._$AH&&e!==H,s&&(this._$AH=e);else{const n=e;let r,a;for(e=o[0],r=0;r<o.length-1;r++)a=I(this,n[i+r],t,r),a===H&&(a=this._$AH[r]),s||(s=!x(a)||a!==this._$AH[r]),a===P?e=P:e!==P&&(e+=(null!=a?a:"")+o[r+1]),this._$AH[r]=a}s&&!n&&this.j(e)}j(e){e===P?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,null!=e?e:"")}}class Z extends G{constructor(){super(...arguments),this.type=3}j(e){this.element[this.name]=e===P?void 0:e}}const q=y?y.emptyScript:"";class Y extends G{constructor(){super(...arguments),this.type=4}j(e){e&&e!==P?this.element.setAttribute(this.name,q):this.element.removeAttribute(this.name)}}class J extends G{constructor(e,t,i,n,o){super(e,t,i,n,o),this.type=5}_$AI(e,t=this){var i;if((e=null!==(i=I(this,e,t,0))&&void 0!==i?i:P)===H)return;const n=this._$AH,o=e===P&&n!==P||e.capture!==n.capture||e.once!==n.once||e.passive!==n.passive,s=e!==P&&(n===P||o);o&&this.element.removeEventListener(this.name,this,n),s&&this.element.addEventListener(this.name,this,e),this._$AH=e}handleEvent(e){var t,i;"function"==typeof this._$AH?this._$AH.call(null!==(i=null===(t=this.options)||void 0===t?void 0:t.host)&&void 0!==i?i:this.element,e):this._$AH.handleEvent(e)}}class K{constructor(e,t,i){this.element=e,this.type=6,this._$AN=void 0,this._$AM=t,this.options=i}get _$AU(){return this._$AM._$AU}_$AI(e){I(this,e)}}const X=g.litHtmlPolyfillSupport;null==X||X(F,W),(null!==(v=g.litHtmlVersions)&&void 0!==v?v:g.litHtmlVersions=[]).push("2.7.2");
+var t;const i$1=window,s$1=i$1.trustedTypes,e$2=s$1?s$1.createPolicy("lit-html",{createHTML:t=>t}):void 0,o$1="$lit$",n$2=`lit$${(Math.random()+"").slice(9)}$`,l$1="?"+n$2,h=`<${l$1}>`,r=document,d=()=>r.createComment(""),u=t=>null===t||"object"!=typeof t&&"function"!=typeof t,c=Array.isArray,v=t=>c(t)||"function"==typeof(null==t?void 0:t[Symbol.iterator]),a="[ \t\n\f\r]",f=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,_=/-->/g,m=/>/g,p=RegExp(`>|${a}(?:([^\\s"'>=/]+)(${a}*=${a}*(?:[^ \t\n\f\r"'\`<>=]|("|')|))|$)`,"g"),g=/'/g,$=/"/g,y=/^(?:script|style|textarea|title)$/i,w=t=>(i,...s)=>({_$litType$:t,strings:i,values:s}),x=w(1),T=Symbol.for("lit-noChange"),A=Symbol.for("lit-nothing"),E=new WeakMap,C=r.createTreeWalker(r,129,null,!1),P=(t,i)=>{const s=t.length-1,l=[];let r,d=2===i?"<svg>":"",u=f;for(let i=0;i<s;i++){const s=t[i];let e,c,v=-1,a=0;for(;a<s.length&&(u.lastIndex=a,c=u.exec(s),null!==c);)a=u.lastIndex,u===f?"!--"===c[1]?u=_:void 0!==c[1]?u=m:void 0!==c[2]?(y.test(c[2])&&(r=RegExp("</"+c[2],"g")),u=p):void 0!==c[3]&&(u=p):u===p?">"===c[0]?(u=null!=r?r:f,v=-1):void 0===c[1]?v=-2:(v=u.lastIndex-c[2].length,e=c[1],u=void 0===c[3]?p:'"'===c[3]?$:g):u===$||u===g?u=p:u===_||u===m?u=f:(u=p,r=void 0);const w=u===p&&t[i+1].startsWith("/>")?" ":"";d+=u===f?s+h:v>=0?(l.push(e),s.slice(0,v)+o$1+s.slice(v)+n$2+w):s+n$2+(-2===v?(l.push(void 0),i):w);}const c=d+(t[s]||"<?>")+(2===i?"</svg>":"");if(!Array.isArray(t)||!t.hasOwnProperty("raw"))throw Error("invalid template strings array");return [void 0!==e$2?e$2.createHTML(c):c,l]};class V{constructor({strings:t,_$litType$:i},e){let h;this.parts=[];let r=0,u=0;const c=t.length-1,v=this.parts,[a,f]=P(t,i);if(this.el=V.createElement(a,e),C.currentNode=this.el.content,2===i){const t=this.el.content,i=t.firstChild;i.remove(),t.append(...i.childNodes);}for(;null!==(h=C.nextNode())&&v.length<c;){if(1===h.nodeType){if(h.hasAttributes()){const t=[];for(const i of h.getAttributeNames())if(i.endsWith(o$1)||i.startsWith(n$2)){const s=f[u++];if(t.push(i),void 0!==s){const t=h.getAttribute(s.toLowerCase()+o$1).split(n$2),i=/([.?@])?(.*)/.exec(s);v.push({type:1,index:r,name:i[2],strings:t,ctor:"."===i[1]?k:"?"===i[1]?I:"@"===i[1]?L:R});}else v.push({type:6,index:r});}for(const i of t)h.removeAttribute(i);}if(y.test(h.tagName)){const t=h.textContent.split(n$2),i=t.length-1;if(i>0){h.textContent=s$1?s$1.emptyScript:"";for(let s=0;s<i;s++)h.append(t[s],d()),C.nextNode(),v.push({type:2,index:++r});h.append(t[i],d());}}}else if(8===h.nodeType)if(h.data===l$1)v.push({type:2,index:r});else {let t=-1;for(;-1!==(t=h.data.indexOf(n$2,t+1));)v.push({type:7,index:r}),t+=n$2.length-1;}r++;}}static createElement(t,i){const s=r.createElement("template");return s.innerHTML=t,s}}function N(t,i,s=t,e){var o,n,l,h;if(i===T)return i;let r=void 0!==e?null===(o=s._$Co)||void 0===o?void 0:o[e]:s._$Cl;const d=u(i)?void 0:i._$litDirective$;return (null==r?void 0:r.constructor)!==d&&(null===(n=null==r?void 0:r._$AO)||void 0===n||n.call(r,!1),void 0===d?r=void 0:(r=new d(t),r._$AT(t,s,e)),void 0!==e?(null!==(l=(h=s)._$Co)&&void 0!==l?l:h._$Co=[])[e]=r:s._$Cl=r),void 0!==r&&(i=N(t,r._$AS(t,i.values),r,e)),i}class S{constructor(t,i){this._$AV=[],this._$AN=void 0,this._$AD=t,this._$AM=i;}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(t){var i;const{el:{content:s},parts:e}=this._$AD,o=(null!==(i=null==t?void 0:t.creationScope)&&void 0!==i?i:r).importNode(s,!0);C.currentNode=o;let n=C.nextNode(),l=0,h=0,d=e[0];for(;void 0!==d;){if(l===d.index){let i;2===d.type?i=new M(n,n.nextSibling,this,t):1===d.type?i=new d.ctor(n,d.name,d.strings,this,t):6===d.type&&(i=new z(n,this,t)),this._$AV.push(i),d=e[++h];}l!==(null==d?void 0:d.index)&&(n=C.nextNode(),l++);}return o}v(t){let i=0;for(const s of this._$AV)void 0!==s&&(void 0!==s.strings?(s._$AI(t,s,i),i+=s.strings.length-2):s._$AI(t[i])),i++;}}class M{constructor(t,i,s,e){var o;this.type=2,this._$AH=A,this._$AN=void 0,this._$AA=t,this._$AB=i,this._$AM=s,this.options=e,this._$Cp=null===(o=null==e?void 0:e.isConnected)||void 0===o||o;}get _$AU(){var t,i;return null!==(i=null===(t=this._$AM)||void 0===t?void 0:t._$AU)&&void 0!==i?i:this._$Cp}get parentNode(){let t=this._$AA.parentNode;const i=this._$AM;return void 0!==i&&11===(null==t?void 0:t.nodeType)&&(t=i.parentNode),t}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(t,i=this){t=N(this,t,i),u(t)?t===A||null==t||""===t?(this._$AH!==A&&this._$AR(),this._$AH=A):t!==this._$AH&&t!==T&&this._(t):void 0!==t._$litType$?this.g(t):void 0!==t.nodeType?this.$(t):v(t)?this.T(t):this._(t);}k(t){return this._$AA.parentNode.insertBefore(t,this._$AB)}$(t){this._$AH!==t&&(this._$AR(),this._$AH=this.k(t));}_(t){this._$AH!==A&&u(this._$AH)?this._$AA.nextSibling.data=t:this.$(r.createTextNode(t)),this._$AH=t;}g(t){var i;const{values:s,_$litType$:e}=t,o="number"==typeof e?this._$AC(t):(void 0===e.el&&(e.el=V.createElement(e.h,this.options)),e);if((null===(i=this._$AH)||void 0===i?void 0:i._$AD)===o)this._$AH.v(s);else {const t=new S(o,this),i=t.u(this.options);t.v(s),this.$(i),this._$AH=t;}}_$AC(t){let i=E.get(t.strings);return void 0===i&&E.set(t.strings,i=new V(t)),i}T(t){c(this._$AH)||(this._$AH=[],this._$AR());const i=this._$AH;let s,e=0;for(const o of t)e===i.length?i.push(s=new M(this.k(d()),this.k(d()),this,this.options)):s=i[e],s._$AI(o),e++;e<i.length&&(this._$AR(s&&s._$AB.nextSibling,e),i.length=e);}_$AR(t=this._$AA.nextSibling,i){var s;for(null===(s=this._$AP)||void 0===s||s.call(this,!1,!0,i);t&&t!==this._$AB;){const i=t.nextSibling;t.remove(),t=i;}}setConnected(t){var i;void 0===this._$AM&&(this._$Cp=t,null===(i=this._$AP)||void 0===i||i.call(this,t));}}class R{constructor(t,i,s,e,o){this.type=1,this._$AH=A,this._$AN=void 0,this.element=t,this.name=i,this._$AM=e,this.options=o,s.length>2||""!==s[0]||""!==s[1]?(this._$AH=Array(s.length-1).fill(new String),this.strings=s):this._$AH=A;}get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}_$AI(t,i=this,s,e){const o=this.strings;let n=!1;if(void 0===o)t=N(this,t,i,0),n=!u(t)||t!==this._$AH&&t!==T,n&&(this._$AH=t);else {const e=t;let l,h;for(t=o[0],l=0;l<o.length-1;l++)h=N(this,e[s+l],i,l),h===T&&(h=this._$AH[l]),n||(n=!u(h)||h!==this._$AH[l]),h===A?t=A:t!==A&&(t+=(null!=h?h:"")+o[l+1]),this._$AH[l]=h;}n&&!e&&this.j(t);}j(t){t===A?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,null!=t?t:"");}}class k extends R{constructor(){super(...arguments),this.type=3;}j(t){this.element[this.name]=t===A?void 0:t;}}const H=s$1?s$1.emptyScript:"";class I extends R{constructor(){super(...arguments),this.type=4;}j(t){t&&t!==A?this.element.setAttribute(this.name,H):this.element.removeAttribute(this.name);}}class L extends R{constructor(t,i,s,e,o){super(t,i,s,e,o),this.type=5;}_$AI(t,i=this){var s;if((t=null!==(s=N(this,t,i,0))&&void 0!==s?s:A)===T)return;const e=this._$AH,o=t===A&&e!==A||t.capture!==e.capture||t.once!==e.once||t.passive!==e.passive,n=t!==A&&(e===A||o);o&&this.element.removeEventListener(this.name,this,e),n&&this.element.addEventListener(this.name,this,t),this._$AH=t;}handleEvent(t){var i,s;"function"==typeof this._$AH?this._$AH.call(null!==(s=null===(i=this.options)||void 0===i?void 0:i.host)&&void 0!==s?s:this.element,t):this._$AH.handleEvent(t);}}class z{constructor(t,i,s){this.element=t,this.type=6,this._$AN=void 0,this._$AM=i,this.options=s;}get _$AU(){return this._$AM._$AU}_$AI(t){N(this,t);}}const j=i$1.litHtmlPolyfillSupport;null==j||j(V,M),(null!==(t=i$1.litHtmlVersions)&&void 0!==t?t:i$1.litHtmlVersions=[]).push("2.7.2");const B=(t,i,s)=>{var e,o;const n=null!==(e=null==s?void 0:s.renderBefore)&&void 0!==e?e:i;let l=n._$litPart$;if(void 0===l){const t=null!==(o=null==s?void 0:s.renderBefore)&&void 0!==o?o:null;n._$litPart$=l=new M(i.insertBefore(d(),t),t,void 0,null!=s?s:{});}return l._$AI(t),l};
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */var l,o;class s extends d$1{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0;}createRenderRoot(){var t,e;const i=super.createRenderRoot();return null!==(t=(e=this.renderOptions).renderBefore)&&void 0!==t||(e.renderBefore=i.firstChild),i}update(t){const i=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(t),this._$Do=B(i,this.renderRoot,this.renderOptions);}connectedCallback(){var t;super.connectedCallback(),null===(t=this._$Do)||void 0===t||t.setConnected(!0);}disconnectedCallback(){var t;super.disconnectedCallback(),null===(t=this._$Do)||void 0===t||t.setConnected(!1);}render(){return T}}s.finalized=!0,s._$litElement$=!0,null===(l=globalThis.litElementHydrateSupport)||void 0===l||l.call(globalThis,{LitElement:s});const n$1=globalThis.litElementPolyfillSupport;null==n$1||n$1({LitElement:s});(null!==(o=globalThis.litElementVersions)&&void 0!==o?o:globalThis.litElementVersions=[]).push("3.3.1");
+
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-var Q,ee;class te extends m{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0}createRenderRoot(){var e,t;const i=super.createRenderRoot();return null!==(e=(t=this.renderOptions).renderBefore)&&void 0!==e||(t.renderBefore=i.firstChild),i}update(e){const t=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(e),this._$Do=((e,t,i)=>{var n,o;const s=null!==(n=null==i?void 0:i.renderBefore)&&void 0!==n?n:t;let r=s._$litPart$;if(void 0===r){const e=null!==(o=null==i?void 0:i.renderBefore)&&void 0!==o?o:null;s._$litPart$=r=new W(t.insertBefore(S(),e),e,void 0,null!=i?i:{})}return r._$AI(e),r})(t,this.renderRoot,this.renderOptions)}connectedCallback(){var e;super.connectedCallback(),null===(e=this._$Do)||void 0===e||e.setConnected(!0)}disconnectedCallback(){var e;super.disconnectedCallback(),null===(e=this._$Do)||void 0===e||e.setConnected(!1)}render(){return H}}te.finalized=!0,te._$litElement$=!0,null===(Q=globalThis.litElementHydrateSupport)||void 0===Q||Q.call(globalThis,{LitElement:te});const ie=globalThis.litElementPolyfillSupport;null==ie||ie({LitElement:te}),(null!==(ee=globalThis.litElementVersions)&&void 0!==ee?ee:globalThis.litElementVersions=[]).push("3.3.1");
+const e$1=e=>n=>"function"==typeof n?((e,n)=>(customElements.define(e,n),n))(e,n):((e,n)=>{const{kind:t,elements:s}=n;return {kind:t,elements:s,finisher(n){customElements.define(e,n);}}})(e,n);
+
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const ne=(e,t)=>"method"===t.kind&&t.descriptor&&!("value"in t.descriptor)?{...t,finisher(i){i.createProperty(t.key,e)}}:{kind:"field",key:Symbol(),placement:"own",descriptor:{},originalKey:t.key,initializer(){"function"==typeof t.initializer&&(this[t.key]=t.initializer.call(this))},finisher(i){i.createProperty(t.key,e)}};
-/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */function oe(e){return(t,i)=>void 0!==i?((e,t,i)=>{t.constructor.createProperty(i,e)})(e,t,i):ne(e,t)
+const i=(i,e)=>"method"===e.kind&&e.descriptor&&!("value"in e.descriptor)?{...e,finisher(n){n.createProperty(e.key,i);}}:{kind:"field",key:Symbol(),placement:"own",descriptor:{},originalKey:e.key,initializer(){"function"==typeof e.initializer&&(this[e.key]=e.initializer.call(this));},finisher(n){n.createProperty(e.key,i);}};function e(e){return (n,t)=>void 0!==t?((i,e,n)=>{e.constructor.createProperty(n,i);})(e,n,t):i(e,n)}
+
 /**
  * @license
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */}var se;null===(se=window.HTMLSlotElement)||void 0===se||se.prototype.assignedElements,
+ */var n;null!=(null===(n=window.HTMLSlotElement)||void 0===n?void 0:n.prototype.assignedElements)?(o,n)=>o.assignedElements(n):(o,n)=>o.assignedNodes(n).filter((o=>o.nodeType===Node.ELEMENT_NODE));
+
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */
-console.warn("The main 'lit-element' module entrypoint is deprecated. Please update your imports to use the 'lit' package: 'lit' and 'lit/decorators.ts' or import from 'lit-element/lit-element.ts'. See https://lit.dev/msg/deprecated-import-path for more information.");"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self&&self;function re(e){return e&&e.__esModule&&Object.prototype.hasOwnProperty.call(e,"default")?e.default:e}var ae={exports:{}};ae.exports=function(){function e(t){return e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e(t)}function t(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){for(var i=0;i<t.length;i++){var n=t[i];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function n(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}function o(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&r(e,t)}function s(e){return s=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)},s(e)}function r(e,t){return r=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e},r(e,t)}function a(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],(function(){}))),!0}catch(e){return!1}}function l(e,t,i){return l=a()?Reflect.construct:function(e,t,i){var n=[null];n.push.apply(n,t);var o=new(Function.bind.apply(e,n));return i&&r(o,i.prototype),o},l.apply(null,arguments)}function c(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function u(e,t){return!t||"object"!=typeof t&&"function"!=typeof t?c(e):t}function h(e,t){for(;!Object.prototype.hasOwnProperty.call(e,t)&&null!==(e=s(e)););return e}function f(e,t,i){return f="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(e,t,i){var n=h(e,t);if(n){var o=Object.getOwnPropertyDescriptor(n,t);return o.get?o.get.call(i):o.value}},f(e,t,i||e)}function d(e){throw Error(e)}function p(e){if(E(e)){for(var t=arguments.length,i=new Array(t>1?t-1:0),n=1;n<t;n++)i[n-1]=arguments[n];return e.call.apply(e,[this].concat(i))}}function m(e){return w(e=_(e)?Math.ceil(e):Math.floor(e))?("-"+e).toString():e}function v(e){return!S(e)&&!A(e)}function g(e,t){return function(){return t(e())}}function y(e){return function(t){return t.map(e).reduce((function(e,t){return e.concat(t)}),[])}}function k(e){return y((function(e){return e}))(e)}function b(e){return y((function(e){return Array.isArray(e)?b(e):e}))(e)}function $(e){return b(e).length}function w(e){return 1/Math.round(e)==-1/0}function _(e){return w(e)||e<0}function A(e){return null===e}function S(e){return void 0===e}function x(e){return e instanceof Function&&!!e.name}function z(e){return"string"==typeof e}function T(e){return e instanceof Array}function D(t){var i=e(t);return null!=t&&!T(t)&&("object"==i||"function"==i)}function E(e){return e instanceof Function}function O(e){return!isNaN(e)}function C(e){return e.replace(/([a-z])([A-Z])/g,"$1-$2").replace(/\s+/g,"-").toLowerCase()}var M=function(){function e(i){t(this,e),this.setAttribute(Object.assign({events:{}},i))}return n(e,[{key:"emit",value:function(e){for(var t=this,i=arguments.length,n=new Array(i>1?i-1:0),o=1;o<i;o++)n[o-1]=arguments[o];return this.events[e]&&this.events[e].forEach((function(e){e.apply(t,n)})),this}},{key:"on",value:function(e,t){return this.events[e]||(this.events[e]=[]),this.events[e].push(t),this}},{key:"off",value:function(e,t){return this.events[e]&&t?this.events[e]=this.events[e].filter((function(e){return e!==t})):this.events[e]=[],this}},{key:"once",value:function(e,t){var i=this;return t=g(t,(function(){return i.off(e,t)})),this.on(e,t,!0)}},{key:"getAttribute",value:function(e){return this.hasOwnProperty(e)?this[e]:null}},{key:"getAttributes",value:function(){var e=this,t={};return Object.getOwnPropertyNames(this).forEach((function(i){t[i]=e.getAttribute(i)})),t}},{key:"getPublicAttributes",value:function(){var e=this;return Object.keys(this.getAttributes()).filter((function(e){return!e.match(/^\$/)})).reduce((function(t,i){return t[i]=e.getAttribute(i),t}),{})}},{key:"setAttribute",value:function(e,t){D(e)?this.setAttributes(e):this[e]=t}},{key:"setAttributes",value:function(e){for(var t in e)this.setAttribute(t,e[t])}},{key:"callback",value:function(e){return p.call(this,e)}},{key:"name",get:function(){return this.constructor.name}},{key:"className",get:function(){return C(this.name)}},{key:"events",get:function(){return this.$events||[]},set:function(e){this.$events=e}}],[{key:"make",value:function(){for(var e=arguments.length,t=new Array(e),i=0;i<e;i++)t[i]=arguments[i];return l(this,t)}}]),e}();function j(e,t){function i(e){return(t.prependLeadingZero&&1===e.toString().split("").length?"0":"").concat(e)}function n(e,t){var i=b(e).length;if(i<t)for(var n=0;n<t-i;n++)e[0].unshift("0");return e}return t=Object.assign({minimumDigits:0,prependLeadingZero:!0},t),n(k([e]).map((function(e){return k(b([e]).map((function(e){return i(e).split("")})))})),t.minimumDigits||0)}var N=[{min:48,max:57},{min:65,max:90},{min:97,max:122}];function L(e,t){return"number"===t?parseFloat(e):e}function H(e){for(var t in N){var i=e.toString().charCodeAt(0);if(N[t].min<=i&&N[t].max>=i)return N[t]}return null}function P(e,t){return String.fromCharCode(t(H(e),e.charCodeAt(0)))}function R(t){return L(t.toString().split("").map((function(e){return P(e,(function(e,t){return!e||t<e.max?t+1:e.min}))})).join(""),e(t))}function V(t){return L(t.toString().split("").map((function(e){return P(e,(function(e,t){return!e||t>e.min?t-1:e.max}))})).join(""),e(t))}var U=function(e){function i(e,n){var o;return t(this,i),o=u(this,s(i).call(this,Object.assign({format:function(e){return e},prependLeadingZero:!0,minimumDigits:0},n))),o.value||(o.value=e),o}return o(i,e),n(i,[{key:"isNaN",value:function(e){function t(){return e.apply(this,arguments)}return t.toString=function(){return e.toString()},t}((function(){return isNaN(this.value)}))},{key:"isNumber",value:function(){return O()}},{key:"clone",value:function(e,t){return new this.constructor(e,Object.assign(this.getPublicAttributes(),t))}},{key:"digits",get:function(){return this.$digits},set:function(e){this.$digits=e,this.minimumDigits=Math.max(this.minimumDigits,$(e))}},{key:"value",get:function(){return this.$value},set:function(e){this.$value=e,this.digits=j(this.format(e),{minimumDigits:this.minimumDigits,prependLeadingZero:this.prependLeadingZero})}}]),i}(M);function F(t){for(var i=!1,n=arguments.length,o=new Array(n>1?n-1:0),s=1;s<n;s++)o[s-1]=arguments[s];return k(o).forEach((function(n){(A(t)&&A(n)||D(n)&&t instanceof n||E(n)&&!x(n)&&!0===n(t)||z(n)&&e(t)===n)&&(i=!0)})),i}var I={items:"The items property must be an array.",theme:"The theme property must be an object.",language:"The language must be an object.",date:"The value must be an instance of a Date.",face:"The face must be an instance of a Face class.",element:"The element must be an instance of an HTMLElement",faceValue:"The face must be an instance of a FaceValue class.",timer:"The timer property must be an instance of a Timer class."},B=function(e){function i(e,n){var o;return t(this,i),e instanceof U||!D(e)||(n=e,e=void 0),(o=u(this,s(i).call(this))).setAttributes(Object.assign({autoStart:!0,countdown:!1,animationRate:500},o.defaultAttributes(),n||{})),(A(e)||S(e))&&(e=o.defaultValue()),e&&(o.value=e),o}return o(i,e),n(i,[{key:"interval",value:function(e,t){return this.countdown?this.decrement(e):this.increment(e),p.call(this,t),this.shouldStop(e)&&e.stop(),this.emit("interval")}},{key:"shouldStop",value:function(e){return!S(this.stopAt)&&this.stopAt===e.value.value}},{key:"format",value:function(e,t){return t}},{key:"defaultValue",value:function(){}},{key:"defaultAttributes",value:function(){}},{key:"defaultDataType",value:function(){}},{key:"increment",value:function(e,t){}},{key:"decrement",value:function(e,t){}},{key:"started",value:function(e){}},{key:"stopped",value:function(e){}},{key:"reset",value:function(e){}},{key:"initialized",value:function(e){}},{key:"rendered",value:function(e){}},{key:"mounted",value:function(e){this.autoStart&&e.timer.isStopped&&window.requestAnimationFrame((function(){return e.start(e)}))}},{key:"createFaceValue",value:function(e,t){var i=this;return U.make(E(t)&&!t.name?t():t,{minimumDigits:this.minimumDigits,format:function(t){return i.format(e,t)}})}},{key:"dataType",get:function(){return this.defaultDataType()}},{key:"value",get:function(){return this.$value},set:function(e){e instanceof U||(e=this.createFaceValue(e)),this.$value=e}},{key:"stopAt",get:function(){return this.$stopAt},set:function(e){this.$stopAt=e}},{key:"originalValue",get:function(){return this.$originalValue},set:function(e){this.$originalValue=e}}]),i}(M),W={years:"سنوات",months:"شهور",days:"أيام",hours:"ساعات",minutes:"دقائق",seconds:"ثواني"},G=["ar","ar-ar","arabic"],Z=Object.freeze({dictionary:W,aliases:G}),q={years:"Anys",months:"Mesos",days:"Dies",hours:"Hores",minutes:"Minuts",seconds:"Segons"},Y=["ca","ca-es","catalan"],J=Object.freeze({dictionary:q,aliases:Y}),K={years:"Roky",months:"Měsíce",days:"Dny",hours:"Hodiny",minutes:"Minuty",seconds:"Sekundy"},X=["cs","cs-cz","cz","cz-cs","czech"],Q=Object.freeze({dictionary:K,aliases:X}),ee={years:"År",months:"Måneder",days:"Dage",hours:"Timer",minutes:"Minutter",seconds:"Sekunder"},te=["da","da-dk","danish"],ie=Object.freeze({dictionary:ee,aliases:te}),ne={years:"Jahre",months:"Monate",days:"Tage",hours:"Stunden",minutes:"Minuten",seconds:"Sekunden"},oe=["de","de-de","german"],se=Object.freeze({dictionary:ne,aliases:oe}),re={years:"Years",months:"Months",days:"Days",hours:"Hours",minutes:"Minutes",seconds:"Seconds"},ae=["en","en-us","english"],le=Object.freeze({dictionary:re,aliases:ae}),ce={years:"Años",months:"Meses",days:"Días",hours:"Horas",minutes:"Minutos",seconds:"Segundos"},ue=["es","es-es","spanish"],he=Object.freeze({dictionary:ce,aliases:ue}),fe={years:"سال",months:"ماه",days:"روز",hours:"ساعت",minutes:"دقیقه",seconds:"ثانیه"},de=["fa","fa-ir","persian"],pe=Object.freeze({dictionary:fe,aliases:de}),me={years:"Vuotta",months:"Kuukautta",days:"Päivää",hours:"Tuntia",minutes:"Minuuttia",seconds:"Sekuntia"},ve=["fi","fi-fi","finnish"],ge=Object.freeze({dictionary:me,aliases:ve}),ye={years:"Ans",months:"Mois",days:"Jours",hours:"Heures",minutes:"Minutes",seconds:"Secondes"},ke=["fr","fr-ca","french"],be=Object.freeze({dictionary:ye,aliases:ke}),$e={years:"שנים",months:"חודש",days:"ימים",hours:"שעות",minutes:"דקות",seconds:"שניות"},we=["il","he-il","hebrew"],_e=Object.freeze({dictionary:$e,aliases:we}),Ae={years:"Év",months:"Hónap",days:"Nap",hours:"Óra",minutes:"Perc",seconds:"Másodperc"},Se=["hu","hu-hu","hungarian"],xe=Object.freeze({dictionary:Ae,aliases:Se}),ze={years:"Anni",months:"Mesi",days:"Giorni",hours:"Ore",minutes:"Minuti",seconds:"Secondi"},Te=["da","da-dk","danish"],De=Object.freeze({dictionary:ze,aliases:Te}),Ee={years:"年",months:"月",days:"日",hours:"時",minutes:"分",seconds:"秒"},Oe=["jp","ja-jp","japanese"],Ce=Object.freeze({dictionary:Ee,aliases:Oe}),Me={years:"년",months:"월",days:"일",hours:"시",minutes:"분",seconds:"초"},je=["ko","ko-kr","korean"],Ne=Object.freeze({dictionary:Me,aliases:je}),Le={years:"Gadi",months:"Mēneši",days:"Dienas",hours:"Stundas",minutes:"Minūtes",seconds:"Sekundes"},He=["lv","lv-lv","latvian"],Pe=Object.freeze({dictionary:Le,aliases:He}),Re={years:"Jaren",months:"Maanden",days:"Dagen",hours:"Uren",minutes:"Minuten",seconds:"Seconden"},Ve=["nl","nl-be","dutch"],Ue=Object.freeze({dictionary:Re,aliases:Ve}),Fe={years:"År",months:"Måneder",days:"Dager",hours:"Timer",minutes:"Minutter",seconds:"Sekunder"},Ie=["no","nb","no-nb","norwegian"],Be=Object.freeze({dictionary:Fe,aliases:Ie}),We={years:"Lat",months:"Miesięcy",days:"Dni",hours:"Godziny",minutes:"Minuty",seconds:"Sekundy"},Ge=["pl","pl-pl","polish"],Ze=Object.freeze({dictionary:We,aliases:Ge}),qe={years:"Anos",months:"Meses",days:"Dias",hours:"Horas",minutes:"Minutos",seconds:"Segundos"},Ye=["pt","pt-br","portuguese"],Je=Object.freeze({dictionary:qe,aliases:Ye}),Ke={years:"Ani",months:"Luni",days:"Zile",hours:"Ore",minutes:"Minute",seconds:"sSecunde"},Xe=["ro","ro-ro","romana"],Qe=Object.freeze({dictionary:Ke,aliases:Xe}),et={years:"лет",months:"месяцев",days:"дней",hours:"часов",minutes:"минут",seconds:"секунд"},tt=["ru","ru-ru","russian"],it=Object.freeze({dictionary:et,aliases:tt}),nt={years:"Roky",months:"Mesiace",days:"Dni",hours:"Hodiny",minutes:"Minúty",seconds:"Sekundy"},ot=["sk","sk-sk","slovak"],st=Object.freeze({dictionary:nt,aliases:ot}),rt={years:"År",months:"Månader",days:"Dagar",hours:"Timmar",minutes:"Minuter",seconds:"Sekunder"},at=["sv","sv-se","swedish"],lt=Object.freeze({dictionary:rt,aliases:at}),ct={years:"ปี",months:"เดือน",days:"วัน",hours:"ชั่วโมง",minutes:"นาที",seconds:"วินาที"},ut=["th","th-th","thai"],ht=Object.freeze({dictionary:ct,aliases:ut}),ft={years:"Yıl",months:"Ay",days:"Gün",hours:"Saat",minutes:"Dakika",seconds:"Saniye"},dt=["tr","tr-tr","turkish"],pt=Object.freeze({dictionary:ft,aliases:dt}),mt={years:"роки",months:"місяці",days:"дні",hours:"години",minutes:"хвилини",seconds:"секунди"},vt=["ua","ua-ua","ukraine"],gt=Object.freeze({dictionary:mt,aliases:vt}),yt={years:"Năm",months:"Tháng",days:"Ngày",hours:"Giờ",minutes:"Phút",seconds:"Giây"},kt=["vn","vn-vn","vietnamese"],bt=Object.freeze({dictionary:yt,aliases:kt}),$t={years:"年",months:"月",days:"日",hours:"时",minutes:"分",seconds:"秒"},wt=["zh","zh-cn","chinese"],_t=Object.freeze({dictionary:$t,aliases:wt}),At={years:"年",months:"月",days:"日",hours:"時",minutes:"分",seconds:"秒"},St=["zh-tw"],xt=Object.freeze({dictionary:At,aliases:St}),zt=Object.freeze({Arabic:Z,Catalan:J,Czech:Q,Danish:ie,German:se,English:le,Spanish:he,Persian:pe,Finnish:ge,French:be,Hebrew:_e,Hungarian:xe,Italian:De,Japanese:Ce,Korean:Ne,Latvian:Pe,Dutch:Ue,Norwegian:Be,Polish:Ze,Portuguese:Je,Romanian:Qe,Russian:it,Slovak:st,Swedish:lt,Thai:ht,Turkish:pt,Ukrainian:gt,Vietnamese:bt,Chinese:_t,TraditionalChinese:xt});function Tt(e){return e?zt[e.toLowerCase()]||Object.values(zt).find((function(t){return-1!==t.aliases.indexOf(e)})):null}function Dt(e,t){var i=z(t)?Tt(t):t;return(i.dictionary||i)[e]||e}function Et(e,t){return t.parentNode?(t.parentNode.replaceChild(e,t),e):t}function Ot(e,t){if(D(t))for(var i in t)e.setAttribute(i,t[i]);return e}function Ct(e,t){return T(t)&&t.filter(v).forEach((function(t){t instanceof HTMLElement&&e.appendChild(t)})),e}function Mt(e,t,i){return e instanceof HTMLElement||(e=document.createElement(e)),Ot(e,D(t)?t:i),D(t)||T(t)?Ct(e,t):e.innerHTML=t,e}var jt=function(e){function i(e){var n;if(t(this,i),(n=u(this,s(i).call(this,Object.assign({parent:null},e)))).theme||d("".concat(n.name," does not have a theme defined.")),n.language||d("".concat(n.name," does not have a language defined.")),!n.theme[n.name])throw new Error("".concat(n.name," cannot be rendered because it has no template."));return n}return o(i,e),n(i,[{key:"translate",value:function(e){return Dt(e,this.language)}},{key:"t",value:function(e){return this.translate(e)}},{key:"render",value:function(){var e=Mt("div",{class:"flip-clock"===this.className?this.className:"flip-clock-"+this.className});return this.theme[this.name](e,this),this.el?this.el.innerHTML!==e.innerHTML&&(this.el=Et(e,this.el)):this.el=e,this.el}},{key:"mount",value:function(e){var t=arguments.length>1&&void 0!==arguments[1]&&arguments[1];return this.render(),this.parent=e,t?this.parent.insertBefore(this.el,t):this.parent.appendChild(this.el),this.el}},{key:"el",get:function(){return this.$el},set:function(e){F(e,null,HTMLElement)||d(I.element),this.$el=e}},{key:"parent",get:function(){return this.$parent},set:function(e){this.$parent=e}},{key:"theme",get:function(){return this.$theme},set:function(e){F(e,"object")||d(I.value),this.$theme=e}},{key:"language",get:function(){return this.$language},set:function(e){z(e)&&(e=Tt(e)),F(e,"object")||d(I.language),this.$language=e}}]),i}(M),Nt=function(e){function i(){return t(this,i),u(this,s(i).apply(this,arguments))}return o(i,e),i}(jt),Lt=function(e){function i(e,n){return t(this,i),u(this,s(i).call(this,Object.assign({value:e},D(e)?e:null,n)))}return o(i,e),i}(jt),Ht=function(e){function i(e,n){return t(this,i),u(this,s(i).call(this,Object.assign({value:e,items:[]},D(e)?e:null,n)))}return o(i,e),n(i,[{key:"createListItem",value:function(e,t){var i=new Lt(e,Object.assign({theme:this.theme,language:this.language},t));return this.$items.push(i),i}},{key:"value",get:function(){return this.$value},set:function(e){this.$value=e}},{key:"items",get:function(){return this.$items},set:function(e){this.$items=e}}]),i}(jt),Pt=function(e){function i(e,n){return t(this,i),u(this,s(i).call(this,Object.assign({items:T(e)?e:[]},D(e)?e:null,n)))}return o(i,e),i}(jt),Rt=function(e){function i(e,n){return t(this,i),u(this,s(i).call(this,Object.assign({label:e},D(e)?e:null,n)))}return o(i,e),i}(jt),Vt=function(e){function i(e){return t(this,i),u(this,s(i).call(this,Object.assign({count:0,handle:null,started:null,running:!1,interval:O(e)?e:null},D(e)?e:null)))}return o(i,e),n(i,[{key:"reset",value:function(e){var t=this;return this.stop((function(){t.count=0,t.start((function(){return p.call(t,e)})),t.emit("reset")})),this}},{key:"start",value:function(e){var t=this;return this.started=new Date,this.lastLoop=Date.now(),this.running=!0,this.emit("start"),function i(){return Date.now()-t.lastLoop>=t.interval&&(p.call(t,e),t.lastLoop=Date.now(),t.emit("interval"),t.count++),t.handle=window.requestAnimationFrame(i),t}()}},{key:"stop",value:function(e){var t=this;return this.isRunning&&setTimeout((function(){window.cancelAnimationFrame(t.handle),t.running=!1,p.call(t,e),t.emit("stop")})),this}},{key:"elapsed",get:function(){return this.lastLoop?this.lastLoop-(this.started?this.started.getTime():(new Date).getTime()):0}},{key:"isRunning",get:function(){return!0===this.running}},{key:"isStopped",get:function(){return!1===this.running}}]),i}(M),Ut=function(e){function i(){return t(this,i),u(this,s(i).apply(this,arguments))}return o(i,e),n(i,[{key:"increment",value:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:1;e.value=this.value.value+t}},{key:"decrement",value:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:1;e.value=this.value.value-t}}]),i}(B),Ft=function(e){function i(){return t(this,i),u(this,s(i).apply(this,arguments))}return o(i,e),n(i,[{key:"defaultDataType",value:function(){return Date}},{key:"defaultAttributes",value:function(){return{showSeconds:!0,showLabels:!0}}},{key:"shouldStop",value:function(e){if(A(e.stopAt)||S(e.stopAt))return!1;if(this.stopAt instanceof Date)return this.countdown?this.stopAt.getTime()>=this.value.value.getTime():this.stopAt.getTime()<=this.value.value.getTime();if(O(this.stopAt)){var t=Math.floor((this.value.value.getTime()-this.originalValue.getTime())/1e3);return this.countdown?this.stopAt>=t:this.stopAt<=t}throw new Error("the stopAt property must be an instance of Date or Number.")}},{key:"increment",value:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:0;e.value=new Date(this.value.value.getTime()+t+((new Date).getTime()-e.timer.lastLoop))}},{key:"decrement",value:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:0;e.value=new Date(this.value.value.getTime()-t-((new Date).getTime()-e.timer.lastLoop))}},{key:"format",value:function(e,t){var i=e.timer.isRunning?e.timer.started:new Date(Date.now()-50);return[[this.getMinutes(t,i)],this.showSeconds?[this.getSeconds(t,i)]:null].filter(v)}},{key:"getMinutes",value:function(e,t){return m(this.getTotalSeconds(e,t)/60)}},{key:"getSeconds",value:function(e,t){var i=this.getTotalSeconds(e,t);return Math.abs(Math.ceil(60===i?0:i%60))}},{key:"getTotalSeconds",value:function(e,t){return e.getTime()===t.getTime()?0:Math.round((e.getTime()-t.getTime())/1e3)}}]),i}(B),It=function(e){function i(){return t(this,i),u(this,s(i).apply(this,arguments))}return o(i,e),n(i,[{key:"format",value:function(e,t){var i=e.timer.started?t:new Date,n=e.originalValue||t,o=this.countdown?n:i,s=this.countdown?i:n,r=[[this.getHours(o,s)],[this.getMinutes(o,s)]];return this.showSeconds&&r.push([this.getSeconds(o,s)]),r}},{key:"getMinutes",value:function(e,t){return Math.abs(f(s(i.prototype),"getMinutes",this).call(this,e,t)%60)}},{key:"getHours",value:function(e,t){return Math.floor(this.getTotalSeconds(e,t)/60/60)}}]),i}(Ft),Bt=function(e){function i(){return t(this,i),u(this,s(i).apply(this,arguments))}return o(i,e),n(i,[{key:"format",value:function(e,t){var i=e.started?t:new Date,n=e.originalValue||t,o=this.countdown?n:i,s=this.countdown?i:n,r=[[this.getDays(o,s)],[this.getHours(o,s)],[this.getMinutes(o,s)]];return this.showSeconds&&r.push([this.getSeconds(o,s)]),r}},{key:"getDays",value:function(e,t){return Math.floor(this.getTotalSeconds(e,t)/60/60/24)}},{key:"getHours",value:function(e,t){return Math.abs(f(s(i.prototype),"getHours",this).call(this,e,t)%24)}}]),i}(It),Wt=function(e){function i(){return t(this,i),u(this,s(i).apply(this,arguments))}return o(i,e),n(i,[{key:"defaultDataType",value:function(){return Date}},{key:"defaultValue",value:function(){return new Date}},{key:"defaultAttributes",value:function(){return{showSeconds:!0,showLabels:!1}}},{key:"format",value:function(e,t){t||(t=new Date);var i=[[t.getHours()],[t.getMinutes()]];return this.showSeconds&&i.push([t.getSeconds()]),i}},{key:"increment",value:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:0;e.value=new Date(this.value.value.getTime()+t+((new Date).getTime()-e.timer.lastLoop))}},{key:"decrement",value:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:0;e.value=new Date(this.value.value.getTime()-t-((new Date).getTime()-e.timer.lastLoop))}}]),i}(B),Gt=function(e){function i(){return t(this,i),u(this,s(i).apply(this,arguments))}return o(i,e),n(i,[{key:"defaultAttributes",value:function(){return{showLabels:!1,showSeconds:!0,showMeridium:!0}}},{key:"format",value:function(e,t){t||(t=new Date);var i=t.getHours(),n=[i>12?i-12:0===i?12:i,t.getMinutes()];return this.meridium=i>12?"pm":"am",this.showSeconds&&n.push(t.getSeconds()),n}}]),i}(Wt),Zt=function(e){function i(){return t(this,i),u(this,s(i).apply(this,arguments))}return o(i,e),n(i,[{key:"format",value:function(e,t){var i=e.timer.started?t:new Date,n=e.originalValue||t,o=this.countdown?n:i,s=this.countdown?i:n,r=[[this.getWeeks(o,s)],[this.getDays(o,s)],[this.getHours(o,s)],[this.getMinutes(o,s)]];return this.showSeconds&&r.push([this.getSeconds(o,s)]),r}},{key:"getWeeks",value:function(e,t){return Math.floor(this.getTotalSeconds(e,t)/60/60/24/7)}},{key:"getDays",value:function(e,t){return Math.abs(f(s(i.prototype),"getDays",this).call(this,e,t)%7)}}]),i}(Bt),qt=function(e){function i(){return t(this,i),u(this,s(i).apply(this,arguments))}return o(i,e),n(i,[{key:"format",value:function(e,t){var i=e.timer.started?t:new Date,n=e.originalValue||t,o=this.countdown?n:i,s=this.countdown?i:n,r=[[this.getYears(o,s)],[this.getWeeks(o,s)],[this.getDays(o,s)],[this.getHours(o,s)],[this.getMinutes(o,s)]];return this.showSeconds&&r.push([this.getSeconds(o,s)]),r}},{key:"getYears",value:function(e,t){return Math.floor(Math.max(0,this.getTotalSeconds(e,t)/60/60/24/7/52))}},{key:"getWeeks",value:function(e,t){return Math.abs(f(s(i.prototype),"getWeeks",this).call(this,e,t)%52)}}]),i}(Zt),Yt=Object.freeze({Counter:Ut,DayCounter:Bt,MinuteCounter:Ft,HourCounter:It,TwelveHourClock:Gt,TwentyFourHourClock:Wt,WeekCounter:Zt,YearCounter:qt});function Jt(e,t){Ct(e,[Mt("div",{class:"flip-clock-dot top"}),Mt("div",{class:"flip-clock-dot bottom"})])}function Kt(e,t){return e?e.childNodes?e.childNodes[t]:e[t]:null}function Xt(e){return e?e.querySelector(".flip-clock-list-item:first-child .top").innerHTML:null}function Qt(e,t){var i=t.value.digits.map((function(e,i){var n=Kt(t.el?t.el.querySelectorAll(".flip-clock-group"):null,i),o=e.map((function(e,i){var o=Xt(Kt(n?n.querySelectorAll(".flip-clock-list"):null,i));return t.createList(e,{domValue:o,countdown:t.countdown,animationRate:t.face.animationRate||t.face.delay})}));return t.createGroup(o)}));Ct(e,i.map((function(e){return e.render()})))}function ei(e,t){Ct(e,t.items.map((function(e){return e.render()})))}function ti(e,t){e.innerHTML=t.t(t.label)}function ii(e,t){var i=t.domValue||(t.countdown?R(t.value):V(t.value));t.domValue&&t.domValue!==t.value&&e.classList.add("flip"),e.style.animationDelay="".concat(t.animationRate/2,"ms"),e.style.animationDuration="".concat(t.animationRate/2,"ms"),t.items=[t.createListItem(t.value,{active:!0}),t.createListItem(i,{active:!1})],Ct(e,t.items.map((function(e){return e.render()})))}function ni(e,t){var i=!0===t.active?"active":!1===t.active?"before":null;e.classList.add(i),Ct(e,[Mt("div",[Mt("div",t.value,{class:"top"}),Mt("div",t.value,{class:"bottom"})],{class:"flip-clock-list-item-inner"})])}function oi(e,t){t.createDivider().mount(e,e.childNodes[1]),t.createDivider().mount(e,e.childNodes[3]),t.face.showSeconds&&t.createDivider().mount(e,e.childNodes[5]),t.face.showLabels&&(t.createLabel("days").mount(e.childNodes[0]),t.createLabel("hours").mount(e.childNodes[2]),t.createLabel("minutes").mount(e.childNodes[4]),t.face.showSeconds&&t.createLabel("seconds").mount(e.childNodes[6]))}function si(e,t){t.createDivider().mount(e,e.childNodes[1]),t.face.showSeconds&&t.createDivider().mount(e,e.childNodes[3]),t.face.showLabels&&(t.createLabel("hours").mount(e.childNodes[0]),t.createLabel("minutes").mount(e.childNodes[2]),t.face.showSeconds&&t.createLabel("seconds").mount(e.childNodes[4]))}function ri(e,t){t.face.showSeconds&&t.createDivider().mount(e,e.childNodes[1]),t.face.showLabels&&(t.createLabel("minutes").mount(e.childNodes[0]),t.face.showSeconds&&t.createLabel("seconds").mount(e.childNodes[2]))}function ai(e,t){t.createDivider().mount(e,e.childNodes[1]),t.face.showSeconds&&t.createDivider().mount(e,e.childNodes[3]),t.face.showLabels&&(t.createLabel("hours").mount(e.childNodes[0]),t.createLabel("minutes").mount(e.childNodes[2]),t.face.showSeconds&&t.createLabel("seconds").mount(e.childNodes[4]))}function li(e,t){if(ai(e,t),t.face.showMeridium&&t.face.meridium){var i=t.createLabel(t.face.meridium),n=e.childNodes[e.childNodes.length-1];i.mount(n).classList.add("flip-clock-meridium")}}function ci(e,t){t.createDivider().mount(e,e.childNodes[1]),t.createDivider().mount(e,e.childNodes[3]),t.createDivider().mount(e,e.childNodes[5]),t.face.showSeconds&&t.createDivider().mount(e,e.childNodes[7]),t.face.showLabels&&(t.createLabel("weeks").mount(e.childNodes[0]),t.createLabel("days").mount(e.childNodes[2]),t.createLabel("hours").mount(e.childNodes[4]),t.createLabel("minutes").mount(e.childNodes[6]),t.face.showSeconds&&t.createLabel("seconds").mount(e.childNodes[8]))}function ui(e,t){t.createDivider().mount(e,e.childNodes[1]),t.createDivider().mount(e,e.childNodes[3]),t.createDivider().mount(e,e.childNodes[5]),t.createDivider().mount(e,e.childNodes[7]),t.face.showSeconds&&t.createDivider().mount(e,e.childNodes[9]),t.face.showLabels&&(t.createLabel("years").mount(e.childNodes[0]),t.createLabel("weeks").mount(e.childNodes[2]),t.createLabel("days").mount(e.childNodes[4]),t.createLabel("hours").mount(e.childNodes[6]),t.createLabel("minutes").mount(e.childNodes[8]),t.face.showSeconds&&t.createLabel("seconds").mount(e.childNodes[10]))}var hi={Divider:Jt,FlipClock:Qt,Group:ei,Label:ti,List:ii,ListItem:ni,faces:Object.freeze({DayCounter:oi,HourCounter:si,MinuteCounter:ri,TwelveHourClock:li,TwentyFourHourClock:ai,WeekCounter:ci,YearCounter:ui})},fi={face:Ut,theme:hi,language:le},di=function(e){function i(e,n,o){var r;t(this,i),F(e,HTMLElement)||d(I.element),D(n)&&!o&&(o=n,n=void 0);var a=o.face||fi.face;return delete o.face,(r=u(this,s(i).call(this,Object.assign({originalValue:n,theme:fi.theme,language:fi.language,timer:Vt.make(o.interval||1e3)},o)))).face||(r.face=a),r.mount(e),r}return o(i,e),n(i,[{key:"mount",value:function(e){return f(s(i.prototype),"mount",this).call(this,e),this.face.mounted(this),this}},{key:"render",value:function(){return f(s(i.prototype),"render",this).call(this),this.theme.faces[this.face.name]&&this.theme.faces[this.face.name](this.el,this),this.face.rendered(this),this.el}},{key:"start",value:function(e){var t=this;return this.timer.started||(this.value=this.originalValue),S(this.face.stopAt)&&(this.face.stopAt=this.stopAt),S(this.face.originalValue)&&(this.face.originalValue=this.originalValue),this.timer.start((function(){t.face.interval(t,e)})),this.face.started(this),this.emit("start")}},{key:"stop",value:function(e){return this.timer.stop(e),this.face.stopped(this),this.emit("stop")}},{key:"reset",value:function(e){var t=this;return this.value=this.originalValue,this.timer.reset((function(){return t.interval(t,e)})),this.face.reset(this),this.emit("reset")}},{key:"increment",value:function(e){return this.face.increment(this,e),this}},{key:"decrement",value:function(e){return this.face.decrement(this,e),this}},{key:"createDivider",value:function(e){return Nt.make(Object.assign({theme:this.theme,language:this.language},e))}},{key:"createList",value:function(e,t){return Ht.make(e,Object.assign({theme:this.theme,language:this.language},t))}},{key:"createLabel",value:function(e,t){return Rt.make(e,Object.assign({theme:this.theme,language:this.language},t))}},{key:"createGroup",value:function(e,t){return Pt.make(e,Object.assign({theme:this.theme,language:this.language},t))}},{key:"face",get:function(){return this.$face},set:function(e){F(e,[B,"string","function"])||d(I.face),this.$face=(Yt[e]||e).make(Object.assign(this.getPublicAttributes(),{originalValue:this.face?this.face.originalValue:void 0})),this.$face.initialized(this),this.value?this.$face.value=this.face.createFaceValue(this,this.value.value):this.value||(this.value=this.originalValue),this.el&&this.render()}},{key:"stopAt",get:function(){return E(this.$stopAt)?this.$stopAt(this):this.$stopAt},set:function(e){this.$stopAt=e}},{key:"timer",get:function(){return this.$timer},set:function(e){F(e,Vt)||d(I.timer),this.$timer=e}},{key:"value",get:function(){return this.face?this.face.value:null},set:function(e){if(!this.face)throw new Error("A face must be set before setting a value.");e instanceof U?this.face.value=e:this.value?this.face.value=this.face.value.clone(e):this.face.value=this.face.createFaceValue(this,e),this.el&&this.render()}},{key:"originalValue",get:function(){return E(this.$originalValue)&&!this.$originalValue.name?this.$originalValue():S(this.$originalValue)||A(this.$originalValue)?this.face?this.face.defaultValue():void 0:this.$originalValue},set:function(e){this.$originalValue=e}}],[{key:"setDefaultFace",value:function(e){F(e,B)||d(I.face),fi.face=e}},{key:"setDefaultTheme",value:function(e){F(e,"object")||d(I.theme),fi.theme=e}},{key:"setDefaultLanguage",value:function(e){F(e,"object")||d(I.language),fi.language=e}},{key:"defaults",get:function(){return fi}}]),i}(jt);return di}();var le=re(ae.exports);const ce=L`
+ */console.warn("The main 'lit-element' module entrypoint is deprecated. Please update your imports to use the 'lit' package: 'lit' and 'lit/decorators.ts' or import from 'lit-element/lit-element.ts'. See https://lit.dev/msg/deprecated-import-path for more information.");
+
+var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+function getDefaultExportFromCjs (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
+var flipclock = {exports: {}};
+
+(function (module, exports) {
+	(function (global, factory) {
+	    module.exports = factory() ;
+	}(commonjsGlobal, (function () {
+	    function _typeof(obj) {
+	      if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+	        _typeof = function (obj) {
+	          return typeof obj;
+	        };
+	      } else {
+	        _typeof = function (obj) {
+	          return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+	        };
+	      }
+
+	      return _typeof(obj);
+	    }
+
+	    function _classCallCheck(instance, Constructor) {
+	      if (!(instance instanceof Constructor)) {
+	        throw new TypeError("Cannot call a class as a function");
+	      }
+	    }
+
+	    function _defineProperties(target, props) {
+	      for (var i = 0; i < props.length; i++) {
+	        var descriptor = props[i];
+	        descriptor.enumerable = descriptor.enumerable || false;
+	        descriptor.configurable = true;
+	        if ("value" in descriptor) descriptor.writable = true;
+	        Object.defineProperty(target, descriptor.key, descriptor);
+	      }
+	    }
+
+	    function _createClass(Constructor, protoProps, staticProps) {
+	      if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+	      if (staticProps) _defineProperties(Constructor, staticProps);
+	      return Constructor;
+	    }
+
+	    function _inherits(subClass, superClass) {
+	      if (typeof superClass !== "function" && superClass !== null) {
+	        throw new TypeError("Super expression must either be null or a function");
+	      }
+
+	      subClass.prototype = Object.create(superClass && superClass.prototype, {
+	        constructor: {
+	          value: subClass,
+	          writable: true,
+	          configurable: true
+	        }
+	      });
+	      if (superClass) _setPrototypeOf(subClass, superClass);
+	    }
+
+	    function _getPrototypeOf(o) {
+	      _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+	        return o.__proto__ || Object.getPrototypeOf(o);
+	      };
+	      return _getPrototypeOf(o);
+	    }
+
+	    function _setPrototypeOf(o, p) {
+	      _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+	        o.__proto__ = p;
+	        return o;
+	      };
+
+	      return _setPrototypeOf(o, p);
+	    }
+
+	    function isNativeReflectConstruct() {
+	      if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+	      if (Reflect.construct.sham) return false;
+	      if (typeof Proxy === "function") return true;
+
+	      try {
+	        Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+	        return true;
+	      } catch (e) {
+	        return false;
+	      }
+	    }
+
+	    function _construct(Parent, args, Class) {
+	      if (isNativeReflectConstruct()) {
+	        _construct = Reflect.construct;
+	      } else {
+	        _construct = function _construct(Parent, args, Class) {
+	          var a = [null];
+	          a.push.apply(a, args);
+	          var Constructor = Function.bind.apply(Parent, a);
+	          var instance = new Constructor();
+	          if (Class) _setPrototypeOf(instance, Class.prototype);
+	          return instance;
+	        };
+	      }
+
+	      return _construct.apply(null, arguments);
+	    }
+
+	    function _assertThisInitialized(self) {
+	      if (self === void 0) {
+	        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	      }
+
+	      return self;
+	    }
+
+	    function _possibleConstructorReturn(self, call) {
+	      if (call && (typeof call === "object" || typeof call === "function")) {
+	        return call;
+	      }
+
+	      return _assertThisInitialized(self);
+	    }
+
+	    function _superPropBase(object, property) {
+	      while (!Object.prototype.hasOwnProperty.call(object, property)) {
+	        object = _getPrototypeOf(object);
+	        if (object === null) break;
+	      }
+
+	      return object;
+	    }
+
+	    function _get(target, property, receiver) {
+	      if (typeof Reflect !== "undefined" && Reflect.get) {
+	        _get = Reflect.get;
+	      } else {
+	        _get = function _get(target, property, receiver) {
+	          var base = _superPropBase(target, property);
+
+	          if (!base) return;
+	          var desc = Object.getOwnPropertyDescriptor(base, property);
+
+	          if (desc.get) {
+	            return desc.get.call(receiver);
+	          }
+
+	          return desc.value;
+	        };
+	      }
+
+	      return _get(target, property, receiver || target);
+	    }
+
+	    /**
+	     * These are a collection of helper functions, some borrowed from Lodash,
+	     * Underscore, etc, to provide common functionality without the need for using
+	     * a dependency. All of this is an attempt to reduce the file size of the
+	     * library.
+	     *
+	     * @namespace Helpers.Functions
+	     */
+
+	    /**
+	     * Throw a string as an Error exception.
+	     *
+	     * @function error
+	     * @param  {string} string - The error message.
+	     * @return {void}
+	     * @memberof Helpers.Functions
+	     */
+	    function error(string) {
+	      throw Error(string);
+	    }
+	    /**
+	     * Check if `fn` is a function, and call it with `this` context and pass the
+	     * arguments.
+	     *
+	     * @function callback
+	     * @param  {string} string - The callback fn.
+	     * @param  {...*} args - The arguments to pass.
+	     * @return {void}
+	     * @memberof Helpers.Functions
+	     */
+
+	    function callback(fn) {
+	      if (isFunction(fn)) {
+	        for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	          args[_key - 1] = arguments[_key];
+	        }
+
+	        return fn.call.apply(fn, [this].concat(args));
+	      }
+	    }
+	    /**
+	     * Round the value to the correct value. Takes into account negative numbers.
+	     *
+	     * @function round
+	     * @param  {value} string - The value to round.
+	     * @return {string} - The rounded value.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function round(value) {
+	      return isNegativeZero(value = isNegative(value) ? Math.ceil(value) : Math.floor(value)) ? ('-' + value).toString() : value;
+	    }
+	    /**
+	     * Returns `true` if `undefined or `null`.
+	     *
+	     * @function noop
+	     * @param  {value} string - The value to check.
+	     * @return {boolean} - `true` if `undefined or `null`.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function noop(value) {
+	      return !isUndefined(value) && !isNull(value);
+	    }
+	    /**
+	     * Returns a function that executes the `before` attribute and passes that value
+	     * to `after` and the subsequent value is returned.
+	     *
+	     * @function chain
+	     * @param  {function} before - The first function to execute.
+	     * @param  {function} after - The subsequent function to execute.
+	     * @return {function} - A function that executes the chain.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function chain(before, after) {
+	      return function () {
+	        return after(before());
+	      };
+	    }
+	    /**
+	     * Returns a function that returns maps the values before concatenating them.
+	     *
+	     * @function concatMap
+	     * @param  {function} fn - The map callback function.
+	     * @return {function} - A function that executes the map and concatenation.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function concatMap(fn) {
+	      return function (x) {
+	        return x.map(fn).reduce(function (x, y) {
+	          return x.concat(y);
+	        }, []);
+	      };
+	    }
+	    /**
+	     * Flatten an array.
+	     *
+	     * @function flatten
+	     * @param  {array} value - The array to flatten.
+	     * @return {array} - The flattened array.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function flatten(value) {
+	      return concatMap(function (value) {
+	        return value;
+	      })(value);
+	    }
+	    /**
+	     * Deep flatten an array.
+	     *
+	     * @function deepFlatten
+	     * @param  {array} value - The array to flatten.
+	     * @return {array} - The flattened array.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function deepFlatten(x) {
+	      return concatMap(function (x) {
+	        return Array.isArray(x) ? deepFlatten(x) : x;
+	      })(x);
+	    }
+	    /**
+	     * Returns the length of a deep flatten array.
+	     *
+	     * @function length
+	     * @param  {array} value - The array to count.
+	     * @return {number} - The length of the deep flattened array.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function length(value) {
+	      return deepFlatten(value).length;
+	    }
+	    /**
+	     * Determines if a value is a negative zero.
+	     *
+	     * @function isNegativeZero
+	     * @param  {number} value - The value to check.
+	     * @return {boolean} - Returns `true` if the value is a negative zero (`-0`).
+	     * @memberof Helpers.Functions
+	     */
+
+	    function isNegativeZero(value) {
+	      return 1 / Math.round(value) === -Infinity;
+	    }
+	    /**
+	     * Determines if a value is a negative.
+	     *
+	     * @function isNegative
+	     * @param  {number} value - The value to check.
+	     * @return {boolean} - Returns `true` if the value is a negative.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function isNegative(value) {
+	      return isNegativeZero(value) || value < 0;
+	    }
+	    /**
+	     * Determines if a value is `null`.
+	     *
+	     * @function isNull
+	     * @param  {*} value - The value to check.
+	     * @return {boolean} - Returns `true` if the value is a `null`.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function isNull(value) {
+	      return value === null; // || typeof value === 'null';
+	    }
+	    /**
+	     * Determines if a value is `undefined`.
+	     *
+	     * @function isNull
+	     * @param  {*} value - The value to check.
+	     * @return {boolean} - Returns `true` if the value is a `undefined`.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function isUndefined(value) {
+	      return typeof value === 'undefined';
+	    }
+	    /**
+	     * Determines if a value is a constructor.
+	     *
+	     * @function isConstructor
+	     * @param  {*} value - The value to check.
+	     * @return {boolean} - Returns `true` if the value is a constructor.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function isConstructor(value) {
+	      return value instanceof Function && !!value.name;
+	    }
+	    /**
+	     * Determines if a value is a string.
+	     *
+	     * @function isString
+	     * @param  {*} value - The value to check.
+	     * @return {boolean} - Returns `true` if the value is a string.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function isString(value) {
+	      return typeof value === 'string';
+	    }
+	    /**
+	     * Determines if a value is a array.
+	     *
+	     * @function isString
+	     * @param  {*} value - The value to check.
+	     * @return {boolean} - Returns `true` if the value is a string.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function isArray(value) {
+	      return value instanceof Array;
+	    }
+	    /**
+	     * Determines if a value is an object.
+	     *
+	     * @function isObject
+	     * @param  {*} value - The value to check.
+	     * @return {boolean} - Returns `true` if the value is an object.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function isObject(value) {
+	      var type = _typeof(value);
+
+	      return value != null && !isArray(value) && (type == 'object' || type == 'function');
+	    }
+	    /**
+	     * Determines if a value is a function.
+	     *
+	     * @function isObject
+	     * @param  {*} value - The value to check.
+	     * @return {boolean} - Returns `true` if the value is a function.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function isFunction(value) {
+	      return value instanceof Function;
+	    }
+	    /**
+	     * Determines if a value is a number.
+	     *
+	     * @function isObject
+	     * @param  {*} value - The value to check.
+	     * @return {boolean} - Returns `true` if the value is a number.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function isNumber(value) {
+	      return !isNaN(value);
+	    }
+	    /**
+	     * Converts a string into kebab case.
+	     *
+	     * @function kebabCase
+	     * @param  {string} string - The string to convert.
+	     * @return {string} - The converted string.
+	     * @memberof Helpers.Functions
+	     */
+
+	    function kebabCase(string) {
+	      return string.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/\s+/g, '-').toLowerCase();
+	    }
+
+	    var Component =
+	    /*#__PURE__*/
+	    function () {
+	      /**
+	       * Abstract base class.
+	       *
+	       * @class Component
+	       * @param {(object|undefined)} [attributes] - The instance attributes.
+	       */
+	      function Component(attributes) {
+	        _classCallCheck(this, Component);
+
+	        this.setAttribute(Object.assign({
+	          events: {}
+	        }, attributes));
+	      }
+	      /**
+	       * Get the `name` attribute. Uses the `this.constructor.name` by default.
+	       *
+	       * @return {string} - The `name` attribute.
+	       */
+
+
+	      _createClass(Component, [{
+	        key: "emit",
+
+	        /**
+	         * Emit an event.
+	         *
+	         * @param  {string} key - The event id/key.
+	         * @return {Component} - Returns `this` instance.
+	         */
+	        value: function emit(key) {
+	          var _this = this;
+
+	          for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	            args[_key - 1] = arguments[_key];
+	          }
+
+	          if (this.events[key]) {
+	            this.events[key].forEach(function (event) {
+	              event.apply(_this, args);
+	            });
+	          }
+
+	          return this;
+	        }
+	        /**
+	         * Start listening to an event.
+	         *
+	         * @param  {string} key - The event id/key.
+	         * @param  {Function} fn - The listener callback function.
+	         * @param  {boolean} [once=false] - Should the event handler be fired a
+	         *     single time.
+	         * @return {Component} - Returns `this` instance.
+	         */
+
+	      }, {
+	        key: "on",
+	        value: function on(key, fn) {
+
+	          if (!this.events[key]) {
+	            this.events[key] = [];
+	          }
+
+	          this.events[key].push(fn);
+	          return this;
+	        }
+	        /**
+	         * Stop listening to an event.
+	         *
+	         * @param {string} key - The event id/key.
+	         * @param {(Function|undefined)} fn - The listener callback function. If no
+	         *     function is defined, all events with the specified id/key will be
+	         *     removed. Otherwise, only the event listeners matching the id/key AND
+	         *     callback will be removed.
+	         * @return {Component} - Returns `this` instance.
+	         */
+
+	      }, {
+	        key: "off",
+	        value: function off(key, fn) {
+	          if (this.events[key] && fn) {
+	            this.events[key] = this.events[key].filter(function (event) {
+	              return event !== fn;
+	            });
+	          } else {
+	            this.events[key] = [];
+	          }
+
+	          return this;
+	        }
+	        /**
+	         * Listen to an event only one time.
+	         *
+	         * @param  {string} key - The event id/key.
+	         * @param  {Function} fn - The listener callback function.
+	         * @return {Component} - Returns `this` instance.
+	         */
+
+	      }, {
+	        key: "once",
+	        value: function once(key, fn) {
+	          var _this2 = this;
+
+	          fn = chain(fn, function () {
+	            return _this2.off(key, fn);
+	          });
+	          return this.on(key, fn, true);
+	        }
+	        /**
+	         * Get an attribute. Returns null if no attribute is defined.
+	         *
+	         * @param  {string} key - The attribute name.
+	         * @return {*} - The attribute value.
+	         */
+
+	      }, {
+	        key: "getAttribute",
+	        value: function getAttribute(key) {
+	          return this.hasOwnProperty(key) ? this[key] : null;
+	        }
+	        /**
+	         * Get all the atttributes for this instance.
+	         *
+	         * @return {object} - The attribute dictionary.
+	         */
+
+	      }, {
+	        key: "getAttributes",
+	        value: function getAttributes() {
+	          var _this3 = this;
+
+	          var attributes = {};
+	          Object.getOwnPropertyNames(this).forEach(function (key) {
+	            attributes[key] = _this3.getAttribute(key);
+	          });
+	          return attributes;
+	        }
+	        /**
+	         * Get only public the atttributes for this instance. Omits any attribute
+	         * that starts with `$`, which is used internally.
+	         *
+	         * @return {object} - The attribute dictionary.
+	         */
+
+	      }, {
+	        key: "getPublicAttributes",
+	        value: function getPublicAttributes() {
+	          var _this4 = this;
+
+	          return Object.keys(this.getAttributes()).filter(function (key) {
+	            return !key.match(/^\$/);
+	          }).reduce(function (obj, key) {
+	            obj[key] = _this4.getAttribute(key);
+	            return obj;
+	          }, {});
+	        }
+	        /**
+	         * Set an attribute key and value.
+	         *
+	         * @param  {string} key - The attribute name.
+	         * @param  {*} value - The attribute value.
+	         * @return {void}
+	         */
+
+	      }, {
+	        key: "setAttribute",
+	        value: function setAttribute(key, value) {
+	          if (isObject(key)) {
+	            this.setAttributes(key);
+	          } else {
+	            this[key] = value;
+	          }
+	        }
+	        /**
+	         * Set an attributes by object of key/value pairs.
+	         *
+	         * @param  {object} values - The object dictionary.
+	         * @return {void}
+	         */
+
+	      }, {
+	        key: "setAttributes",
+	        value: function setAttributes(values) {
+	          for (var i in values) {
+	            this.setAttribute(i, values[i]);
+	          }
+	        }
+	        /**
+	         * Helper method to execute the `callback()` function.
+	         *
+	         * @param  {Function} fn - The callback function.
+	         * @return {*} - Returns the executed callback function.
+	         */
+
+	      }, {
+	        key: "callback",
+	        value: function callback$$1(fn) {
+	          return callback.call(this, fn);
+	        }
+	        /**
+	         * Factor method to static instantiate new instances. Useful for writing
+	         * clean expressive syntax with chained methods.
+	         *
+	         * @param  {...*} args - The callback arguments.
+	         * @return {*} - The new component instance.
+	         */
+
+	      }, {
+	        key: "name",
+	        get: function get() {
+	          return this.constructor.name;
+	        }
+	        /**
+	         * Get the `className` attribute. Used for CSS. Kebab cases the `name`
+	         * property by default.
+	         *
+	         * @return {string} - The `className` attribute.
+	         */
+
+	      }, {
+	        key: "className",
+	        get: function get() {
+	          return kebabCase(this.name);
+	        }
+	        /**
+	         * Get the `events` attribute.
+	         *
+	         * @return {array} - The `events` attribute.
+	         */
+
+	      }, {
+	        key: "events",
+	        get: function get() {
+	          return this.$events || [];
+	        }
+	        /**
+	         * Set the registered events for this class.
+	         *
+	         * @param  {array} value - The new events array.
+	         * @return {void}
+	         */
+	        ,
+	        set: function set(value) {
+	          this.$events = value;
+	        }
+	      }], [{
+	        key: "make",
+	        value: function make() {
+	          for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	            args[_key2] = arguments[_key2];
+	          }
+
+	          return _construct(this, args);
+	        }
+	      }]);
+
+	      return Component;
+	    }();
+
+	    /**
+	     * @namespace Helpers.Digitize
+	     */
+	    /**
+	     * Digitize a number, string, or an array into a digitized array. This function
+	     * use by the `Face`, which convert the digitized array into an array of `List`
+	     * instances.
+	     *
+	     * @function digitize
+	     * @param  {*} value - The value to digitize.
+	     * @param  {(Object|undefined)} [options] - The digitizer options.
+	     * @return {array} - The digitized array.
+	     * @memberof Helpers.Digitize
+	     */
+
+	    function digitize(value, options) {
+	      options = Object.assign({
+	        minimumDigits: 0,
+	        prependLeadingZero: true
+	      }, options);
+
+	      function prepend(number) {
+	        var shouldPrependZero = options.prependLeadingZero && number.toString().split('').length === 1;
+	        return (shouldPrependZero ? '0' : '').concat(number);
+	      }
+
+	      function digits(arr, min) {
+	        var length$$1 = deepFlatten(arr).length;
+
+	        if (length$$1 < min) {
+	          for (var i = 0; i < min - length$$1; i++) {
+	            arr[0].unshift('0');
+	          }
+	        }
+
+	        return arr;
+	      }
+
+	      return digits(flatten([value]).map(function (number) {
+	        return flatten(deepFlatten([number]).map(function (number) {
+	          return prepend(number).split('');
+	        }));
+	      }), options.minimumDigits || 0);
+	    }
+
+	    /**
+	     * @namespace Helpers.Value
+	     */
+
+	    /**
+	     * An array of objects with min/max ranges.
+	     *
+	     * @private
+	     * @type {array}
+	     */
+	    var RANGES = [{
+	      // 0-9
+	      min: 48,
+	      max: 57
+	    }, {
+	      // a-z
+	      min: 65,
+	      max: 90
+	    }, {
+	      // A-Z
+	      min: 97,
+	      max: 122
+	    }];
+	    /**
+	     * Format a string into a new data type. Currently only supports string to
+	     * number conversion.
+	     *
+	     * @private
+	     * @function format
+	     * @param {string} string - The string to format.
+	     * @param {string} type - The data type (represented as a string) used to
+	     *     convert the string.
+	     * @return {boolean} - Returns the formatted string.
+	     */
+
+	    function format(string, type) {
+	      switch (type) {
+	        case 'number':
+	          return parseFloat(string);
+	      }
+
+	      return string;
+	    }
+	    /**
+	     * Find the range object from the `RANGES` constant from the character given.
+	     * This is mainly an interval method, but can be used by faces to help
+	     * determine what the next value of a string should be.
+	     *
+	     * @private
+	     * @function format
+	     * @param {string} char - The char used to determine the range.
+	     * @param {string} type - The data type (represented as a string) used to
+	     *     convert the string.
+	     * @return {boolean} - Returns the formatted string.
+	     */
+
+
+	    function findRange(_char) {
+	      for (var i in RANGES) {
+	        var code = _char.toString().charCodeAt(0);
+
+	        if (RANGES[i].min <= code && RANGES[i].max >= code) {
+	          return RANGES[i];
+	        }
+	      }
+
+	      return null;
+	    }
+	    /**
+	     * Create a string from a character code, which is returned by the callback.
+	     *
+	     * @private
+	     * @callback stringFromCharCodeBy
+	     * @param {string} char - The char used to determine the range.
+	     * @param {function} fn - The callback function receives `range` and `code`
+	     *     arguments. This function should return a character code.
+	     * @return {string} - Creates a string from the character code returned by the
+	     *     callback function.
+	     */
+
+
+	    function stringFromCharCodeBy(_char2, fn) {
+	      return String.fromCharCode(fn(findRange(_char2), _char2.charCodeAt(0)));
+	    }
+	    /**
+	     * Calculate the next value for a string. 'a' becomes 'b'. 'A' becomes 'B'. 1
+	     * becomes 2, etc. If multiple character strings are passed, 'aa' would become
+	     * 'bb'.
+	     *
+	     * @function next
+	     * @param  {(string|number)} value - The string or number to convert.
+	     * @return {string} - The formatted string
+	     * @memberof Helpers.Value
+	     */
+
+
+	    function next(value) {
+	      var converted = value.toString().split('').map(function (_char3) {
+	        return stringFromCharCodeBy(_char3, function (range, code) {
+	          return !range || code < range.max ? code + 1 : range.min;
+	        });
+	      }).join('');
+	      return format(converted, _typeof(value));
+	    }
+	    /**
+	     * Calculate the prev value for a string. 'b' becomes 'a'. 'B' becomes 'A'. 2
+	     * becomes 1, 0 becomes 9, etc. If multiple character strings are passed, 'bb'
+	     * would become 'aa'.
+	     *
+	     * @function prev
+	     * @param  {(string|number)} value - The string or number to convert.
+	     * @return {string} - The formatted string
+	     * @memberof Helpers.Value
+	     */
+
+	    function prev(value) {
+	      var converted = value.toString().split('').map(function (_char4) {
+	        return stringFromCharCodeBy(_char4, function (range, code) {
+	          return !range || code > range.min ? code - 1 : range.max;
+	        });
+	      }).join('');
+	      return format(converted, _typeof(value));
+	    }
+
+	    var FaceValue =
+	    /*#__PURE__*/
+	    function (_Component) {
+	      _inherits(FaceValue, _Component);
+
+	      /**
+	       * The `FaceValue` class handles all the digitizing for the `Face`.
+	       *
+	       * @class FaceValue
+	       * @extends Component
+	       * @param {*} value - The `FaceValue`'s actual value. Most likely should
+	       *     string, number, or Date. But since the Face handles the value, it
+	       *     could be anything.
+	       * @param {(object|undefined)} [attributes] - The instance attributes.
+	       */
+	      function FaceValue(value, attributes) {
+	        var _this;
+
+	        _classCallCheck(this, FaceValue);
+
+	        _this = _possibleConstructorReturn(this, _getPrototypeOf(FaceValue).call(this, Object.assign({
+	          format: function format(value) {
+	            return value;
+	          },
+	          prependLeadingZero: true,
+	          minimumDigits: 0
+	        }, attributes)));
+
+	        if (!_this.value) {
+	          _this.value = value;
+	        }
+
+	        return _this;
+	      }
+	      /**
+	       * Get the `digits` attribute.
+	       *
+	       * @return {(Array|undefined)} - The `digits` attribute.
+	       */
+
+
+	      _createClass(FaceValue, [{
+	        key: "isNaN",
+
+	        /**
+	         * Returns `true` if the `value` attribute is not a number.
+	         *
+	         * @return {boolean} - `true` is the value is not a number.
+	         */
+	        value: function (_isNaN) {
+	          function isNaN() {
+	            return _isNaN.apply(this, arguments);
+	          }
+
+	          isNaN.toString = function () {
+	            return _isNaN.toString();
+	          };
+
+	          return isNaN;
+	        }(function () {
+	          return isNaN(this.value);
+	        })
+	        /**
+	         * Returns `true` if the `value` attribute is a number.
+	         *
+	         * @return {boolean} - `true` is the value is a number.
+	         */
+
+	      }, {
+	        key: "isNumber",
+	        value: function isNumber$$1() {
+	          return isNumber();
+	        }
+	        /**
+	         * Clones the current `FaceValue` instance, but sets a new value to the
+	         * cloned instance. Used for copying the current instance options and
+	         * methods, but setting a new value.
+	         *
+	         * @param  {*} value - The n
+	         * @param {(object|undefined)} [attributes] - The instance attributes.
+	         * @return {FaceValue} - The cloned `FaceValue`.
+	         */
+
+	      }, {
+	        key: "clone",
+	        value: function clone(value, attributes) {
+	          return new this.constructor(value, Object.assign(this.getPublicAttributes(), attributes));
+	        }
+	      }, {
+	        key: "digits",
+	        get: function get() {
+	          return this.$digits;
+	        }
+	        /**
+	         * Set `digits` attribute.
+	         *
+	         * @param  {array} value - An array of digits/characters.
+	         * @return {void}
+	         */
+	        ,
+	        set: function set(value) {
+	          this.$digits = value;
+	          this.minimumDigits = Math.max(this.minimumDigits, length(value));
+	        }
+	        /**
+	         * Get the `value` attribute.
+	         *
+	         * @return {*} - The `value` attribute.
+	         */
+
+	      }, {
+	        key: "value",
+	        get: function get() {
+	          return this.$value;
+	        }
+	        /**
+	         * Set `value` attribute. Also digitizes the new value, and sets the
+	         * `digits` attributes
+	         *
+	         * @param  {*} value - The `value` attribute.
+	         * @return {void}
+	         */
+	        ,
+	        set: function set(value) {
+	          this.$value = value;
+	          this.digits = digitize(this.format(value), {
+	            minimumDigits: this.minimumDigits,
+	            prependLeadingZero: this.prependLeadingZero
+	          });
+	        }
+	      }]);
+
+	      return FaceValue;
+	    }(Component);
+
+	    /**
+	     * Validate the data type of a variable.
+	     *
+	     * @function validate
+	     * @param {*} value - The value to validate.
+	     * @param {...*} args - The data types to use for validate.
+	     * @return {boolean} - Returns `true`is the value has a valid data type.
+	     * @memberof Helpers.Validate
+	     */
+
+	    function validate(value) {
+	      var success = false;
+
+	      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	        args[_key - 1] = arguments[_key];
+	      }
+
+	      flatten(args).forEach(function (arg) {
+	        if (isNull(value) && isNull(arg) || isObject(arg) && value instanceof arg || isFunction(arg) && !isConstructor(arg) && arg(value) === true || isString(arg) && _typeof(value) === arg) {
+	          success = true;
+	        }
+	      });
+	      return success;
+	    }
+
+	    /**
+	     * @alias ConsoleMessages
+	     * @type {object}
+	     * @memberof module:Config/ConsoleMessages
+	     */
+	    var ConsoleMessages = {
+	      items: 'The items property must be an array.',
+	      theme: 'The theme property must be an object.',
+	      language: 'The language must be an object.',
+	      date: 'The value must be an instance of a Date.',
+	      face: 'The face must be an instance of a Face class.',
+	      element: 'The element must be an instance of an HTMLElement',
+	      faceValue: 'The face must be an instance of a FaceValue class.',
+	      timer: 'The timer property must be an instance of a Timer class.'
+	    };
+
+	    var Face =
+	    /*#__PURE__*/
+	    function (_Component) {
+	      _inherits(Face, _Component);
+
+	      /**
+	       * This class is meant to be provide an interface for all other faces to
+	       * extend.
+	       *
+	       * @class Face
+	       * @extends Component
+	       * @param {(FaceValue|object)} value - The `Face` value. If not an instance
+	       *     of FaceValue, this argument is assumed to be the instance attributes.
+	       * @param {(object|undefined)} [attributes] - The instance attributes.
+	       */
+	      function Face(value, attributes) {
+	        var _this;
+
+	        _classCallCheck(this, Face);
+
+	        if (!(value instanceof FaceValue) && isObject(value)) {
+	          attributes = value;
+	          value = undefined;
+	        }
+
+	        _this = _possibleConstructorReturn(this, _getPrototypeOf(Face).call(this));
+
+	        _this.setAttributes(Object.assign({
+	          autoStart: true,
+	          countdown: false,
+	          animationRate: 500
+	        }, _this.defaultAttributes(), attributes || {}));
+
+	        if (isNull(value) || isUndefined(value)) {
+	          value = _this.defaultValue();
+	        }
+
+	        if (value) {
+	          _this.value = value;
+	        }
+
+	        return _this;
+	      }
+	      /**
+	       * Get the `dataType` attribute.
+	       *
+	       * @return {*} - The `dataType` attribute.
+	       */
+
+
+	      _createClass(Face, [{
+	        key: "interval",
+
+	        /**
+	         * This method is called with every interval, or every time the clock
+	         * should change, and handles the actual incrementing and decrementing the
+	         * clock's `FaceValue`.
+	         *
+	         * @param  {FlipClock} instance - The `FlipClock` instance.
+	         * @param  {Function} fn - The interval callback.
+	         * @return {Face} - This `Face` instance.
+	         */
+	        value: function interval(instance, fn) {
+	          if (this.countdown) {
+	            this.decrement(instance);
+	          } else {
+	            this.increment(instance);
+	          }
+
+	          callback.call(this, fn);
+
+	          if (this.shouldStop(instance)) {
+	            instance.stop();
+	          }
+
+	          return this.emit('interval');
+	        }
+	        /**
+	         * Determines if the clock should stop or not.
+	         *
+	         * @param  {FlipClock} instance - The `FlipClock` instance.
+	         * @return {boolean} - Returns `true` if the clock should stop.
+	         */
+
+	      }, {
+	        key: "shouldStop",
+	        value: function shouldStop(instance) {
+	          return !isUndefined(this.stopAt) ? this.stopAt === instance.value.value : false;
+	        }
+	        /**
+	         * By default this just returns the value unformatted.
+	         *
+	         * @param  {FlipClock} instance - The `FlipClock` instance.
+	         * @param  {*} value - The value to format.
+	         * @return {*} - The formatted value.
+	         */
+
+	      }, {
+	        key: "format",
+	        value: function format(instance, value) {
+	          return value;
+	        }
+	        /**
+	         * The default value for the `Face`.
+	         *
+	         * @return {*} - The default value.
+	         */
+
+	      }, {
+	        key: "defaultValue",
+	        value: function defaultValue() {} //
+
+	        /**
+	         * The default attributes for the `Face`.
+	         *
+	         * @return {(Object|undefined)} - The default attributes.
+	         */
+
+	      }, {
+	        key: "defaultAttributes",
+	        value: function defaultAttributes() {} //
+
+	        /**
+	         * The default data type for the `Face` value.
+	         *
+	         * @return {(Object|undefined)} - The default data type.
+	         */
+
+	      }, {
+	        key: "defaultDataType",
+	        value: function defaultDataType() {} //
+
+	        /**
+	         * Increment the clock.
+	         *
+	         * @param  {FlipClock} instance - The `FlipClock` instance.
+	         * @param  {Number} [amount] - The amount to increment. If the amount is not
+	         *     defined, it is left up to the `Face` to determine the default value.
+	         * @return {void}
+	         */
+
+	      }, {
+	        key: "increment",
+	        value: function increment(instance, amount) {} //
+
+	        /**
+	         * Decrement the clock.
+	         *
+	         * @param  {FlipClock} instance - The `FlipClock` instance.
+	         * @param  {Number} [amount] - The amount to decrement. If the amount is not
+	         *     defined, it is left up to the `Face` to determine the default value.
+	         * @return {void}
+	         */
+
+	      }, {
+	        key: "decrement",
+	        value: function decrement(instance, amount) {} //
+
+	        /**
+	         * This method is called right after clock has started.
+	         *
+	         * @param  {FlipClock} instance - The `FlipClock` instance.
+	         * @return {void}
+	         */
+
+	      }, {
+	        key: "started",
+	        value: function started(instance) {} //
+
+	        /**
+	         * This method is called right after clock has stopped.
+	         *
+	         * @param  {FlipClock} instance - The `FlipClock` instance.
+	         * @return {void}
+	         */
+
+	      }, {
+	        key: "stopped",
+	        value: function stopped(instance) {} //
+
+	        /**
+	         * This method is called right after clock has reset.
+	         *
+	         * @param  {FlipClock} instance - The `FlipClock` instance.
+	         * @return {void}
+	         */
+
+	      }, {
+	        key: "reset",
+	        value: function reset(instance) {} //
+
+	        /**
+	         * This method is called right after `Face` has initialized.
+	         *
+	         * @param  {FlipClock} instance - The `FlipClock` instance.
+	         * @return {void}
+	         */
+
+	      }, {
+	        key: "initialized",
+	        value: function initialized(instance) {} //
+
+	        /**
+	         * This method is called right after `Face` has rendered.
+	         *
+	         * @param  {FlipClock} instance - The `FlipClock` instance.
+	         * @return {void}
+	         */
+
+	      }, {
+	        key: "rendered",
+	        value: function rendered(instance) {} //
+
+	        /**
+	         * This method is called right after `Face` has mounted.
+	         *
+	         * @param  {FlipClock} instance - The `FlipClock` instance.
+	         * @return {void}
+	         */
+
+	      }, {
+	        key: "mounted",
+	        value: function mounted(instance) {
+	          if (this.autoStart && instance.timer.isStopped) {
+	            window.requestAnimationFrame(function () {
+	              return instance.start(instance);
+	            });
+	          }
+	        }
+	        /**
+	         * Helper method to instantiate a new `FaceValue`.
+	         *
+	         * @param  {FlipClock} instance - The `FlipClock` instance.
+	         * @param  {object|undefined} [attributes] - The attributes passed to the
+	         *     `FaceValue` instance.
+	         * @return {Divider} - The instantiated `FaceValue`.
+	         */
+
+	      }, {
+	        key: "createFaceValue",
+	        value: function createFaceValue(instance, value) {
+	          var _this2 = this;
+
+	          return FaceValue.make(isFunction(value) && !value.name ? value() : value, {
+	            minimumDigits: this.minimumDigits,
+	            format: function format(value) {
+	              return _this2.format(instance, value);
+	            }
+	          });
+	        }
+	      }, {
+	        key: "dataType",
+	        get: function get() {
+	          return this.defaultDataType();
+	        }
+	        /**
+	         * Get the `value` attribute.
+	         *
+	         * @return {*} - The `value` attribute.
+	         */
+
+	      }, {
+	        key: "value",
+	        get: function get() {
+	          return this.$value;
+	        }
+	        /**
+	         * Set the `value` attribute.
+	         *
+	         * @param  {*} value - Any value that is not an instance of `FaceValue` will
+	         *     be cast into one.
+	         * @return {void}
+	         */
+	        ,
+	        set: function set(value) {
+	          if (!(value instanceof FaceValue)) {
+	            value = this.createFaceValue(value);
+	          }
+
+	          this.$value = value;
+	        }
+	        /**
+	         * Get the `stopAt` attribute.
+	         *
+	         * @return {*} - The `stopAt` attribute.
+	         */
+
+	      }, {
+	        key: "stopAt",
+	        get: function get() {
+	          return this.$stopAt;
+	        }
+	        /**
+	         * Set the `stopAt` attribute.
+	         *
+	         * @param  {*} value - Any value that is used to match against the face to
+	         *     determine when the clock should stop.
+	         * @return {void}
+	         */
+	        ,
+	        set: function set(value) {
+	          this.$stopAt = value;
+	        }
+	        /**
+	         * Get the `originalValue` attribute.
+	         *
+	         * @return {*} - The `originalValue` attribute.
+	         */
+
+	      }, {
+	        key: "originalValue",
+	        get: function get() {
+	          return this.$originalValue;
+	        }
+	        /**
+	         * Set the `originalValue` attribute.
+	         *
+	         * @param  {*} value - The `originalValue` attribute.
+	         * @return {void}
+	         */
+	        ,
+	        set: function set(value) {
+	          this.$originalValue = value;
+	        }
+	      }]);
+
+	      return Face;
+	    }(Component);
+
+	    /**
+	     * @classdesc Arabic Language Pack
+	     * @desc This class will be used to translate tokens into the Arabic language.
+	     * @namespace Languages.Arabic
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Arabic
+	     */
+	    var dictionary = {
+	      'years': 'سنوات',
+	      'months': 'شهور',
+	      'days': 'أيام',
+	      'hours': 'ساعات',
+	      'minutes': 'دقائق',
+	      'seconds': 'ثواني'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Arabic
+	     */
+
+	    var aliases = ['ar', 'ar-ar', 'arabic'];
+
+	    var arAr = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary,
+	        aliases: aliases
+	    });
+
+	    /**
+	     * @classdesc Catalan Language Pack
+	     * @desc This class will used to translate tokens into the Catalan language.
+	     * @namespace Languages.Catalan
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Catalan
+	     */
+	    var dictionary$1 = {
+	      'years': 'Anys',
+	      'months': 'Mesos',
+	      'days': 'Dies',
+	      'hours': 'Hores',
+	      'minutes': 'Minuts',
+	      'seconds': 'Segons'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Catalan
+	     */
+
+	    var aliases$1 = ['ca', 'ca-es', 'catalan'];
+
+	    var caEs = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$1,
+	        aliases: aliases$1
+	    });
+
+	    /**
+	     * @classdesc Czech Language Pack
+	     * @desc This class will used to translate tokens into the Czech language.
+	     * @namespace Languages.Czech
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Czech
+	     */
+	    var dictionary$2 = {
+	      'years': 'Roky',
+	      'months': 'Měsíce',
+	      'days': 'Dny',
+	      'hours': 'Hodiny',
+	      'minutes': 'Minuty',
+	      'seconds': 'Sekundy'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Czech
+	     */
+
+	    var aliases$2 = ['cs', 'cs-cz', 'cz', 'cz-cs', 'czech'];
+
+	    var csCz = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$2,
+	        aliases: aliases$2
+	    });
+
+	    /**
+	     * @classdesc Danish Language Pack
+	     * @desc This class will used to translate tokens into the Danish language.
+	     * @namespace Languages.Danish
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Danish
+	     */
+	    var dictionary$3 = {
+	      'years': 'År',
+	      'months': 'Måneder',
+	      'days': 'Dage',
+	      'hours': 'Timer',
+	      'minutes': 'Minutter',
+	      'seconds': 'Sekunder'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Danish
+	     */
+
+	    var aliases$3 = ['da', 'da-dk', 'danish'];
+
+	    var daDk = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$3,
+	        aliases: aliases$3
+	    });
+
+	    /**
+	     * @classdesc German Language Pack
+	     * @desc This class will used to translate tokens into the German language.
+	     * @namespace Languages.German
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.German
+	     */
+	    var dictionary$4 = {
+	      'years': 'Jahre',
+	      'months': 'Monate',
+	      'days': 'Tage',
+	      'hours': 'Stunden',
+	      'minutes': 'Minuten',
+	      'seconds': 'Sekunden'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.German
+	     */
+
+	    var aliases$4 = ['de', 'de-de', 'german'];
+
+	    var deDe = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$4,
+	        aliases: aliases$4
+	    });
+
+	    /**
+	     * @classdesc English Language Pack
+	     * @desc This class will used to translate tokens into the English language.
+	     * @namespace Languages.English
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.English
+	     */
+	    var dictionary$5 = {
+	      'years': 'Years',
+	      'months': 'Months',
+	      'days': 'Days',
+	      'hours': 'Hours',
+	      'minutes': 'Minutes',
+	      'seconds': 'Seconds'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.English
+	     */
+
+	    var aliases$5 = ['en', 'en-us', 'english'];
+
+	    var English = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$5,
+	        aliases: aliases$5
+	    });
+
+	    /**
+	     * @classdesc Spanish Language Pack
+	     * @desc This class will used to translate tokens into the Spanish language.
+	     * @namespace Languages.Spanish
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Spanish
+	     */
+	    var dictionary$6 = {
+	      'years': 'Años',
+	      'months': 'Meses',
+	      'days': 'Días',
+	      'hours': 'Horas',
+	      'minutes': 'Minutos',
+	      'seconds': 'Segundos'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Spanish
+	     */
+
+	    var aliases$6 = ['es', 'es-es', 'spanish'];
+
+	    var esEs = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$6,
+	        aliases: aliases$6
+	    });
+
+	    /**
+	     * @classdesc Persian Language Pack
+	     * @desc This class will used to translate tokens into the Persian language.
+	     * @namespace Languages.Persian
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Persian
+	     */
+	    var dictionary$7 = {
+	      'years': 'سال',
+	      'months': 'ماه',
+	      'days': 'روز',
+	      'hours': 'ساعت',
+	      'minutes': 'دقیقه',
+	      'seconds': 'ثانیه'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Persian
+	     */
+
+	    var aliases$7 = ['fa', 'fa-ir', 'persian'];
+
+	    var faIr = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$7,
+	        aliases: aliases$7
+	    });
+
+	    /**
+	     * @classdesc Finnish Language Pack
+	     * @desc This class will used to translate tokens into the Finnish language.
+	     * @namespace Languages.Finnish
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Finnish
+	     */
+	    var dictionary$8 = {
+	      'years': 'Vuotta',
+	      'months': 'Kuukautta',
+	      'days': 'Päivää',
+	      'hours': 'Tuntia',
+	      'minutes': 'Minuuttia',
+	      'seconds': 'Sekuntia'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Finnish
+	     */
+
+	    var aliases$8 = ['fi', 'fi-fi', 'finnish'];
+
+	    var fiFi = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$8,
+	        aliases: aliases$8
+	    });
+
+	    /**
+	     * @classdesc Canadian French Language Pack
+	     * @desc This class will used to translate tokens into the Canadian French language.
+	     * @namespace Languages.CanadianFrench
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.CanadianFrench
+	     */
+	    var dictionary$9 = {
+	      'years': 'Ans',
+	      'months': 'Mois',
+	      'days': 'Jours',
+	      'hours': 'Heures',
+	      'minutes': 'Minutes',
+	      'seconds': 'Secondes'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.CanadianFrench
+	     */
+
+	    var aliases$9 = ['fr', 'fr-ca', 'french'];
+
+	    var frCa = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$9,
+	        aliases: aliases$9
+	    });
+
+	    /**
+	     * @classdesc Hebrew Language Pack
+	     * @desc This class will used to translate tokens into the Hebrew language.
+	     * @namespace Languages.Hebrew
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Hebrew
+	     */
+	    var dictionary$10 = {
+	      'years': 'שנים',
+	      'months': 'חודש',
+	      'days': 'ימים',
+	      'hours': 'שעות',
+	      'minutes': 'דקות',
+	      'seconds': 'שניות'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Hebrew
+	     */
+
+	    var aliases$10 = ['il', 'he-il', 'hebrew'];
+
+	    var heIl = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$10,
+	        aliases: aliases$10
+	    });
+
+	    /**
+	     * @classdesc Hungarian Language Pack
+	     * @desc This class will used to translate tokens into the Hungarian language.
+	     * @namespace Languages.Hungarian
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Hungarian
+	     */
+	    var dictionary$11 = {
+	      'years': 'Év',
+	      'months': 'Hónap',
+	      'days': 'Nap',
+	      'hours': 'Óra',
+	      'minutes': 'Perc',
+	      'seconds': 'Másodperc'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Hungarian
+	     */
+
+	    var aliases$11 = ['hu', 'hu-hu', 'hungarian'];
+
+	    var huHu = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$11,
+	        aliases: aliases$11
+	    });
+
+	    /**
+	     * @classdesc Italian Language Pack
+	     * @desc This class will used to translate tokens into the Italian language.
+	     * @namespace Languages.Italian
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Italian
+	     */
+	    var dictionary$12 = {
+	      'years': 'Anni',
+	      'months': 'Mesi',
+	      'days': 'Giorni',
+	      'hours': 'Ore',
+	      'minutes': 'Minuti',
+	      'seconds': 'Secondi'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Italian
+	     */
+
+	    var aliases$12 = ['da', 'da-dk', 'danish'];
+
+	    var itIt = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$12,
+	        aliases: aliases$12
+	    });
+
+	    /**
+	     * @classdesc Japanese Language Pack
+	     * @desc This class will used to translate tokens into the Japanese language.
+	     * @namespace Languages.Japanese
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Japanese
+	     */
+	    var dictionary$13 = {
+	      'years': '年',
+	      'months': '月',
+	      'days': '日',
+	      'hours': '時',
+	      'minutes': '分',
+	      'seconds': '秒'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Japanese
+	     */
+
+	    var aliases$13 = ['jp', 'ja-jp', 'japanese'];
+
+	    var jaJp = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$13,
+	        aliases: aliases$13
+	    });
+
+	    /**
+	     * @classdesc Korean Language Pack
+	     * @desc This class will used to translate tokens into the Korean language.
+	     * @namespace Languages.Korean
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Korean
+	     */
+	    var dictionary$14 = {
+	      'years': '년',
+	      'months': '월',
+	      'days': '일',
+	      'hours': '시',
+	      'minutes': '분',
+	      'seconds': '초'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Korean
+	     */
+
+	    var aliases$14 = ['ko', 'ko-kr', 'korean'];
+
+	    var koKr = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$14,
+	        aliases: aliases$14
+	    });
+
+	    /**
+	     * @classdesc Latvian Language Pack
+	     * @desc This class will used to translate tokens into the Latvian language.
+	     * @namespace Languages.Latvian
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Latvian
+	     */
+	    var dictionary$15 = {
+	      'years': 'Gadi',
+	      'months': 'Mēneši',
+	      'days': 'Dienas',
+	      'hours': 'Stundas',
+	      'minutes': 'Minūtes',
+	      'seconds': 'Sekundes'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Latvian
+	     */
+
+	    var aliases$15 = ['lv', 'lv-lv', 'latvian'];
+
+	    var lvLv = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$15,
+	        aliases: aliases$15
+	    });
+
+	    /**
+	     * @classdesc Dutch Language Pack
+	     * @desc This class will used to translate tokens into the Dutch language.
+	     * @namespace Languages.Dutch
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Dutch
+	     */
+	    var dictionary$16 = {
+	      'years': 'Jaren',
+	      'months': 'Maanden',
+	      'days': 'Dagen',
+	      'hours': 'Uren',
+	      'minutes': 'Minuten',
+	      'seconds': 'Seconden'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Dutch
+	     */
+
+	    var aliases$16 = ['nl', 'nl-be', 'dutch'];
+
+	    var nlBe = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$16,
+	        aliases: aliases$16
+	    });
+
+	    /**
+	     * @classdesc Norwegian-Bokmål Language Pack
+	     * @desc This class will used to translate tokens into the Norwegian-Bokmål language.
+	     * @namespace Languages.Norwegian
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Norwegian
+	     */
+	    var dictionary$17 = {
+	      'years': 'År',
+	      'months': 'Måneder',
+	      'days': 'Dager',
+	      'hours': 'Timer',
+	      'minutes': 'Minutter',
+	      'seconds': 'Sekunder'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Norwegian
+	     */
+
+	    var aliases$17 = ['no', 'nb', 'no-nb', 'norwegian'];
+
+	    var noNb = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$17,
+	        aliases: aliases$17
+	    });
+
+	    /**
+	     * @classdesc Polish Language Pack
+	     * @desc This class will used to translate tokens into the Polish language.
+	     * @namespace Languages.Polish
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Polish
+	     */
+	    var dictionary$18 = {
+	      'years': 'Lat',
+	      'months': 'Miesięcy',
+	      'days': 'Dni',
+	      'hours': 'Godziny',
+	      'minutes': 'Minuty',
+	      'seconds': 'Sekundy'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Polish
+	     */
+
+	    var aliases$18 = ['pl', 'pl-pl', 'polish'];
+
+	    var plPl = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$18,
+	        aliases: aliases$18
+	    });
+
+	    /**
+	     * @classdesc Portuguese Language Pack
+	     * @desc This class will used to translate tokens into the Portuguese language.
+	     * @namespace Languages.Portuguese
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Portuguese
+	     */
+	    var dictionary$19 = {
+	      'years': 'Anos',
+	      'months': 'Meses',
+	      'days': 'Dias',
+	      'hours': 'Horas',
+	      'minutes': 'Minutos',
+	      'seconds': 'Segundos'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Portuguese
+	     */
+
+	    var aliases$19 = ['pt', 'pt-br', 'portuguese'];
+
+	    var ptBr = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$19,
+	        aliases: aliases$19
+	    });
+
+	    /**
+	     * @classdesc Romanian Language Pack
+	     * @desc This class will used to translate tokens into the Romanian language.
+	     * @namespace Languages.Romanian
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Romanian
+	     */
+	    var dictionary$20 = {
+	      'years': 'Ani',
+	      'months': 'Luni',
+	      'days': 'Zile',
+	      'hours': 'Ore',
+	      'minutes': 'Minute',
+	      'seconds': 'sSecunde'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Romanian
+	     */
+
+	    var aliases$20 = ['ro', 'ro-ro', 'romana'];
+
+	    var roRo = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$20,
+	        aliases: aliases$20
+	    });
+
+	    /**
+	     * @classdesc Russian Language Pack
+	     * @desc This class will used to translate tokens into the Russian language.
+	     * @namespace Languages.Russian
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Russian
+	     */
+	    var dictionary$21 = {
+	      'years': 'лет',
+	      'months': 'месяцев',
+	      'days': 'дней',
+	      'hours': 'часов',
+	      'minutes': 'минут',
+	      'seconds': 'секунд'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Russian
+	     */
+
+	    var aliases$21 = ['ru', 'ru-ru', 'russian'];
+
+	    var ruRu = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$21,
+	        aliases: aliases$21
+	    });
+
+	    /**
+	     * @classdesc Slovak Language Pack
+	     * @desc This class will used to translate tokens into the Slovak language.
+	     * @namespace Languages.Slovak
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Slovak
+	     */
+	    var dictionary$22 = {
+	      'years': 'Roky',
+	      'months': 'Mesiace',
+	      'days': 'Dni',
+	      'hours': 'Hodiny',
+	      'minutes': 'Minúty',
+	      'seconds': 'Sekundy'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Slovak
+	     */
+
+	    var aliases$22 = ['sk', 'sk-sk', 'slovak'];
+
+	    var skSk = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$22,
+	        aliases: aliases$22
+	    });
+
+	    /**
+	     * @classdesc Swedish Language Pack
+	     * @desc This class will used to translate tokens into the Swedish language.
+	     * @namespace Languages.Swedish
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Swedish
+	     */
+	    var dictionary$23 = {
+	      'years': 'År',
+	      'months': 'Månader',
+	      'days': 'Dagar',
+	      'hours': 'Timmar',
+	      'minutes': 'Minuter',
+	      'seconds': 'Sekunder'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Swedish
+	     */
+
+	    var aliases$23 = ['sv', 'sv-se', 'swedish'];
+
+	    var svSe = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$23,
+	        aliases: aliases$23
+	    });
+
+	    /**
+	     * @classdesc Thai Language Pack
+	     * @desc This class will used to translate tokens into the Thai language.
+	     * @namespace Languages.Thai
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Thai
+	     */
+	    var dictionary$24 = {
+	      'years': 'ปี',
+	      'months': 'เดือน',
+	      'days': 'วัน',
+	      'hours': 'ชั่วโมง',
+	      'minutes': 'นาที',
+	      'seconds': 'วินาที'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Thai
+	     */
+
+	    var aliases$24 = ['th', 'th-th', 'thai'];
+
+	    var thTh = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$24,
+	        aliases: aliases$24
+	    });
+
+	    /**
+	     * @classdesc Turkish Language Pack
+	     * @desc This class will used to translate tokens into the Turkish language.
+	     * @namespace Languages.Turkish
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Turkish
+	     */
+	    var dictionary$25 = {
+	      'years': 'Yıl',
+	      'months': 'Ay',
+	      'days': 'Gün',
+	      'hours': 'Saat',
+	      'minutes': 'Dakika',
+	      'seconds': 'Saniye'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Turkish
+	     */
+
+	    var aliases$25 = ['tr', 'tr-tr', 'turkish'];
+
+	    var trTr = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$25,
+	        aliases: aliases$25
+	    });
+
+	    /**
+	     * @classdesc Ukrainian Language Pack
+	     * @desc This class will used to translate tokens into the Ukrainian language.
+	     * @namespace Languages.Ukrainian
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Ukrainian
+	     */
+	    var dictionary$26 = {
+	      'years': 'роки',
+	      'months': 'місяці',
+	      'days': 'дні',
+	      'hours': 'години',
+	      'minutes': 'хвилини',
+	      'seconds': 'секунди'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Ukrainian
+	     */
+
+	    var aliases$26 = ['ua', 'ua-ua', 'ukraine'];
+
+	    var uaUa = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$26,
+	        aliases: aliases$26
+	    });
+
+	    /**
+	     * @classdesc Vietnamese Language Pack
+	     * @desc This class will used to translate tokens into the Vietnamese language.
+	     * @namespace Languages.Vietnamese
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Vietnamese
+	     */
+	    var dictionary$27 = {
+	      'years': 'Năm',
+	      'months': 'Tháng',
+	      'days': 'Ngày',
+	      'hours': 'Giờ',
+	      'minutes': 'Phút',
+	      'seconds': 'Giây'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Vietnamese
+	     */
+
+	    var aliases$27 = ['vn', 'vn-vn', 'vietnamese'];
+
+	    var vnVn = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$27,
+	        aliases: aliases$27
+	    });
+
+	    /**
+	     * @classdesc Chinese Language Pack
+	     * @desc This class will used to translate tokens into the Chinese language.
+	     * @namespace Languages.Chinese
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.Chinese
+	     */
+	    var dictionary$28 = {
+	      'years': '年',
+	      'months': '月',
+	      'days': '日',
+	      'hours': '时',
+	      'minutes': '分',
+	      'seconds': '秒'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.Chinese
+	     */
+
+	    var aliases$28 = ['zh', 'zh-cn', 'chinese'];
+
+	    var zhCn = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$28,
+	        aliases: aliases$28
+	    });
+
+	    /**
+	     * @classdesc Traditional Chinese Language Pack
+	     * @desc This class will used to translate tokens into the Traditional Chinese language.
+	     * @namespace Languages.TraditionalChinese
+	     */
+
+	    /**
+	     * @constant dictionary
+	     * @type {object}
+	     * @memberof Languages.TraditionalChinese
+	     */
+	    var dictionary$29 = {
+	      'years': '年',
+	      'months': '月',
+	      'days': '日',
+	      'hours': '時',
+	      'minutes': '分',
+	      'seconds': '秒'
+	    };
+	    /**
+	     * @constant aliases
+	     * @type {array}
+	     * @memberof Languages.TraditionalChinese
+	     */
+
+	    var aliases$29 = ['zh-tw'];
+
+	    var zhTw = /*#__PURE__*/Object.freeze({
+	        dictionary: dictionary$29,
+	        aliases: aliases$29
+	    });
+
+	    /**
+	     * @namespace Languages
+	     */
+
+	    var LANGUAGES = /*#__PURE__*/Object.freeze({
+	        Arabic: arAr,
+	        Catalan: caEs,
+	        Czech: csCz,
+	        Danish: daDk,
+	        German: deDe,
+	        English: English,
+	        Spanish: esEs,
+	        Persian: faIr,
+	        Finnish: fiFi,
+	        French: frCa,
+	        Hebrew: heIl,
+	        Hungarian: huHu,
+	        Italian: itIt,
+	        Japanese: jaJp,
+	        Korean: koKr,
+	        Latvian: lvLv,
+	        Dutch: nlBe,
+	        Norwegian: noNb,
+	        Polish: plPl,
+	        Portuguese: ptBr,
+	        Romanian: roRo,
+	        Russian: ruRu,
+	        Slovak: skSk,
+	        Swedish: svSe,
+	        Thai: thTh,
+	        Turkish: trTr,
+	        Ukrainian: uaUa,
+	        Vietnamese: vnVn,
+	        Chinese: zhCn,
+	        TraditionalChinese: zhTw
+	    });
+
+	    /**
+	     * @namespace Helpers.Language
+	     */
+	    /**
+	     * Return the language associated with the key. Returns `null` if no language is
+	     * found.
+	     * 
+	     * @function language
+	     * @param  {string} name - The name or id of the language.
+	     * @return {object|null} - The language dictionary, or null if not found.
+	     * @memberof Helpers.Language
+	     */
+
+	    function language(name) {
+	      return name ? LANGUAGES[name.toLowerCase()] || Object.values(LANGUAGES).find(function (value) {
+	        return value.aliases.indexOf(name) !== -1;
+	      }) : null;
+	    }
+
+	    /**
+	     * @namespace Helpers.Translate
+	     */
+	    /**
+	     * Translate an English string into another language.
+	     * 
+	     * @function translate
+	     * @param {string} string - The string to translate.
+	     * @param {(string|object)} from - The language used to translate. If a string,
+	     *     the language is loaded into an object.
+	     * @return {string} - If no diction key is found, the untranslated string is
+	     *     returned.
+	     * @memberof Helpers.Translate
+	     */
+
+	    function translate(string, from) {
+	      var lang = isString(from) ? language(from) : from;
+	      var dictionary = lang.dictionary || lang;
+	      return dictionary[string] || string;
+	    }
+
+	    /**
+	     * A collection of functions to manage DOM nodes and theme templates.
+	     *
+	     * @namespace Helpers.Template
+	     */
+	    /**
+	     * Swap a new DOM node with an existing one.
+	     *
+	     * @function swap
+	     * @param  {HTMLElement} subject - The new DOM node.
+	     * @param  {HTMLElement} existing - The existing DOM node.
+	     * @return {HTMLElement} - Returns the new element if it was mounted, otherwise
+	     *    the existing node is returned.
+	     * @memberof Helpers.Template
+	     */
+
+	    function swap(subject, existing) {
+	      if (existing.parentNode) {
+	        existing.parentNode.replaceChild(subject, existing);
+	        return subject;
+	      }
+
+	      return existing;
+	    }
+	    /**
+	     * Set the attribute of an element.
+	     *
+	     * @function setAttributes
+	     * @param  {HTMLElement} el - The DOM node that will receive the attributes.
+	     * @param  {Object|undefined} [attributes] - The attribute object, or if no object
+	     *     is passed, then the action is ignored.
+	     * @return {HTMLElement} el - The DOM node that received the attributes.
+	     * @memberof Helpers.Template
+	     */
+
+	    function setAttributes(el, attributes) {
+	      if (isObject(attributes)) {
+	        for (var i in attributes) {
+	          el.setAttribute(i, attributes[i]);
+	        }
+	      }
+
+	      return el;
+	    }
+	    /**
+	     * Append an array of DOM nodes to a parent.
+	     *
+	     * @function appendChildren
+	     * @param  {HTMLElement} el - The parent DOM node.
+	     * @param  {Array|undefined} [children] - The array of children. If no array
+	     *     is passed, then the method silently fails to run.
+	     * @return {HTMLElement} el - The DOM node that received the attributes.
+	     * @memberof Helpers.Template
+	     */
+
+	    function appendChildren(el, children) {
+	      if (isArray(children)) {
+	        children.filter(noop).forEach(function (child) {
+	          if (child instanceof HTMLElement) {
+	            el.appendChild(child);
+	          }
+	        });
+	      }
+
+	      return el;
+	    }
+	    /**
+	     * Create a new HTMLElement instance.
+	     *
+	     * @function createElement
+	     * @param  {HTMLElement} el - The parent DOM node.
+	     * @param  {Array|undefined} [children] - The array of children. If no array
+	     *     is passed, then the method silently fails to run.
+	     * @param  {Object|undefined} [attributes] - The attributes object.
+	     * @return {HTMLElement} el - The DOM node that received the attributes.
+	     * @memberof Helpers.Template
+	     */
+
+	    function createElement(el, children, attributes) {
+	      if (!(el instanceof HTMLElement)) {
+	        el = document.createElement(el);
+	      }
+
+	      setAttributes(el, isObject(children) ? children : attributes);
+
+	      if (!isObject(children) && !isArray(children)) {
+	        el.innerHTML = children;
+	      } else {
+	        appendChildren(el, children);
+	      }
+
+	      return el;
+	    }
+
+	    var DomComponent =
+	    /*#__PURE__*/
+	    function (_Component) {
+	      _inherits(DomComponent, _Component);
+
+	      /**
+	       * An abstract class that all other DOM components can extend.
+	       *
+	       * @class DomComponent
+	       * @extends Component
+	       * @param {(object|undefined)} [attributes] - The instance attributes.
+	       */
+	      function DomComponent(attributes) {
+	        var _this;
+
+	        _classCallCheck(this, DomComponent);
+
+	        _this = _possibleConstructorReturn(this, _getPrototypeOf(DomComponent).call(this, Object.assign({
+	          parent: null
+	        }, attributes)));
+
+	        if (!_this.theme) {
+	          error("".concat(_this.name, " does not have a theme defined."));
+	        }
+
+	        if (!_this.language) {
+	          error("".concat(_this.name, " does not have a language defined."));
+	        }
+
+	        if (!_this.theme[_this.name]) {
+	          throw new Error("".concat(_this.name, " cannot be rendered because it has no template."));
+	        }
+
+	        return _this;
+	      }
+	      /**
+	       * Get the component's top level DOM node.
+	       *
+	       * @return {HTMLElement} - The `el` attribute.
+	       */
+
+
+	      _createClass(DomComponent, [{
+	        key: "translate",
+
+	        /**
+	         * Translate a string.
+	         *
+	         * @param  {string} string - The string to translate.
+	         * @return {string} - The translated string. If no tranlation found, the
+	         *     untranslated string is returned.
+	         */
+	        value: function translate$$1(string) {
+	          return translate(string, this.language);
+	        }
+	        /**
+	         * Alias to translate(string);
+	         *
+	         * @alias DomComponent.translate
+	         */
+
+	      }, {
+	        key: "t",
+	        value: function t(string) {
+	          return this.translate(string);
+	        }
+	        /**
+	         * Render the DOM component.
+	         *
+	         * @return {HTMLElement} - The `el` attribute.
+	         */
+
+	      }, {
+	        key: "render",
+	        value: function render() {
+	          var el = createElement('div', {
+	            "class": this.className === 'flip-clock' ? this.className : 'flip-clock-' + this.className
+	          });
+	          this.theme[this.name](el, this);
+
+	          if (!this.el) {
+	            this.el = el;
+	          } else if (this.el.innerHTML !== el.innerHTML) {
+	            this.el = swap(el, this.el);
+	          }
+
+	          return this.el;
+	        }
+	        /**
+	         * Mount a DOM component to a parent node.
+	         *
+	         * @param  {HTMLElement} parent - The parent DOM node.
+	         * @param  {(false|HTMLElement)} [before=false] - If `false`, element is
+	         *     appended to the parent node. If an instance of an `HTMLElement`,
+	         *     the component will be inserted before the specified element.
+	         * @return {HTMLElement} - The `el` attribute.
+	         */
+
+	      }, {
+	        key: "mount",
+	        value: function mount(parent) {
+	          var before = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+	          this.render();
+	          this.parent = parent;
+
+	          if (!before) {
+	            this.parent.appendChild(this.el);
+	          } else {
+	            this.parent.insertBefore(this.el, before);
+	          }
+
+	          return this.el;
+	        }
+	      }, {
+	        key: "el",
+	        get: function get() {
+	          return this.$el;
+	        }
+	        /**
+	         * Set the component's top level DOM node.
+	         *
+	         * @param  {(null|HTMLElement)} value - The `el` attribute.
+	         * @return {void}
+	         */
+	        ,
+	        set: function set(value) {
+	          if (!validate(value, null, HTMLElement)) {
+	            error(ConsoleMessages.element);
+	          }
+
+	          this.$el = value;
+	        }
+	        /**
+	         * Get the `parent` attribute. Parent is set when `DomComponent` instances are
+	         * mounted.
+	         *
+	         * @return {DomComponent} - The `parent` attribute.
+	         */
+
+	      }, {
+	        key: "parent",
+	        get: function get() {
+	          return this.$parent;
+	        }
+	        /**
+	         * Set the parent attribute.
+	         *
+	         * @param  {DomComponent} parent - The `parent` attribute value.
+	         * @return {DomComponent} - The `parent` attribute.
+	         */
+	        ,
+	        set: function set(parent) {
+	          this.$parent = parent;
+	        }
+	        /**
+	         * Get the `theme` attribute.
+	         *
+	         * @return {DomComponent} - The `theme` attribute.
+	         */
+
+	      }, {
+	        key: "theme",
+	        get: function get() {
+	          return this.$theme;
+	        }
+	        /**
+	         * Set the `theme` attribute.
+	         *
+	         * @param  {object} value - The `theme` attribute.
+	         * @return {void}
+	         */
+	        ,
+	        set: function set(value) {
+	          if (!validate(value, 'object')) {
+	            error(ConsoleMessages.value);
+	          }
+
+	          this.$theme = value;
+	        }
+	        /**
+	         * Get the language attribute.
+	         *
+	         * @return {object} - The `language` attribute.
+	         */
+
+	      }, {
+	        key: "language",
+	        get: function get() {
+	          return this.$language;
+	        }
+	        /**
+	         * Set the language attribute.
+	         *
+	         * @param  {object} value - The `language` attribute.
+	         * @return {object} - The `language` attribute.
+	         */
+	        ,
+	        set: function set(value) {
+	          if (isString(value)) {
+	            value = language(value);
+	          }
+
+	          if (!validate(value, 'object')) {
+	            error(ConsoleMessages.language);
+	          }
+
+	          this.$language = value;
+	        }
+	      }]);
+
+	      return DomComponent;
+	    }(Component);
+
+	    /**
+	     * Create a new `Divider` instance.
+	     *
+	     * The purpose of this class is to return a unique class name so the theme can
+	     * render it appropriately, since each `DomComponent` can receive its own template
+	     * from the theme.
+	     *
+	     * @class Divider
+	     * @extends DomComponent
+	     * @param {(object|undefined)} [attributes] - The instance attributes.
+	     */
+
+	    var Divider =
+	    /*#__PURE__*/
+	    function (_DomComponent) {
+	      _inherits(Divider, _DomComponent);
+
+	      function Divider() {
+	        _classCallCheck(this, Divider);
+
+	        return _possibleConstructorReturn(this, _getPrototypeOf(Divider).apply(this, arguments));
+	      }
+
+	      return Divider;
+	    }(DomComponent);
+
+	    var ListItem =
+	    /*#__PURE__*/
+	    function (_DomComponent) {
+	      _inherits(ListItem, _DomComponent);
+
+	      /**
+	       * This class is used to represent a single digits in a `List`.
+	       *
+	       * @class ListItem
+	       * @extends DomComponent
+	       * @param {(Number|String)} value - The value of the `ListItem`.
+	       * @param {object|undefined} [attributes] - The instance attributes.
+	       */
+	      function ListItem(value, attributes) {
+	        _classCallCheck(this, ListItem);
+
+	        return _possibleConstructorReturn(this, _getPrototypeOf(ListItem).call(this, Object.assign({
+	          value: value
+	        }, isObject(value) ? value : null, attributes)));
+	      }
+
+	      return ListItem;
+	    }(DomComponent);
+
+	    var List =
+	    /*#__PURE__*/
+	    function (_DomComponent) {
+	      _inherits(List, _DomComponent);
+
+	      /**
+	       * This class is used to add a digit to the clock face. This class is called
+	       * `List` because it contains a list of `ListItem`'s which are used to
+	       * create flip effects. In the context of FlipClock.js a `List` represents
+	       * one single digit.
+	       *
+	       * @class List
+	       * @extends DomComponent
+	       * @param {Number|String|Object} label - The active value. If an object, it
+	       * is assumed that it is the instance attributes.
+	       * @param {object|undefined} [attributes] - The instance attributes.
+	       */
+	      function List(value, attributes) {
+	        _classCallCheck(this, List);
+
+	        return _possibleConstructorReturn(this, _getPrototypeOf(List).call(this, Object.assign({
+	          value: value,
+	          items: []
+	        }, isObject(value) ? value : null, attributes)));
+	      }
+	      /**
+	       * Get the `value` attribute.
+	       *
+	       * @return {(Number|String)} - The `value` attribute.
+	       */
+
+
+	      _createClass(List, [{
+	        key: "createListItem",
+
+	        /**
+	         * Helper method to instantiate a new `ListItem`.
+	         *
+	         * @param  {(Number|String)} value - The `ListItem` value.
+	         * @param  {(Object|undefined)} [attributes] - The instance attributes.
+	         * @return {ListItem} - The instantiated `ListItem`.
+	         */
+	        value: function createListItem(value, attributes) {
+	          var item = new ListItem(value, Object.assign({
+	            theme: this.theme,
+	            language: this.language
+	          }, attributes));
+	          this.$items.push(item);
+	          return item;
+	        }
+	      }, {
+	        key: "value",
+	        get: function get() {
+	          return this.$value;
+	        }
+	        /**
+	         * Set the `value` attribute.
+	         *
+	         * @param  {array} value - The `value` attribute.
+	         * @return {(Number|String)} - The `value` attribute.
+	         */
+	        ,
+	        set: function set(value) {
+	          this.$value = value;
+	        }
+	        /**
+	         * Get the `items` attribute.
+	         *
+	         * @return {(Number|String)} - The `items` attribute.
+	         */
+
+	      }, {
+	        key: "items",
+	        get: function get() {
+	          return this.$items;
+	        }
+	        /**
+	         * Set the `items` attribute.
+	         *
+	         * @param  {array} value - The `items` attribute.
+	         * @return {(Number|String)} - The `items` attribute.
+	         */
+	        ,
+	        set: function set(value) {
+	          this.$items = value;
+	        }
+	      }]);
+
+	      return List;
+	    }(DomComponent);
+
+	    var Group =
+	    /*#__PURE__*/
+	    function (_DomComponent) {
+	      _inherits(Group, _DomComponent);
+
+	      /**
+	       * This class is used to group values within a clock face. How the groups
+	       * are displayed is determined by the theme.
+	       *
+	       * @class Group
+	       * @extends DomComponent
+	       * @param {Array|Object} items - An array `List` instances or an object of
+	       *     attributes. If not an array, assumed to be the attributes.
+	       * @param {object|undefined} [attributes] - The instance attributes.
+	       */
+	      function Group(items, attributes) {
+	        _classCallCheck(this, Group);
+
+	        return _possibleConstructorReturn(this, _getPrototypeOf(Group).call(this, Object.assign({
+	          items: isArray(items) ? items : []
+	        }, isObject(items) ? items : null, attributes)));
+	      }
+
+	      return Group;
+	    }(DomComponent);
+
+	    var Label =
+	    /*#__PURE__*/
+	    function (_DomComponent) {
+	      _inherits(Label, _DomComponent);
+
+	      /**
+	       * This class is used to add a label to the clock face.
+	       *
+	       * @class Label
+	       * @extends DomComponent
+	       * @param {Number|String|Object} label - The label attribute. If an object,
+	       *     it is assumed that it is the instance attributes.
+	       * @param {object|undefined} [attributes] - The instance attributes.
+	       */
+	      function Label(label, attributes) {
+	        _classCallCheck(this, Label);
+
+	        return _possibleConstructorReturn(this, _getPrototypeOf(Label).call(this, Object.assign({
+	          label: label
+	        }, isObject(label) ? label : null, attributes)));
+	      }
+
+	      return Label;
+	    }(DomComponent);
+
+	    var Timer =
+	    /*#__PURE__*/
+	    function (_Component) {
+	      _inherits(Timer, _Component);
+
+	      /**
+	       * Create a new `Timer` instance.
+	       *
+	       * @class Timer
+	       * @extends Component
+	       * @param {(Object|Number)} interval - The interval passed as a `Number`,
+	       *     or can set the attribute of the class with an object.
+	       */
+	      function Timer(interval) {
+	        _classCallCheck(this, Timer);
+
+	        return _possibleConstructorReturn(this, _getPrototypeOf(Timer).call(this, Object.assign({
+	          count: 0,
+	          handle: null,
+	          started: null,
+	          running: false,
+	          interval: isNumber(interval) ? interval : null
+	        }, isObject(interval) ? interval : null)));
+	      }
+	      /**
+	       * Gets the elapsed the time as an interger.
+	       *
+	       * @return {Number} The `elapsed` attribute.
+	       */
+
+
+	      _createClass(Timer, [{
+	        key: "reset",
+
+	        /**
+	         * Resets the timer.
+	         *
+	         * @param  {(Function|undefined)} fn - The interval callback.
+	         * @return {Timer} - The `Timer` instance.
+	         */
+	        value: function reset(fn) {
+	          var _this = this;
+
+	          this.stop(function () {
+	            _this.count = 0;
+
+	            _this.start(function () {
+	              return callback.call(_this, fn);
+	            });
+
+	            _this.emit('reset');
+	          });
+	          return this;
+	        }
+	        /**
+	         * Starts the timer.
+	         *
+	         * @param  {Function} fn - The interval callback.
+	         * @return {Timer} - The `Timer` instance.
+	         */
+
+	      }, {
+	        key: "start",
+	        value: function start(fn) {
+	          var _this2 = this;
+
+	          this.started = new Date();
+	          this.lastLoop = Date.now();
+	          this.running = true;
+	          this.emit('start');
+
+	          var loop = function loop() {
+	            if (Date.now() - _this2.lastLoop >= _this2.interval) {
+	              callback.call(_this2, fn);
+	              _this2.lastLoop = Date.now();
+
+	              _this2.emit('interval');
+
+	              _this2.count++;
+	            }
+
+	            _this2.handle = window.requestAnimationFrame(loop);
+	            return _this2;
+	          };
+
+	          return loop();
+	        }
+	        /**
+	         * Stops the timer.
+	         *
+	         * @param  {Function} fn - The stop callback.
+	         * @return {Timer} - The `Timer` instance.
+	         */
+
+	      }, {
+	        key: "stop",
+	        value: function stop(fn) {
+	          var _this3 = this;
+
+	          if (this.isRunning) {
+	            setTimeout(function () {
+	              window.cancelAnimationFrame(_this3.handle);
+	              _this3.running = false;
+	              callback.call(_this3, fn);
+
+	              _this3.emit('stop');
+	            });
+	          }
+
+	          return this;
+	        }
+	      }, {
+	        key: "elapsed",
+	        get: function get() {
+	          return !this.lastLoop ? 0 : this.lastLoop - (this.started ? this.started.getTime() : new Date().getTime());
+	        }
+	        /**
+	         * Returns true is the timer is running.
+	         *
+	         * @return {boolean} - Returns `true` the `running` property is `true`
+	         */
+
+	      }, {
+	        key: "isRunning",
+	        get: function get() {
+	          return this.running === true;
+	        }
+	        /**
+	         * Returns true is the timer is not running.
+	         *
+	         * @return {boolean} - Returns `true` the `running` property is `false`
+	         */
+
+	      }, {
+	        key: "isStopped",
+	        get: function get() {
+	          return this.running === false;
+	        }
+	      }]);
+
+	      return Timer;
+	    }(Component);
+
+	    /**
+	     * @classdesc This face is designed to increment and decrement numberic values,
+	     *     not `Date` objects.
+	     * @extends Face
+	     * @param {(FaceValue|object)} value - The `Face` value. If not an instance
+	     *     of FaceValue, this argument is assumed to be the instance attributes.
+	     * @param {(object|undefined)} [attributes] - The instance attributes.
+	     * @memberof Faces
+	     */
+
+	    var Counter =
+	    /*#__PURE__*/
+	    function (_Face) {
+	      _inherits(Counter, _Face);
+
+	      function Counter() {
+	        _classCallCheck(this, Counter);
+
+	        return _possibleConstructorReturn(this, _getPrototypeOf(Counter).apply(this, arguments));
+	      }
+
+	      _createClass(Counter, [{
+	        key: "increment",
+	        value: function increment(instance) {
+	          var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+	          instance.value = this.value.value + value;
+	        }
+	      }, {
+	        key: "decrement",
+	        value: function decrement(instance) {
+	          var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+	          instance.value = this.value.value - value;
+	        }
+	      }]);
+
+	      return Counter;
+	    }(Face);
+
+	    /**
+	     * @classdesc This face is meant to display a clock that shows minutes, and
+	     *     seconds.
+	     * @extends Face
+	     * @param {(FaceValue|object)} value - The `Face` value. If not an instance
+	     *     of FaceValue, this argument is assumed to be the instance attributes.
+	     * @param {(object|undefined)} [attributes] - The instance attributes.
+	     * @memberof Faces
+	     */
+
+	    var MinuteCounter =
+	    /*#__PURE__*/
+	    function (_Face) {
+	      _inherits(MinuteCounter, _Face);
+
+	      function MinuteCounter() {
+	        _classCallCheck(this, MinuteCounter);
+
+	        return _possibleConstructorReturn(this, _getPrototypeOf(MinuteCounter).apply(this, arguments));
+	      }
+
+	      _createClass(MinuteCounter, [{
+	        key: "defaultDataType",
+	        value: function defaultDataType() {
+	          return Date;
+	        }
+	      }, {
+	        key: "defaultAttributes",
+	        value: function defaultAttributes() {
+	          return {
+	            showSeconds: true,
+	            showLabels: true
+	          };
+	        }
+	      }, {
+	        key: "shouldStop",
+	        value: function shouldStop(instance) {
+	          if (isNull(instance.stopAt) || isUndefined(instance.stopAt)) {
+	            return false;
+	          }
+
+	          if (this.stopAt instanceof Date) {
+	            return this.countdown ? this.stopAt.getTime() >= this.value.value.getTime() : this.stopAt.getTime() <= this.value.value.getTime();
+	          } else if (isNumber(this.stopAt)) {
+	            var diff = Math.floor((this.value.value.getTime() - this.originalValue.getTime()) / 1000);
+	            return this.countdown ? this.stopAt >= diff : this.stopAt <= diff;
+	          }
+
+	          throw new Error("the stopAt property must be an instance of Date or Number.");
+	        }
+	      }, {
+	        key: "increment",
+	        value: function increment(instance) {
+	          var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+	          instance.value = new Date(this.value.value.getTime() + value + (new Date().getTime() - instance.timer.lastLoop));
+	        }
+	      }, {
+	        key: "decrement",
+	        value: function decrement(instance) {
+	          var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+	          instance.value = new Date(this.value.value.getTime() - value - (new Date().getTime() - instance.timer.lastLoop));
+	        }
+	      }, {
+	        key: "format",
+	        value: function format(instance, value) {
+	          var started = instance.timer.isRunning ? instance.timer.started : new Date(Date.now() - 50);
+	          return [[this.getMinutes(value, started)], this.showSeconds ? [this.getSeconds(value, started)] : null].filter(noop);
+	        }
+	      }, {
+	        key: "getMinutes",
+	        value: function getMinutes(a, b) {
+	          return round(this.getTotalSeconds(a, b) / 60);
+	        }
+	      }, {
+	        key: "getSeconds",
+	        value: function getSeconds(a, b) {
+	          var totalSeconds = this.getTotalSeconds(a, b);
+	          return Math.abs(Math.ceil(totalSeconds === 60 ? 0 : totalSeconds % 60));
+	        }
+	      }, {
+	        key: "getTotalSeconds",
+	        value: function getTotalSeconds(a, b) {
+	          return a.getTime() === b.getTime() ? 0 : Math.round((a.getTime() - b.getTime()) / 1000);
+	        }
+	      }]);
+
+	      return MinuteCounter;
+	    }(Face);
+
+	    /**
+	     * @classdesc This face is meant to display a clock that shows
+	     *     hours, minutes, and seconds.
+	     * @extends Face
+	     * @param {(FaceValue|object)} value - The `Face` value. If not an instance
+	     *     of FaceValue, this argument is assumed to be the instance attributes.
+	     * @param {(object|undefined)} [attributes] - The instance attributes.
+	     * @memberof Faces
+	     */
+
+	    var HourCounter =
+	    /*#__PURE__*/
+	    function (_MinuteCounter) {
+	      _inherits(HourCounter, _MinuteCounter);
+
+	      function HourCounter() {
+	        _classCallCheck(this, HourCounter);
+
+	        return _possibleConstructorReturn(this, _getPrototypeOf(HourCounter).apply(this, arguments));
+	      }
+
+	      _createClass(HourCounter, [{
+	        key: "format",
+	        value: function format(instance, value) {
+	          var now = !instance.timer.started ? new Date() : value;
+	          var originalValue = instance.originalValue || value;
+	          var a = !this.countdown ? now : originalValue;
+	          var b = !this.countdown ? originalValue : now;
+	          var data = [[this.getHours(a, b)], [this.getMinutes(a, b)]];
+
+	          if (this.showSeconds) {
+	            data.push([this.getSeconds(a, b)]);
+	          }
+
+	          return data;
+	        }
+	      }, {
+	        key: "getMinutes",
+	        value: function getMinutes(a, b) {
+	          return Math.abs(_get(_getPrototypeOf(HourCounter.prototype), "getMinutes", this).call(this, a, b) % 60);
+	        }
+	      }, {
+	        key: "getHours",
+	        value: function getHours(a, b) {
+	          return Math.floor(this.getTotalSeconds(a, b) / 60 / 60);
+	        }
+	      }]);
+
+	      return HourCounter;
+	    }(MinuteCounter);
+
+	    /**
+	     * @classdesc This face is meant to display a clock that shows days, hours,
+	     *     minutes, and seconds.
+	     * @extends HourCounter
+	     * @param {(FaceValue|object)} value - The `Face` value. If not an instance
+	     *     of FaceValue, this argument is assumed to be the instance attributes.
+	     * @param {(object|undefined)} [attributes] - The instance attributes.
+	     * @memberof Faces
+	     */
+
+	    var DayCounter =
+	    /*#__PURE__*/
+	    function (_HourCounter) {
+	      _inherits(DayCounter, _HourCounter);
+
+	      function DayCounter() {
+	        _classCallCheck(this, DayCounter);
+
+	        return _possibleConstructorReturn(this, _getPrototypeOf(DayCounter).apply(this, arguments));
+	      }
+
+	      _createClass(DayCounter, [{
+	        key: "format",
+	        value: function format(instance, value) {
+	          var now = !instance.started ? new Date() : value;
+	          var originalValue = instance.originalValue || value;
+	          var a = !this.countdown ? now : originalValue;
+	          var b = !this.countdown ? originalValue : now;
+	          var data = [[this.getDays(a, b)], [this.getHours(a, b)], [this.getMinutes(a, b)]];
+
+	          if (this.showSeconds) {
+	            data.push([this.getSeconds(a, b)]);
+	          }
+
+	          return data;
+	        }
+	      }, {
+	        key: "getDays",
+	        value: function getDays(a, b) {
+	          return Math.floor(this.getTotalSeconds(a, b) / 60 / 60 / 24);
+	        }
+	      }, {
+	        key: "getHours",
+	        value: function getHours(a, b) {
+	          return Math.abs(_get(_getPrototypeOf(DayCounter.prototype), "getHours", this).call(this, a, b) % 24);
+	        }
+	      }]);
+
+	      return DayCounter;
+	    }(HourCounter);
+
+	    /**
+	     * @classdesc This face shows the current time in twenty-four hour format.
+	     * @extends Face
+	     * @param {(FaceValue|object)} value - The `Face` value. If not an instance
+	     *     of FaceValue, this argument is assumed to be the instance attributes.
+	     * @param {(object|undefined)} [attributes] - The instance attributes.
+	     * @memberof Faces
+	     */
+
+	    var TwentyFourHourClock =
+	    /*#__PURE__*/
+	    function (_Face) {
+	      _inherits(TwentyFourHourClock, _Face);
+
+	      function TwentyFourHourClock() {
+	        _classCallCheck(this, TwentyFourHourClock);
+
+	        return _possibleConstructorReturn(this, _getPrototypeOf(TwentyFourHourClock).apply(this, arguments));
+	      }
+
+	      _createClass(TwentyFourHourClock, [{
+	        key: "defaultDataType",
+	        value: function defaultDataType() {
+	          return Date;
+	        }
+	      }, {
+	        key: "defaultValue",
+	        value: function defaultValue() {
+	          return new Date();
+	        }
+	      }, {
+	        key: "defaultAttributes",
+	        value: function defaultAttributes() {
+	          return {
+	            showSeconds: true,
+	            showLabels: false
+	          };
+	        }
+	      }, {
+	        key: "format",
+	        value: function format(instance, value) {
+	          if (!value) {
+	            value = new Date();
+	          }
+
+	          var groups = [[value.getHours()], [value.getMinutes()]];
+
+	          if (this.showSeconds) {
+	            groups.push([value.getSeconds()]);
+	          }
+
+	          return groups;
+	        }
+	      }, {
+	        key: "increment",
+	        value: function increment(instance) {
+	          var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+	          instance.value = new Date(this.value.value.getTime() + offset + (new Date().getTime() - instance.timer.lastLoop));
+	        }
+	      }, {
+	        key: "decrement",
+	        value: function decrement(instance) {
+	          var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+	          instance.value = new Date(this.value.value.getTime() - offset - (new Date().getTime() - instance.timer.lastLoop));
+	        }
+	      }]);
+
+	      return TwentyFourHourClock;
+	    }(Face);
+
+	    /**
+	     * @classdesc This face shows the current time in twelve hour format, with AM
+	     *     and PM.
+	     * @extends Face
+	     * @param {(FaceValue|object)} value - The `Face` value. If not an instance
+	     *     of FaceValue, this argument is assumed to be the instance attributes.
+	     * @param {(object|undefined)} [attributes] - The instance attributes.
+	     * @memberof Faces
+	     */
+
+	    var TwelveHourClock =
+	    /*#__PURE__*/
+	    function (_TwentyFourHourClock) {
+	      _inherits(TwelveHourClock, _TwentyFourHourClock);
+
+	      function TwelveHourClock() {
+	        _classCallCheck(this, TwelveHourClock);
+
+	        return _possibleConstructorReturn(this, _getPrototypeOf(TwelveHourClock).apply(this, arguments));
+	      }
+
+	      _createClass(TwelveHourClock, [{
+	        key: "defaultAttributes",
+	        value: function defaultAttributes() {
+	          return {
+	            showLabels: false,
+	            showSeconds: true,
+	            showMeridium: true
+	          };
+	        }
+	      }, {
+	        key: "format",
+	        value: function format(instance, value) {
+	          if (!value) {
+	            value = new Date();
+	          }
+
+	          var hours = value.getHours();
+	          var groups = [hours > 12 ? hours - 12 : hours === 0 ? 12 : hours, value.getMinutes()];
+	          this.meridium = hours > 12 ? 'pm' : 'am';
+
+	          if (this.showSeconds) {
+	            groups.push(value.getSeconds());
+	          }
+
+	          return groups;
+	        }
+	      }]);
+
+	      return TwelveHourClock;
+	    }(TwentyFourHourClock);
+
+	    /**
+	     * @classdesc This face is meant to display a clock that shows weeks, days,
+	     *     hours, minutes, and seconds.
+	     * @extends Face
+	     * @param {(FaceValue|object)} value - The `Face` value. If not an instance
+	     *     of FaceValue, this argument is assumed to be the instance attributes.
+	     * @param {(object|undefined)} [attributes] - The instance attributes.
+	     * @memberof Faces
+	     */
+
+	    var WeekCounter =
+	    /*#__PURE__*/
+	    function (_DayCounter) {
+	      _inherits(WeekCounter, _DayCounter);
+
+	      function WeekCounter() {
+	        _classCallCheck(this, WeekCounter);
+
+	        return _possibleConstructorReturn(this, _getPrototypeOf(WeekCounter).apply(this, arguments));
+	      }
+
+	      _createClass(WeekCounter, [{
+	        key: "format",
+	        value: function format(instance, value) {
+	          var now = !instance.timer.started ? new Date() : value;
+	          var originalValue = instance.originalValue || value;
+	          var a = !this.countdown ? now : originalValue;
+	          var b = !this.countdown ? originalValue : now;
+	          var data = [[this.getWeeks(a, b)], [this.getDays(a, b)], [this.getHours(a, b)], [this.getMinutes(a, b)]];
+
+	          if (this.showSeconds) {
+	            data.push([this.getSeconds(a, b)]);
+	          }
+
+	          return data;
+	        }
+	      }, {
+	        key: "getWeeks",
+	        value: function getWeeks(a, b) {
+	          return Math.floor(this.getTotalSeconds(a, b) / 60 / 60 / 24 / 7);
+	        }
+	      }, {
+	        key: "getDays",
+	        value: function getDays(a, b) {
+	          return Math.abs(_get(_getPrototypeOf(WeekCounter.prototype), "getDays", this).call(this, a, b) % 7);
+	        }
+	      }]);
+
+	      return WeekCounter;
+	    }(DayCounter);
+
+	    /**
+	     * @classdesc This face is meant to display a clock that shows years, weeks,
+	     *     days, hours, minutes, and seconds.
+	     * @extends Face
+	     * @param {(FaceValue|object)} value - The `Face` value. If not an instance
+	     *     of FaceValue, this argument is assumed to be the instance attributes.
+	     * @param {(object|undefined)} [attributes] - The instance attributes.
+	     * @memberof Faces
+	     */
+
+	    var YearCounter =
+	    /*#__PURE__*/
+	    function (_WeekCounter) {
+	      _inherits(YearCounter, _WeekCounter);
+
+	      function YearCounter() {
+	        _classCallCheck(this, YearCounter);
+
+	        return _possibleConstructorReturn(this, _getPrototypeOf(YearCounter).apply(this, arguments));
+	      }
+
+	      _createClass(YearCounter, [{
+	        key: "format",
+	        value: function format(instance, value) {
+	          var now = !instance.timer.started ? new Date() : value;
+	          var originalValue = instance.originalValue || value;
+	          var a = !this.countdown ? now : originalValue;
+	          var b = !this.countdown ? originalValue : now;
+	          var data = [[this.getYears(a, b)], [this.getWeeks(a, b)], [this.getDays(a, b)], [this.getHours(a, b)], [this.getMinutes(a, b)]];
+
+	          if (this.showSeconds) {
+	            data.push([this.getSeconds(a, b)]);
+	          }
+
+	          return data;
+	        }
+	      }, {
+	        key: "getYears",
+	        value: function getYears(a, b) {
+	          return Math.floor(Math.max(0, this.getTotalSeconds(a, b) / 60 / 60 / 24 / 7 / 52));
+	        }
+	      }, {
+	        key: "getWeeks",
+	        value: function getWeeks(a, b) {
+	          return Math.abs(_get(_getPrototypeOf(YearCounter.prototype), "getWeeks", this).call(this, a, b) % 52);
+	        }
+	      }]);
+
+	      return YearCounter;
+	    }(WeekCounter);
+
+	    /**
+	     * Faces are classes that hook into the core of Flipclock to provide unique
+	     * functionality. The core doesn't do a lot, except facilitate the interaction
+	     * between all the components. The Face is what makes the clock "tick".
+	     *
+	     * @namespace Faces
+	     */
+
+	    var Faces = /*#__PURE__*/Object.freeze({
+	        Counter: Counter,
+	        DayCounter: DayCounter,
+	        MinuteCounter: MinuteCounter,
+	        HourCounter: HourCounter,
+	        TwelveHourClock: TwelveHourClock,
+	        TwentyFourHourClock: TwentyFourHourClock,
+	        WeekCounter: WeekCounter,
+	        YearCounter: YearCounter
+	    });
+
+	    function Divider$1 (el, instance) {
+	      appendChildren(el, [createElement('div', {
+	        "class": 'flip-clock-dot top'
+	      }), createElement('div', {
+	        "class": 'flip-clock-dot bottom'
+	      })]);
+	    }
+
+	    function child(el, index) {
+	      return el ? el.childNodes ? el.childNodes[index] : el[index] : null;
+	    }
+
+	    function _char(el) {
+	      return el ? el.querySelector('.flip-clock-list-item:first-child .top').innerHTML : null;
+	    }
+
+	    function FlipClock (el, instance) {
+	      var parts = instance.value.digits.map(function (group, x) {
+	        var groupEl = child(instance.el ? instance.el.querySelectorAll('.flip-clock-group') : null, x);
+	        var lists = group.map(function (value, y) {
+	          var listEl = child(groupEl ? groupEl.querySelectorAll('.flip-clock-list') : null, y);
+
+	          var listValue = _char(listEl);
+
+	          return instance.createList(value, {
+	            domValue: listValue,
+	            countdown: instance.countdown,
+	            animationRate: instance.face.animationRate || instance.face.delay
+	          });
+	        });
+	        return instance.createGroup(lists);
+	      });
+	      var nodes = parts.map(function (group) {
+	        return group.render();
+	      });
+	      appendChildren(el, nodes);
+	    }
+
+	    function Group$1 (el, instance) {
+	      var items = instance.items.map(function (item) {
+	        return item.render();
+	      });
+	      appendChildren(el, items);
+	    }
+
+	    function Label$1 (el, instance) {
+	      el.innerHTML = instance.t(instance.label);
+	    }
+
+	    function List$1 (el, instance) {
+	      var beforeValue = instance.domValue || (!instance.countdown ? prev(instance.value) : next(instance.value));
+
+	      if (instance.domValue && instance.domValue !== instance.value) {
+	        el.classList.add('flip');
+	      }
+
+	      el.style.animationDelay = "".concat(instance.animationRate / 2, "ms");
+	      el.style.animationDuration = "".concat(instance.animationRate / 2, "ms");
+	      instance.items = [instance.createListItem(instance.value, {
+	        active: true
+	      }), instance.createListItem(beforeValue, {
+	        active: false
+	      })];
+	      appendChildren(el, instance.items.map(function (item) {
+	        return item.render();
+	      }));
+	    }
+
+	    function ListItem$1 (el, instance) {
+	      var className = instance.active === true ? 'active' : instance.active === false ? 'before' : null;
+	      el.classList.add(className);
+	      appendChildren(el, [createElement('div', [createElement('div', instance.value, {
+	        "class": 'top'
+	      }), createElement('div', instance.value, {
+	        "class": 'bottom'
+	      })], {
+	        "class": 'flip-clock-list-item-inner'
+	      })]);
+	    }
+
+	    function DayCounter$1 (el, instance) {
+	      instance.createDivider().mount(el, el.childNodes[1]);
+	      instance.createDivider().mount(el, el.childNodes[3]);
+
+	      if (instance.face.showSeconds) {
+	        instance.createDivider().mount(el, el.childNodes[5]);
+	      }
+
+	      if (instance.face.showLabels) {
+	        instance.createLabel('days').mount(el.childNodes[0]);
+	        instance.createLabel('hours').mount(el.childNodes[2]);
+	        instance.createLabel('minutes').mount(el.childNodes[4]);
+
+	        if (instance.face.showSeconds) {
+	          instance.createLabel('seconds').mount(el.childNodes[6]);
+	        }
+	      }
+	    }
+
+	    function HourCounter$1 (el, instance) {
+	      instance.createDivider().mount(el, el.childNodes[1]);
+
+	      if (instance.face.showSeconds) {
+	        instance.createDivider().mount(el, el.childNodes[3]);
+	      }
+
+	      if (instance.face.showLabels) {
+	        instance.createLabel('hours').mount(el.childNodes[0]);
+	        instance.createLabel('minutes').mount(el.childNodes[2]);
+
+	        if (instance.face.showSeconds) {
+	          instance.createLabel('seconds').mount(el.childNodes[4]);
+	        }
+	      }
+	    }
+
+	    function MinuteCounter$1 (el, instance) {
+	      if (instance.face.showSeconds) {
+	        instance.createDivider().mount(el, el.childNodes[1]);
+	      }
+
+	      if (instance.face.showLabels) {
+	        instance.createLabel('minutes').mount(el.childNodes[0]);
+
+	        if (instance.face.showSeconds) {
+	          instance.createLabel('seconds').mount(el.childNodes[2]);
+	        }
+	      }
+	    }
+
+	    function TwentyFourHourClock$1 (el, instance) {
+	      instance.createDivider().mount(el, el.childNodes[1]);
+
+	      if (instance.face.showSeconds) {
+	        instance.createDivider().mount(el, el.childNodes[3]);
+	      }
+
+	      if (instance.face.showLabels) {
+	        instance.createLabel('hours').mount(el.childNodes[0]);
+	        instance.createLabel('minutes').mount(el.childNodes[2]);
+
+	        if (instance.face.showSeconds) {
+	          instance.createLabel('seconds').mount(el.childNodes[4]);
+	        }
+	      }
+	    }
+
+	    function TwelveHourClock$1 (el, instance) {
+	      TwentyFourHourClock$1(el, instance);
+
+	      if (instance.face.showMeridium && instance.face.meridium) {
+	        var label = instance.createLabel(instance.face.meridium);
+	        var parent = el.childNodes[el.childNodes.length - 1];
+	        label.mount(parent).classList.add('flip-clock-meridium');
+	      }
+	    }
+
+	    function WeekCounter$1 (el, instance) {
+	      instance.createDivider().mount(el, el.childNodes[1]);
+	      instance.createDivider().mount(el, el.childNodes[3]);
+	      instance.createDivider().mount(el, el.childNodes[5]);
+
+	      if (instance.face.showSeconds) {
+	        instance.createDivider().mount(el, el.childNodes[7]);
+	      }
+
+	      if (instance.face.showLabels) {
+	        instance.createLabel('weeks').mount(el.childNodes[0]);
+	        instance.createLabel('days').mount(el.childNodes[2]);
+	        instance.createLabel('hours').mount(el.childNodes[4]);
+	        instance.createLabel('minutes').mount(el.childNodes[6]);
+
+	        if (instance.face.showSeconds) {
+	          instance.createLabel('seconds').mount(el.childNodes[8]);
+	        }
+	      }
+	    }
+
+	    function YearCounter$1 (el, instance) {
+	      instance.createDivider().mount(el, el.childNodes[1]);
+	      instance.createDivider().mount(el, el.childNodes[3]);
+	      instance.createDivider().mount(el, el.childNodes[5]);
+	      instance.createDivider().mount(el, el.childNodes[7]);
+
+	      if (instance.face.showSeconds) {
+	        instance.createDivider().mount(el, el.childNodes[9]);
+	      }
+
+	      if (instance.face.showLabels) {
+	        instance.createLabel('years').mount(el.childNodes[0]);
+	        instance.createLabel('weeks').mount(el.childNodes[2]);
+	        instance.createLabel('days').mount(el.childNodes[4]);
+	        instance.createLabel('hours').mount(el.childNodes[6]);
+	        instance.createLabel('minutes').mount(el.childNodes[8]);
+
+	        if (instance.face.showSeconds) {
+	          instance.createLabel('seconds').mount(el.childNodes[10]);
+	        }
+	      }
+	    }
+
+
+
+	    var faces = /*#__PURE__*/Object.freeze({
+	        DayCounter: DayCounter$1,
+	        HourCounter: HourCounter$1,
+	        MinuteCounter: MinuteCounter$1,
+	        TwelveHourClock: TwelveHourClock$1,
+	        TwentyFourHourClock: TwentyFourHourClock$1,
+	        WeekCounter: WeekCounter$1,
+	        YearCounter: YearCounter$1
+	    });
+
+	    var Original = {
+	      Divider: Divider$1,
+	      FlipClock: FlipClock,
+	      Group: Group$1,
+	      Label: Label$1,
+	      List: List$1,
+	      ListItem: ListItem$1,
+	      faces: faces
+	    };
+
+	    /**
+	     * @alias DefaultValues
+	     * @type {object}
+	     * @memberof module:Config/DefaultValues
+	     */
+
+	    var DefaultValues = {
+	      face: Counter,
+	      theme: Original,
+	      language: English
+	    };
+
+	    var FlipClock$1 =
+	    /*#__PURE__*/
+	    function (_DomComponent) {
+	      _inherits(FlipClock, _DomComponent);
+
+	      /**
+	       * Create a new `FlipClock` instance.
+	       *
+	       * @class FlipClock
+	       * @extends DomComponent
+	       * @param {HTMLElement} el - The HTML element used to bind clock DOM node.
+	       * @param {*} value - The value that is passed to the clock face.
+	       * @param {object|undefined} [attributes] - The instance attributes.
+	       */
+	      function FlipClock(el, value, attributes) {
+	        var _this;
+
+	        _classCallCheck(this, FlipClock);
+
+	        if (!validate(el, HTMLElement)) {
+	          error(ConsoleMessages.element);
+	        }
+
+	        if (isObject(value) && !attributes) {
+	          attributes = value;
+	          value = undefined;
+	        }
+
+	        var face = attributes.face || DefaultValues.face;
+	        delete attributes.face;
+	        _this = _possibleConstructorReturn(this, _getPrototypeOf(FlipClock).call(this, Object.assign({
+	          originalValue: value,
+	          theme: DefaultValues.theme,
+	          language: DefaultValues.language,
+	          timer: Timer.make(attributes.interval || 1000)
+	        }, attributes)));
+
+	        if (!_this.face) {
+	          _this.face = face;
+	        }
+
+	        _this.mount(el);
+
+	        return _this;
+	      }
+	      /**
+	       * Get the clock `Face`.
+	       *
+	       * @return {Face} The `face` attribute.
+	       */
+
+
+	      _createClass(FlipClock, [{
+	        key: "mount",
+
+	        /**
+	         * Mount the clock to the parent DOM element.
+	         *
+	         * @param {HTMLElement} el - The parent `HTMLElement`.
+	         * @return {FlipClock} - The `FlipClock` instance.
+	         */
+	        value: function mount(el) {
+	          _get(_getPrototypeOf(FlipClock.prototype), "mount", this).call(this, el);
+
+	          this.face.mounted(this);
+	          return this;
+	        }
+	        /**
+	         * Render the clock's DOM nodes.
+	         *
+	         * @return {HTMLElement} The parent `HTMLElement`.
+	         */
+
+	      }, {
+	        key: "render",
+	        value: function render() {
+	          // Call the parent render function
+	          _get(_getPrototypeOf(FlipClock.prototype), "render", this).call(this); // Check to see if the face has a render function defined in the theme.
+	          // This allows a face to completely re-render or add to the theme.
+	          // This allows face specific interfaces for a theme.
+
+
+	          if (this.theme.faces[this.face.name]) {
+	            this.theme.faces[this.face.name](this.el, this);
+	          } // Pass the clock instance to the rendered() function on the face.
+	          // This allows global modifications to the rendered templates not
+	          // theme specific.
+
+
+	          this.face.rendered(this); // Return the rendered `HTMLElement`.
+
+	          return this.el;
+	        }
+	        /**
+	         * Start the clock.
+	         *
+	         * @param  {Function} fn - The interval callback.
+	         * @return {FlipClock} - The `FlipClock` instance.
+	         */
+
+	      }, {
+	        key: "start",
+	        value: function start(fn) {
+	          var _this2 = this;
+
+	          if (!this.timer.started) {
+	            this.value = this.originalValue;
+	          }
+
+	          isUndefined(this.face.stopAt) && (this.face.stopAt = this.stopAt);
+	          isUndefined(this.face.originalValue) && (this.face.originalValue = this.originalValue);
+	          this.timer.start(function () {
+	            _this2.face.interval(_this2, fn);
+	          });
+	          this.face.started(this);
+	          return this.emit('start');
+	        }
+	        /**
+	         * Stop the clock.
+	         *
+	         * @param  {Function} fn - The stop callback.
+	         * @return {FlipClock} - The `FlipClock` instance.
+	         */
+
+	      }, {
+	        key: "stop",
+	        value: function stop(fn) {
+	          this.timer.stop(fn);
+	          this.face.stopped(this);
+	          return this.emit('stop');
+	        }
+	        /**
+	         * Reset the clock to the original value.
+	         *
+	         * @param  {Function} fn - The interval callback.
+	         * @return {FlipClock} - The `FlipClock` instance.
+	         */
+
+	      }, {
+	        key: "reset",
+	        value: function reset(fn) {
+	          var _this3 = this;
+
+	          this.value = this.originalValue;
+	          this.timer.reset(function () {
+	            return _this3.interval(_this3, fn);
+	          });
+	          this.face.reset(this);
+	          return this.emit('reset');
+	        }
+	        /**
+	         * Helper method to increment the clock's value.
+	         *
+	         * @param  {*|undefined} value - Increment the clock by the specified value.
+	         *     If no value is passed, then the default increment is determined by
+	         *     the Face, which is usually `1`.     *
+	         * @return {FlipClock} - The `FlipClock` instance.
+	         */
+
+	      }, {
+	        key: "increment",
+	        value: function increment(value) {
+	          this.face.increment(this, value);
+	          return this;
+	        }
+	        /**
+	         * Helper method to decrement the clock's value.
+	         *
+	         * @param  {*|undefined} value - Decrement the clock by the specified value.
+	         *     If no value is passed, then the default decrement is determined by
+	         *     the `Face`, which is usually `1`.
+	         * @return {FlipClock} - The `FlipClock` instance.
+	         */
+
+	      }, {
+	        key: "decrement",
+	        value: function decrement(value) {
+	          this.face.decrement(this, value);
+	          return this;
+	        }
+	        /**
+	         * Helper method to instantiate a new `Divider`.
+	         *
+	         * @param  {object|undefined} [attributes] - The attributes passed to the
+	         *     `Divider` instance.
+	         * @return {Divider} - The instantiated Divider.
+	         */
+
+	      }, {
+	        key: "createDivider",
+	        value: function createDivider(attributes) {
+	          return Divider.make(Object.assign({
+	            theme: this.theme,
+	            language: this.language
+	          }, attributes));
+	        }
+	        /**
+	         * Helper method to instantiate a new `List`.
+	         *
+	         * @param  {*} value - The `List` value.
+	         * @param  {object|undefined} [attributes] - The attributes passed to the
+	         *     `List` instance.
+	         * @return {List} - The instantiated `List`.
+	         */
+
+	      }, {
+	        key: "createList",
+	        value: function createList(value, attributes) {
+	          return List.make(value, Object.assign({
+	            theme: this.theme,
+	            language: this.language
+	          }, attributes));
+	        }
+	        /**
+	         * Helper method to instantiate a new `Label`.
+	         *
+	         * @param  {*} value - The `Label` value.
+	         * @param  {object|undefined} [attributes] - The attributes passed to the
+	         *     `Label` instance.
+	         * @return {Label} - The instantiated `Label`.
+	         */
+
+	      }, {
+	        key: "createLabel",
+	        value: function createLabel(value, attributes) {
+	          return Label.make(value, Object.assign({
+	            theme: this.theme,
+	            language: this.language
+	          }, attributes));
+	        }
+	        /**
+	         * Helper method to instantiate a new `Group`.
+	         *
+	         * @param  {array} items - An array of `List` items to group.
+	         * @param  {Group|undefined} [attributes] - The attributes passed to the
+	         *     `Group` instance.
+	         * @return {Group} - The instantiated `Group`.
+	         */
+
+	      }, {
+	        key: "createGroup",
+	        value: function createGroup(items, attributes) {
+	          return Group.make(items, Object.assign({
+	            theme: this.theme,
+	            language: this.language
+	          }, attributes));
+	        }
+	        /**
+	         * Get the global default values.
+	         *
+	         * @return {object}
+	         */
+
+	      }, {
+	        key: "face",
+	        get: function get$$1() {
+	          return this.$face;
+	        }
+	        /**
+	         * Sets the clock `Face`.
+	         *
+	         * @param  {Function|Face|string} value - The `Face` value.
+	         * @return {void}
+	         */
+	        ,
+	        set: function set(value) {
+	          if (!validate(value, [Face, 'string', 'function'])) {
+	            error(ConsoleMessages.face);
+	          }
+
+	          this.$face = (Faces[value] || value).make(Object.assign(this.getPublicAttributes(), {
+	            originalValue: this.face ? this.face.originalValue : undefined
+	          }));
+	          this.$face.initialized(this);
+
+	          if (this.value) {
+	            this.$face.value = this.face.createFaceValue(this, this.value.value);
+	          } else if (!this.value) {
+	            this.value = this.originalValue;
+	          }
+
+	          this.el && this.render();
+	        }
+	        /**
+	         * Get the `stopAt` attribute.
+	         *
+	         * @return {*} The `stopAt` value.
+	         */
+
+	      }, {
+	        key: "stopAt",
+	        get: function get$$1() {
+	          return isFunction(this.$stopAt) ? this.$stopAt(this) : this.$stopAt;
+	        }
+	        /**
+	         * Set the `stopAt` attribute.
+	         *
+	         * @param  {*} value - The `stopAt` value.
+	         * @return {void}
+	         */
+	        ,
+	        set: function set(value) {
+	          this.$stopAt = value;
+	        }
+	        /**
+	         * Get the `Timer` instance.
+	         *
+	         * @return {Timer} The `timer` attribute.
+	         */
+
+	      }, {
+	        key: "timer",
+	        get: function get$$1() {
+	          return this.$timer;
+	        }
+	        /**
+	         * Set the `Timer` instance.
+	         *
+	         * @param  {Timer} timer - The `timer` attribute.
+	         * @return {void}
+	         */
+	        ,
+	        set: function set(timer) {
+	          if (!validate(timer, Timer)) {
+	            error(ConsoleMessages.timer);
+	          }
+
+	          this.$timer = timer;
+	        }
+	        /**
+	         * Helper method to get the clock's `FaceValue` instance.
+	         *
+	         * @return {FaceValue|null} The `FaceValue` if set, otherwise `null`.
+	         */
+
+	      }, {
+	        key: "value",
+	        get: function get$$1() {
+	          return this.face ? this.face.value : null;
+	        }
+	        /**
+	         * Helper method to set the clock's `FaceValue` instance.
+	         *
+	         * @param  {*} value - The `value` attribute.
+	         * @return {void}
+	         */
+	        ,
+	        set: function set(value) {
+	          if (!this.face) {
+	            throw new Error('A face must be set before setting a value.');
+	          }
+
+	          if (value instanceof FaceValue) {
+	            this.face.value = value;
+	          } else if (this.value) {
+	            this.face.value = this.face.value.clone(value);
+	          } else {
+	            this.face.value = this.face.createFaceValue(this, value);
+	          }
+
+	          this.el && this.render();
+	        }
+	        /**
+	         * Get the original value attribute.
+	         *
+	         * @return {*} - The `originalValue` attribute.
+	         */
+
+	      }, {
+	        key: "originalValue",
+	        get: function get$$1() {
+	          if (isFunction(this.$originalValue) && !this.$originalValue.name) {
+	            return this.$originalValue();
+	          }
+
+	          if (!isUndefined(this.$originalValue) && !isNull(this.$originalValue)) {
+	            return this.$originalValue;
+	          }
+
+	          return this.face ? this.face.defaultValue() : undefined;
+	        }
+	        /**
+	         * Set the original value attribute.
+	         *
+	         * @param  {*} value - The `originalValue` attribute.
+	         * @return {void}
+	         */
+	        ,
+	        set: function set(value) {
+	          this.$originalValue = value;
+	        }
+	      }], [{
+	        key: "setDefaultFace",
+
+	        /**
+	         * Helper method to set the default `Face` value.
+	         *
+	         * @param  {Face} value - The default `Face` class.This should be a
+	         *     constructor.
+	         * @return {void}
+	         */
+	        value: function setDefaultFace(value) {
+	          if (!validate(value, Face)) {
+	            error(ConsoleMessages.face);
+	          }
+
+	          DefaultValues.face = value;
+	        }
+	        /**
+	         * Helper method to set the default theme.
+	         *
+	         * @param {object} value - The default theme.
+	         * @return {void}
+	         */
+
+	      }, {
+	        key: "setDefaultTheme",
+	        value: function setDefaultTheme(value) {
+	          if (!validate(value, 'object')) {
+	            error(ConsoleMessages.theme);
+	          }
+
+	          DefaultValues.theme = value;
+	        }
+	        /**
+	         * Helper method to set the default language.
+	         *
+	         * @param {object} value - The default language.
+	         * @return {void}
+	         */
+
+	      }, {
+	        key: "setDefaultLanguage",
+	        value: function setDefaultLanguage(value) {
+	          if (!validate(value, 'object')) {
+	            error(ConsoleMessages.language);
+	          }
+
+	          DefaultValues.language = value;
+	        }
+	      }, {
+	        key: "defaults",
+	        get: function get$$1() {
+	          return DefaultValues;
+	        }
+	      }]);
+
+	      return FlipClock;
+	    }(DomComponent);
+
+	    return FlipClock$1;
+
+	})));
+	
+} (flipclock));
+
+var flipclockExports = flipclock.exports;
+var FlipClock = /*@__PURE__*/getDefaultExportFromCjs(flipclockExports);
+
+const style = x `
   <style>
     .fc-content {
       display: grid;
@@ -409,35 +4633,183 @@ console.warn("The main 'lit-element' module entrypoint is deprecated. Please upd
       }
     }
   </style>
-`;function ue(...e){const t=e=>e&&"object"==typeof e;return e.reduce(((e,i)=>(Object.keys(i).forEach((n=>{const o=e[n],s=i[n];Array.isArray(o)&&Array.isArray(s)?e[n]=o.concat(...s):t(o)&&t(s)?e[n]=ue(o,s):e[n]=s})),e)),{})}console.info("%c  FLIPCLOCK-CARD \n%c  Version 0.0.1  ","color: orange; font-weight: bold; background: black","color: white; font-weight: bold; background: dimgray"),exports.FlipClockCard=class extends te{constructor(){super(...arguments),this._clockFaces=["TwentyFourHourClock","TwelveHourClock"],this._firstUpdated=!1}set hass(e){this._hass=e,this._date=new Date,setInterval(this.updateTimezones.bind(this),500)}setConfig(e){if(!e)throw new Error("Invalid configuration");this._config=ue({title:null,time:{face:"TwentyFourHourClock",showSeconds:!1},timezones:[],date:{format:{weekday:"long",day:"numeric",month:"long",year:"numeric"},hidden:!1,locale:null}},e),this._timezones=[],this._config.timezones.forEach((e=>{this._timezones.push({id:"string"==typeof e?e:e.id,title:"string"==typeof e?e:e.title})}))}shouldUpdate(){return!this._firstUpdated}firstUpdated(){this._firstUpdated=!0}render(){return this._config&&this._hass?L`
+`;
+
+function mergeDeep(...objects) {
+    const isObject = (obj) => obj && typeof obj === 'object';
+    return objects.reduce((prev, obj) => {
+        Object.keys(obj).forEach((key) => {
+            const pVal = prev[key];
+            const oVal = obj[key];
+            if (Array.isArray(pVal) && Array.isArray(oVal)) {
+                /* eslint no-param-reassign: 0 */
+                prev[key] = pVal.concat(...oVal);
+            }
+            else if (isObject(pVal) && isObject(oVal)) {
+                prev[key] = mergeDeep(pVal, oVal);
+            }
+            else {
+                prev[key] = oVal;
+            }
+        });
+        return prev;
+    }, {});
+}
+
+var version = "0.0.1";
+
+console.info(`%c  FLIPCLOCK-CARD \n%c  Version ${version}  `, 'color: orange; font-weight: bold; background: black', 'color: white; font-weight: bold; background: dimgray');
+let FlipClockCard = class FlipClockCard extends s {
+    constructor() {
+        super(...arguments);
+        this._clockFaces = ['TwentyFourHourClock', 'TwelveHourClock'];
+        this._firstUpdated = false;
+    }
+    set hass(hass) {
+        this._hass = hass;
+        this._date = new Date();
+        setInterval(this.updateTimezones.bind(this), 500);
+    }
+    setConfig(config) {
+        if (!config) {
+            throw new Error('Invalid configuration');
+        }
+        this._config = mergeDeep({
+            title: null,
+            time: {
+                face: 'TwentyFourHourClock',
+                showSeconds: false,
+            },
+            timezones: [],
+            date: {
+                format: {
+                    weekday: 'long',
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                },
+                hidden: false,
+                locale: null,
+            },
+        }, config);
+        this._timezones = [];
+        this._config.timezones.forEach((item) => {
+            this._timezones.push({
+                id: typeof item == 'string' ? item : item.id,
+                title: typeof item == 'string' ? item : item.title,
+            });
+        });
+    }
+    shouldUpdate() {
+        return !this._firstUpdated;
+    }
+    firstUpdated() {
+        this._firstUpdated = true;
+    }
+    render() {
+        if (!this._config || !this._hass) {
+            return x ``;
+        }
+        return x `
       <ha-card>
         <div class="fc-content">
-          ${this.showValue(this._config.title)?L`
+          ${this.showValue(this._config.title)
+            ? x `
                 <div class="fc-header">
                   ${this._config.title}
                 </div>
-              `:""}
+              `
+            : ''}
           <div class="fc-time">
             ${this.renderClock()}
           </div>
           ${this.renderDate()} ${this.renderTimezones()}
         </div>
       </ha-card>
-      ${ce}
-    `:L``}getCardSize(){return 3}showValue(e){return null!=e}renderClock(){if(this._clockFaces.includes(this._config.time.face)){const e=document.createElement("div");return e.className="fc-now",new le(e,this._date,{face:this._config.time.face,showSeconds:this._config.time.showSeconds}),L`${e}`}return L``}renderDate(){return this._config.date.hidden?L``:L` <div class="fc-date">
+      ${style}
+    `;
+    }
+    getCardSize() {
+        return 3;
+    }
+    showValue(item) {
+        return typeof item !== 'undefined' && item !== null;
+    }
+    renderClock() {
+        if (this._clockFaces.includes(this._config.time.face)) {
+            const el = document.createElement('div');
+            el.className = 'fc-now';
+            new FlipClock(el, this._date, {
+                face: this._config.time.face,
+                showSeconds: this._config.time.showSeconds,
+            });
+            return x `${el}`;
+        }
+        return x ``;
+    }
+    renderDate() {
+        if (!this._config.date.hidden)
+            return x ` <div class="fc-date">
         ${this.formatDate(this._date)}
-      </div>`}formatDate(e,t){var i;const n=this._config.date.locale||(null===(i=this._hass)||void 0===i?void 0:i.language),o=t||this._config.date.format;return e.toLocaleDateString(n,o)}formatTimezone(e){return this.formatDate(this._date,{hour:"numeric",minute:"numeric",timeZone:e,weekday:"short"})}renderTimezones(){return L`
+      </div>`;
+        else
+            return x ``;
+    }
+    formatDate(date, options) {
+        var _a;
+        const l = this._config.date.locale || ((_a = this._hass) === null || _a === void 0 ? void 0 : _a.language);
+        const o = options || this._config.date.format;
+        return date.toLocaleDateString(l, o);
+    }
+    formatTimezone(tzId) {
+        return this.formatDate(this._date, {
+            hour: 'numeric',
+            minute: 'numeric',
+            timeZone: tzId,
+            weekday: 'short',
+        });
+    }
+    renderTimezones() {
+        return x `
       <div class="fc-timezone" id="fc_timezone">
-        ${this._timezones.map(((e,t)=>L`
+        ${this._timezones.map((item, index) => x `
             <div class="item">
               <div class="tz">
                 <ha-icon class="tz-icon" icon="mdi:clock-outline"></ha-icon>
-                <div class="tz-locale">${e.title}</div>
+                <div class="tz-locale">${item.title}</div>
               </div>
-              <div class="tz-time" id="tz_${t}">
-                ${this.formatTimezone(e.id)}
+              <div class="tz-time" id="tz_${index}">
+                ${this.formatTimezone(item.id)}
               </div>
             </div>
-          `))}
+          `)}
       </div>
-    `}updateTimezones(){this._timezones.map(((e,t)=>{var i;const n=null===(i=this.shadowRoot)||void 0===i?void 0:i.getElementById(`tz_${t}`);n&&(n.innerHTML=this.formatTimezone(e.id))}))}},e([oe()],exports.FlipClockCard.prototype,"_hass",void 0),e([oe()],exports.FlipClockCard.prototype,"_config",void 0),exports.FlipClockCard=e([(e=>t=>"function"==typeof t?((e,t)=>(customElements.define(e,t),t))(e,t):((e,t)=>{const{kind:i,elements:n}=t;return{kind:i,elements:n,finisher(t){customElements.define(e,t)}}})(e,t))("flipclock-card")],exports.FlipClockCard);
+    `;
+    }
+    updateTimezones() {
+        this._timezones.map((item, index) => {
+            var _a;
+            const el = (_a = this.shadowRoot) === null || _a === void 0 ? void 0 : _a.getElementById(`tz_${index}`);
+            if (el)
+                el.innerHTML = this.formatTimezone(item.id);
+        });
+    }
+};
+FlipClockCard.cardType = 'flipclock-card';
+FlipClockCard.cardName = 'flipclock Card';
+FlipClockCard.cardDescription = 'Custom card that display a flipclock-card';
+__decorate([
+    e()
+], FlipClockCard.prototype, "_hass", void 0);
+__decorate([
+    e()
+], FlipClockCard.prototype, "_config", void 0);
+FlipClockCard = __decorate([
+    e$1('flipclock-card')
+], FlipClockCard);
+window.customCards = window.customCards || [];
+window.customCards.push({
+    type: FlipClockCard.cardType,
+    name: FlipClockCard.cardName,
+    description: FlipClockCard.cardDescription
+});

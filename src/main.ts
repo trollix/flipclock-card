@@ -15,10 +15,20 @@ console.info(
   'color: white; font-weight: bold; background: dimgray',
 );
 
+declare global {
+  interface Window { customCards: { name: string, type: string, description: string }[] }
+}
 @customElement('flipclock-card')
-export class FlipClockCard extends LitElement {
+class FlipClockCard extends LitElement {
+
+
+  static readonly cardType = 'flipclock-card'
+  static readonly cardName = 'flipclock Card'
+  static readonly cardDescription = 'Custom card that display a flipclock-card'
+
   @property() private _hass?: HomeAssistant;
   @property() private _config!: FlipClockCardConfig;
+  
   private _date!: Date;
   private _timezones!: Timezone[];
   private _clockFaces: string[] = ['TwentyFourHourClock', 'TwelveHourClock'];
@@ -171,3 +181,10 @@ export class FlipClockCard extends LitElement {
     });
   }
 }
+
+window.customCards = window.customCards || [] 
+window.customCards.push({
+  type: FlipClockCard.cardType,
+  name: FlipClockCard.cardName,
+  description: FlipClockCard.cardDescription
+})
