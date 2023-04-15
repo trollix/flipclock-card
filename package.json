@@ -1,6 +1,6 @@
 {
   "name": "flipclock-card",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Lovelace flipclock-card",
   "keywords": [
     "home-assistant",
@@ -18,7 +18,7 @@
   "dependencies": {
     "@formatjs/ecma402-abstract": "^1.14.3",
     "custom-card-helpers": "^1.9.0",
-    "flipclock": "./inclib/flipclock.min.js",
+    "flipclock": "^0.10.5",
     "lit-element": "^3.3.1"
   },
   "devDependencies": {
