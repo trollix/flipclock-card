@@ -4651,7 +4651,7 @@ function mergeDeep(...objects) {
     }, {});
 }
 
-var version = "0.3.2";
+var version = "0.3.4";
 
 console.info(`%c  FLIPCLOCK-CARD \n%c  Version ${version}  `, 'color: orange; font-weight: bold; background: black', 'color: white; font-weight: bold; background: dimgray');
 let FlipClockCard = class FlipClockCard extends s {

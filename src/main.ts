@@ -14,7 +14,7 @@ console.info(
   'color: orange; font-weight: bold; background: black',
   'color: white; font-weight: bold; background: dimgray',
 );
-// tix
+// tix 1
 declare global {
   interface Window { customCards: { name: string, type: string, description: string }[] }
 }
