@@ -76,10 +76,6 @@ const i=(i,e)=>"method"===e.kind&&e.descriptor&&!("value"in e.descriptor)?{...e,
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
-function getDefaultExportFromCjs (x) {
-	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
-}
-
 var flipclock = {exports: {}};
 
 (function (module, exports) {
@@ -4278,7 +4274,6 @@ var flipclock = {exports: {}};
 } (flipclock));
 
 var flipclockExports = flipclock.exports;
-var FlipClock = /*@__PURE__*/getDefaultExportFromCjs(flipclockExports);
 
 const style = x `
   <style>
@@ -4656,7 +4651,7 @@ function mergeDeep(...objects) {
     }, {});
 }
 
-var version = "0.2.2";
+var version = "0.3.1";
 
 console.info(`%c  FLIPCLOCK-CARD \n%c  Version ${version}  `, 'color: orange; font-weight: bold; background: black', 'color: white; font-weight: bold; background: dimgray');
 let FlipClockCard = class FlipClockCard extends s {
@@ -4739,7 +4734,7 @@ let FlipClockCard = class FlipClockCard extends s {
         if (this._clockFaces.includes(this._config.time.face)) {
             const el = document.createElement('div');
             el.className = 'fc-now';
-            new FlipClock(el, this._date, {
+            new flipclockExports.FlipClock(el, this._date, {
                 face: this._config.time.face,
                 showSeconds: this._config.time.showSeconds,
             });
