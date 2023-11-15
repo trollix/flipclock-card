@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { LitElement, html, customElement, property, TemplateResult } from 'lit-element';
+import { html, LitElement, TemplateResult } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import FlipClock from 'FlipClock';
 import { HomeAssistant } from 'custom-card-helpers';
 
@@ -7,12 +8,12 @@ import { FlipClockCardConfig, Timezone } from './types';
 import { style } from './style';
 import { mergeDeep } from './helpers';
 
-import * as pjson from '../package.json';
+import { version, name } from '../package.json'
 
 console.info(
-  `%c  FLIPCLOCK-CARD \n%c  Version ${pjson.version}  `,
-  'color: orange; font-weight: bold; background: black',
-  'color: white; font-weight: bold; background: dimgray',
+  `%c  ${name.toUpperCase()}  %c  Version ${version}    `,
+    'color: white; font-weight: bold; background: crimson',
+    'color: #000; font-weight: bold; background: #ddd',
 );
 // tix 1
 declare global {

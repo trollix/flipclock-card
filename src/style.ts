@@ -132,6 +132,7 @@ export const style = html`
       height: 6em;
       position: relative;
       border-radius: 0.75rem;
+      // eslint-disable-next-line prettier/prettier
       box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
       font-weight: bold;
       color: #ccc;

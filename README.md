@@ -1,4 +1,5 @@
-# Lovelace Flip Clock Card ![GitHub package.json version](https://img.shields.io/github/package-json/v/schmallaria/flipclock-card)
+# Lovelace Flip Clock Card ![GitHub package.json version](https://img.shields.io/github/package-json/v/trollix/flipclock-card)
+
 A minimalistic and customizable flip clock card for [Home Assistant](https://github.com/home-assistant/home-assistant) Lovelace UI.
 
 ![Preview](./img/clock.png)
@@ -122,6 +123,9 @@ date:
     month: long
     year: numeric
 ```
+
+[![releases-shield](https://img.shields.io/github/release-date/trollix/flipclock-card)](https://img.shields.io/github/release-date/trollix/flipclock-card)
+[![License-schield](https://img.shields.io/github/license/trollix/flipclock-card)](https://img.shields.io/github/license/trollix/flipclock-card)
 
 ## Credits
 

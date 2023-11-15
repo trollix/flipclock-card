@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export function mergeDeep(...objects: any): any {
   const isObject = (obj: any) => obj && typeof obj === 'object';
 
