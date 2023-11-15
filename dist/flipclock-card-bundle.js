@@ -4771,9 +4771,9 @@ function mergeDeep(...objects) {
 }
 
 var name = "flipclock-card";
-var version = "0.3.6";
+var version = "0.3.7";
 
-console.info(`%c  ${name.toUpperCase()}  %c  Version ${version}    `, 'color: white; font-weight: bold; background: crimson', 'color: #000; font-weight: bold; background: #ddd');
+console.info(`%c  ${name.toUpperCase()}  %c  Version ${version}  `, 'color: white; font-weight: bold; background: crimson', 'color: #000; font-weight: bold; background: #ddd');
 let FlipClockCard = class FlipClockCard extends s$3 {
     constructor() {
         super(...arguments);
